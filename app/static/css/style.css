@@ -1,0 +1,348 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', 'Inter', sans-serif;
+    background-color: #fffef7;
+    color: #2e3b2c;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, .logo-text {
+    font-family: 'Fredoka One', 'Quicksand', cursive;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 28px;
+}
+
+/* навигация */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 16px;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-bottom: 2px solid #ffe3c9;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-icon {
+    font-size: 2.2rem;
+    color: #f7b05e;
+}
+
+.logo-text h1 {
+    font-size: 1.8rem;
+    color: #c46b3f;
+    margin-bottom: 2px;
+}
+
+.logo-text p {
+    font-size: 0.75rem;
+    color: #a07a5c;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #5b3c2b;
+    transition: 0.2s;
+    font-size: 1rem;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #f29b45;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #f7b05e;
+    padding: 8px 24px;
+    border-radius: 60px;
+    font-weight: 700;
+    color: #c46b3f;
+    font-family: 'Quicksand', sans-serif;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-outline:hover {
+    background: #f7b05e;
+    color: white;
+}
+
+/* Hero блок */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 0 30px;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-badge {
+    background: #ffefdf;
+    display: inline-block;
+    padding: 6px 18px;
+    border-radius: 40px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #d48c4a;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 {
+    font-size: 2.7rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #a55d2f;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: #5b6e55;
+    margin-bottom: 28px;
+    max-width: 550px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: #f7b05e;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 60px;
+    font-weight: 700;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 6px 12px rgba(247,176,94,0.3);
+}
+
+.btn-primary:hover {
+    background: #e09d48;
+    transform: translateY(-2px);
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+    background: #fff0e2;
+    border-radius: 48px;
+    padding: 20px;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 460px;
+    border-radius: 40px;
+}
+
+/* секции */
+.section {
+    padding: 60px 0;
+    border-bottom: 1px solid #ffebda;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 48px;
+    color: #b96f3c;
+    position: relative;
+}
+
+.section-title:after {
+    content: "✦";
+    font-size: 1.6rem;
+    display: block;
+    color: #f7cf9f;
+    margin-top: 8px;
+}
+
+/* карточки преимуществ */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: #ffffffd9;
+    backdrop-filter: blur(2px);
+    padding: 28px 20px;
+    border-radius: 48px;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.03);
+    transition: all 0.25s;
+    border: 1px solid #ffe2cc;
+    text-align: center;
+}
+
+.feature-card i {
+    font-size: 2.4rem;
+    color: #f6a85b;
+    margin-bottom: 18px;
+}
+
+.feature-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: #aa6a3e;
+}
+
+/* официальная информация */
+.official-info {
+    background: #ffffff;
+    border-radius: 48px;
+    padding: 40px 32px;
+    box-shadow: 0 18px 30px rgba(0,0,0,0.03);
+    border: 1px solid #ffddc0;
+}
+
+.info-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: space-between;
+    margin-top: 24px;
+}
+
+.info-card {
+    flex: 1;
+    min-width: 220px;
+    background: #fffcf8;
+    padding: 24px 20px;
+    border-radius: 40px;
+    text-align: center;
+    transition: 0.2s;
+    border: 1px solid #ffe0ca;
+}
+
+.info-card i {
+    font-size: 2rem;
+    color: #f3aa60;
+    margin-bottom: 16px;
+}
+
+.info-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: #c46b3f;
+}
+
+.info-card p, .info-card a {
+    color: #5b6e55;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.info-card a:hover {
+    color: #f7b05e;
+}
+
+.small-note {
+    font-size: 0.9rem;
+    color: #a07a5c;
+    margin-top: 32px;
+    text-align: center;
+    background: #fff3e9;
+    padding: 14px 24px;
+    border-radius: 60px;
+    display: inline-block;
+    width: auto;
+}
+
+/* страница структуры (svedeniya) */
+.sitemap-list {
+    list-style: none;
+    padding: 0;
+}
+
+.sitemap-list li {
+    margin-bottom: 12px;
+}
+
+.sitemap-list a {
+    text-decoration: none;
+    color: #c46b3f;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.sitemap-list a:hover {
+    color: #f7b05e;
+    padding-left: 5px;
+}
+
+.sub-list {
+    margin-left: 24px;
+    margin-top: 8px;
+    list-style: none;
+}
+
+/* подвал */
+footer {
+    background: #f9e3d1;
+    color: #89654a;
+    padding: 44px 0 24px;
+    text-align: center;
+    border-radius: 40px 40px 0 0;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #89654a;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #c46b3f;
+}
+
+@media (max-width: 760px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .section {
+        padding: 48px 0;
+    }
+}

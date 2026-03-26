@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Обратная связь{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="section">
+        <h1 class="section-title">Обратная связь</h1>
+        <div class="official-info">
+            <p>Вы можете задать вопрос администрации детского сада, оставить отзыв или предложение.</p>
+            <form method="post" action="{% url 'main:obratnaya-svyaz' %}" style="margin-top: 32px;">
+                {% csrf_token %}
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <input type="text" name="name" placeholder="Ваше имя" style="width: 100%; padding: 14px 20px; border-radius: 60px; border: 1px solid #ffddc0;">
+                </div>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <input type="email" name="email" placeholder="Email" style="width: 100%; padding: 14px 20px; border-radius: 60px; border: 1px solid #ffddc0;">
+                </div>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <textarea name="message" rows="5" placeholder="Сообщение" style="width: 100%; padding: 14px 20px; border-radius: 32px; border: 1px solid #ffddc0; font-family: inherit;"></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: auto; padding: 12px 32px;">Отправить</button>
+            </form>
+            <div style="margin-top: 32px; text-align: center;">
+                <span class="small-note">Вы также можете связаться с нами по телефону или электронной почте.</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

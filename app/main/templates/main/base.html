@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>{% block title %}Детский сад «Сказка»{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Fredoka+One&family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="navbar">
+            <a href="{% url 'main:index' %}" class="logo">
+                <div class="logo-icon"><i class="fas fa-dragon"></i></div>
+                <div class="logo-text">
+                    <h1>Сказка</h1>
+                    <p>частный детский сад</p>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="{% url 'main:index' %}" {% if request.resolver_match.url_name == 'index' %}class="active"{% endif %}>Главная</a></li>
+                <li><a href="{% url 'main:svedeniya' %}" {% if request.resolver_match.url_name == 'svedeniya' %}class="active"{% endif %}>Сведения об организации</a></li>
+                <li><a href="{% url 'main:pedagogam' %}" {% if request.resolver_match.url_name == 'pedagogam' %}class="active"{% endif %}>Педагогам</a></li>
+                <li><a href="{% url 'main:roditelyam' %}" {% if request.resolver_match.url_name == 'roditelyam' %}class="active"{% endif %}>Родителям</a></li>
+                <li><a href="{% url 'main:obratnaya-svyaz' %}" {% if request.resolver_match.url_name == 'obratnaya-svyaz' %}class="active"{% endif %}>Обратная связь</a></li>
+                <li><a href="{% url 'main:priem' %}" {% if request.resolver_match.url_name == 'priem' %}class="active"{% endif %}>Приём</a></li>
+            </ul>
+            <button class="btn-outline" id="scrollContactBtn">Связаться</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    <div class="container">
+        <div style="display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin-bottom: 24px;">
+            <span><i class="fas fa-certificate"></i> Лицензия на образовательную деятельность</span>
+            <span><i class="fas fa-shield-alt"></i> Безопасная среда</span>
+        </div>
+        <p>ЧДОО в форме АНО «Детский сад „Сказка“»</p>
+        <p>г. Хабаровск, ул. Фрунзе, 101 | ул. Шеронова, 99</p>
+        <p>© 2025 Детский сад «Сказка», Хабаровск. Все права защищены.</p>
+        <p style="margin-top: 12px;">Создаём пространство, где детство становится настоящей сказкой ✨</p>
+    </div>
+</footer>
+
+<script src="{% static 'js/script.js' %}"></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>
