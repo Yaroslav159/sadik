@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -112,3 +114,26 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+if 'PYTHONANYWHERE_DOMAIN' in os.environ:
+    DEBUG = False
+    ALLOWED_HOSTS = ['yaroslav67.pythonanywhere.com'] # Замените на свой username
+
+    # Настройка статических файлов
+    STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # Папка, куда Django соберет статику
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static'), # Папка, где вы храните свои статические файлы
+    ]
+
+    # База данных (для бесплатного аккаунта используем SQLite)
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    # Это настройки для вашего локального компьютера
+    DEBUG = True
+    ALLOWED_HOSTS = []
