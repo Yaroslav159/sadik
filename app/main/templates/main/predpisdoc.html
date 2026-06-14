@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Документы — Детский сад «Сказка»{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="pre">
+    <div class="section-title">
+      <i class="fas fa-file-alt"></i>
+      <span>Предписания органов, осуществляющих контроль (надзор)</span>
+    </div>
+    <div class="bear">
+      <img src="{% static "img/Мишка_2.png" %}" alt="">
+    </div>
+  </div>
+
+  <div class="glass-card" style="margin-bottom: 155px">
+    <div class="doc-section-title" style="border-left-color: #3f51b5;">
+      <i class="fas fa-download color-indigo"></i> Скачать документы
+    </div>
+    <ul class="doc-list">
+        <li><a target="_blank" href="{% static "doc/198_akt_vneplanovoy_dokumentarnoy_proverki.pdf" %}"><i class="fas fa-file-pdf color-red"></i> Акт внеплановой документарной проверки</a></li>
+        <li><a target="_blank" href="{% static "doc/197_uvedomlenie_ob_ispolnenii_predpisaniya.pdf" %}"><i class="fas fa-file-pdf color-green"></i> Уведомление об исполнении предписания Министерство образования и науки Хабаровского края</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

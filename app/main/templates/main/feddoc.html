@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Документы — Детский сад «Сказка»{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="pre">
+    <div class="section-title">
+      <i class="fas fa-file-alt"></i>
+      <span>Федеральные документы</span>
+    </div>
+    <div class="bear">
+      <img src="{% static "img/Мишка_2.png" %}" alt="">
+    </div>
+  </div>
+
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #3f51b5;">
+      <i class="fas fa-download color-indigo"></i> Скачать документы
+    </div>
+    <ul class="doc-list">
+        <li><a href="#"><i class="fas fa-file-pdf color-red"></i> Федеральный закон от 24 июля 1998 г. № 124-ФЗ «Об основных гарантиях прав ребенка в РФ»</a></li>
+        <li><a href="#"><i class="fas fa-file-pdf color-green"></i> Приказ Министерства образования и науки РФ от 30 августа 2013г. № 1014 «Об утверждении порядка организации и осуществления образовательной деятельности по основным общеобразовательным программам</a></li>
+        <li><a href="#"><i class="fas fa-file-pdf color-purple"></i> Приказ Министерства образования и науки РФ от 14 июля 2013 г. № 462 «Об утверждении порядка проведения самообследования образовательной организацией»</a></li>
+        <li><a href="#"><i class="fas fa-file-pdf color-blue"></i> Федеральный закон от 29 декабря 2012г. № 273-ФЗ «Об образовании в Российской Федерации»</a></li>
+        <li><a href="#"><i class="fas fa-file-pdf color-orange"></i> Постановление Правительства РФ от 08.08. 2013г. № 678 «Об утверждении номенклатурных должностей работников организации, осуществляющей образовательную деятельность»</a></li>
+        <li><a href="#"><i class="fas fa-file-pdf color-teal"></i> Министерство образования и науки РФ Федеральная служба оп надзору в сфере образования и науки приказ от 29 мая 2014 г. № 785 «Об утверждении требований к структуре официального сайта образовательной организации в информационно-телекоммуникационной сети "ИНТЕРНЕТ"</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

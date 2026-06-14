@@ -1,0 +1,235 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Структура сайта — Детский сад «Сказка»{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="pre">
+    <div class="section-title">
+      <i class="fas fa-sitemap"></i>
+      <span>Структура сайта</span>
+    </div>
+    <div class="bear">
+      <img src="{% static "img/Мишка_2.png" %}" alt="">
+    </div>
+  </div>
+
+  <div class="glass-card">
+    <div class="site-structure">
+      <!-- Сведения об образовательной организации -->
+      <div class="structure-section">
+        <div class="structure-main">
+          <i class="fas fa-info-circle" style="color: #e63946;"></i>
+          <span>Сведения об образовательной организации</span>
+        </div>
+        <div class="structure-children">
+          <div class="structure-item"><a href="{% url 'main:svedeniya' %}"><i class="fas fa-landmark"></i> Основные сведения</a></div>
+          <div class="structure-item"><a href="{% url 'main:structure' %}"><i class="fas fa-sitemap"></i> Структура и органы управления организации</a></div>
+          
+          <div class="structure-subsection">
+            <div class="structure-subtitle"><i class="fas fa-file-alt"></i> Документы</div>
+            <div class="structure-subitems">
+              <div class="structure-item"><a href="{% url 'main:uchreditelnye_dokumenty_ustav_liczenziya_dokumenty' %}"><i class="fas fa-file-contract"></i> Учредительные документы, устав, лицензия</a></div>
+              <div class="structure-item"><a href="{% url 'main:federalnye_dokumenty_dokumenty' %}"><i class="fas fa-gavel"></i> Федеральные документы</a></div>
+              <div class="structure-item"><a href="{% url 'main:obrazczy_dogovorov_i_zayavlenij_dokumenty' %}"><i class="fas fa-file-signature"></i> Образцы договоров и заявлений</a></div>
+              <div class="structure-item"><a href="{% url 'main:predpisanie_organov_osushhestvlyayushhih_kontrol_nadzor_dokumenty' %}"><i class="fas fa-clipboard-list"></i> Предписания органов, осуществляющих контроль (надзор)</a></div>
+              <div class="structure-item"><a href="{% url 'main:rasporyaditelnye_akty' %}"><i class="fas fa-chalkboard-user color-teal"></i> Распорядительные акты</a></div>
+              <div class="structure-item"><a href="#"><i class="fas fa-database color-pink"></i> Сайт, персональные данные</a></div>
+            </div>
+          </div>
+          
+          <div class="structure-item"><a href="{% url 'main:obrazovanie' %}"><i class="fas fa-book"></i> Образование</a></div>
+          <div class="structure-item"><a href="{% url 'main:standarts' %}"><i class="fas fa-graduation-cap"></i> Образовательные стандарты и требования</a></div>
+          <div class="structure-item"><a href="{% url 'main:rukovodstvo' %}"><i class="fas fa-user-tie"></i> Руководство. Педагогический состав</a></div>
+          <div class="structure-item"><a href="{% url 'main:material' %}"><i class="fas fa-laptop"></i> Материально-техническое обеспечение и оснащенность образовательного процесса</a></div>
+          <div class="structure-item"><a href="{% url 'main:paid_services' %}"><i class="fas fa-ruble-sign"></i> Платные образовательные услуги</a></div>
+          <div class="structure-item"><a href="{% url 'main:finance' %}"><i class="fas fa-chart-line"></i> Финансово-хозяйственная деятельность</a></div>
+          <div class="structure-item"><a href="{% url 'main:vacancies' %}"><i class="fas fa-door-open"></i> Вакантные места для приема</a></div>
+          <div class="structure-item"><a href="{% url 'main:accessible_environment' %}"><i class="fas fa-universal-access"></i> Доступная среда</a></div>
+          <div class="structure-item"><a href="{% url 'main:international_cooperation' %}"><i class="fas fa-globe"></i> Международное сотрудничество</a></div>
+          <div class="structure-item"><a href="{% url 'main:nutrition' %}"><i class="fas fa-utensils"></i> Организация питания в образовательной организации</a></div>
+        </div>
+      </div>
+
+      <!-- Информационная безопасность -->
+      <div class="structure-section">
+        <div class="structure-main">
+          <i class="fas fa-shield-alt" style="color: #2ecc71;"></i>
+          <span>Информационная безопасность</span>
+        </div>
+        <div class="structure-children">
+          <div class="structure-item"><a href="{% url 'main:regulatory' %}"><i class="fas fa-file-contract"></i> Локальные акты</a></div>
+          <div class="structure-item"><a href="{% url 'main:regulatory' %}"><i class="fas fa-gavel"></i> Нормативное регулирование</a></div>
+          <div class="structure-item"><a href="{% url 'main:teachers' %}"><i class="fas fa-chalkboard-teacher"></i> Педагогам</a></div>
+          <div class="structure-item"><a href="{% url 'main:parents' %}"><i class="fas fa-users"></i> Родителям</a></div>
+          <div class="structure-item"><a href="{% url 'main:safe_sites' %}"><i class="fas fa-child"></i> Детские безопасные сайты</a></div>
+        </div>
+      </div>
+
+      <!-- Соц. поддержка -->
+      <div class="structure-section">
+        <div class="structure-main">
+          <i class="fas fa-hand-holding-heart" style="color: #e84393;"></i>
+          <a style="text-decoration: none; color: #014e86" href="{% url 'main:social_support' %}"> Соц. поддержка</a></span>
+        </div>
+        <div class="structure-children">
+          <div class="structure-item"></div>
+        </div>
+      </div>
+
+      <!-- Родителям -->
+      <div class="structure-section">
+        <div class="structure-main">
+          <i class="fas fa-heart" style="color: #F28B0C;"></i>
+          <span>Родителям</span>
+        </div>
+        <div class="structure-children">
+          <div class="structure-item"><a href="{% url 'main:parents_info' %}"><i class="fas fa-bullhorn"></i> Информация для родителей</a></div>
+          <div class="structure-item"><a href="{% url 'main:senior_teacher' %}"><i class="fas fa-chalkboard-teacher"></i> Страничка старшего воспитателя</a></div>
+          <div class="structure-item"><a href="{% url 'main:psychologist' %}"><i class="fas fa-brain"></i> Страничка психолога</a></div>
+        </div>
+      </div>
+
+      <!-- Обратная связь и другие -->
+            <!-- Обратная связь -->
+      <div class="structure-section">
+        <div class="structure-main">
+          <i class="fas fa-envelope" style="color: #019bd3;"></i>
+          <a style="text-decoration: none; color: #014e86" href="{% url 'main:feedback' %}"> Обратная связь</a>
+        </div>
+      </div>
+
+      <!-- Прием в образовательную организацию -->
+      <div class="structure-section">
+        <div class="structure-main">
+          <i class="fas fa-door-open" style="color: #1abc9c;"></i>
+          <a style="text-decoration: none; color: #014e86" href="{% url 'main:priem' %}"> Прием в образовательную организацию</a>
+        </div>
+      </div>
+
+      <!-- Обработка персональных данных -->
+      <div class="structure-section">
+        <div class="structure-main">
+          <i class="fas fa-user-shield" style="color: #7139BF;"></i>
+          <a style="text-decoration: none; color: #014e86" href="{% url 'main:personal_data' %}"> Обработка персональных данных</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.site-structure {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.structure-section {
+    border-left: 3px solid;
+    padding-left: 20px;
+}
+
+.structure-section:nth-child(1) { border-left-color: #e63946; }
+.structure-section:nth-child(2) { border-left-color: #2ecc71; }
+.structure-section:nth-child(3) { border-left-color: #e84393; }
+.structure-section:nth-child(4) { border-left-color: #F28B0C; }
+.structure-section:nth-child(5) { border-left-color: #7139BF; }
+
+.structure-main {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #014f88;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.structure-main i {
+    font-size: 1.5rem;
+}
+
+.structure-children {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.structure-item a {
+    text-decoration: none;
+    color: #01518a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+}
+
+.structure-item a:hover {
+    color: #e63946;
+    transform: translateX(5px);
+}
+
+.structure-item a i {
+    width: 24px;
+    font-size: 1rem;
+    color: #019bd3;
+}
+
+.structure-subsection {
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.structure-subtitle {
+    font-weight: 700;
+    color: #014f88;
+    margin: 8px 0 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+}
+
+.structure-subtitle i {
+    width: 24px;
+    font-size: 1rem;
+}
+
+.structure-subitems {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-left: 25px;
+}
+
+@media (max-width: 700px) {
+    .structure-main {
+        font-size: 1.1rem;
+    }
+    
+    .structure-children {
+        margin-left: 10px;
+    }
+    
+    .structure-subitems {
+        margin-left: 15px;
+    }
+    
+    .structure-item a {
+        font-size: 0.85rem;
+        flex-wrap: wrap;
+    }
+    
+    .structure-item a i {
+        width: 20px;
+        font-size: 0.9rem;
+    }
+}
+</style>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Структура и органы управления — Детский сад «Сказка»{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="pre">
+    <div class="section-title">
+      <i class="fas fa-sitemap"></i>
+      <span>Структура и органы управления</span>
+    </div>
+    <div class="bear">
+      <img src="{% static "img/Мишка_2.png" %}" alt="">
+    </div>
+  </div>
+
+  <!-- 1. Органы управления -->
+  <div class="glass-table-card">
+    <div class="section-subtitle subtitle-management">
+      <i class="fas fa-building"></i> Органы управления
+    </div>
+    <table class="info-table">
+      <tr>
+        <td><i class="fas fa-crown color-red"></i> Учредитель<br><span style="font-size:0.85rem;">(полномочия исполняет)</span></td>
+        <td>Пестова Марина Викторовна<br><span class="small-meta">Управление осуществляется в соответствии с законодательством РФ и Уставом</span></td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-user-tie color-green"></i> Единоначальный исполнительный орган</td>
+        <td>Директор – осуществляет текущее руководство деятельностью Организации</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-users color-purple"></i> Коллегиальные органы</td>
+        <td>Общее собрание коллектива, Общее собрание учредителей, Педагогический совет</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-book color-blue"></i> Нормативная основа</td>
+        <td>Закон РФ «Об образовании», Федеральные государственные образовательные стандарты, Устав Организации, локальные нормативные акты</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-chart-line color-orange"></i> Принципы управления</td>
+        <td>Единоначалие и коллективизм. Управленческая деятельность носит исследовательский характер, основана на отборе и анализе педагогической и управленческой информации</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="glass-table-card">
+    <div class="section-subtitle subtitle-contact">
+      <i class="fas fa-envelope"></i> Контакты
+    </div>
+    <table class="info-table">
+      <tr>
+        <td><i class="fas fa-envelope-open-text color-blue"></i> Электронная почта</td>
+        <td><a href="mailto:dietsriisad.skazka.2014@mail.ru" style="color:#015f9e;">dietsriisad.skazka.2014@mail.ru</a></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="glass-card" style="margin-bottom: 100px !important">
+    <div class="doc-section-title" style="border-left-color: #3f51b5;">
+      <i class="fas fa-download color-indigo"></i> Скачать документы
+    </div>
+    <ul class="doc-list">
+      <li><i class="fas fa-file-pdf color-red"></i> <a href="{% static "doc/pravila-priema-v-detskij-sad.pdf" %}">Правила приема</a></li>
+      <li><i class="fas fa-file-pdf color-blue"></i> <a href="{% static "doc/polozhenie-ob-obshhem-sobranii-1.pdf" %}">Положение об общем собрании коллектива ЧДОО в форме АНО "Детский сад "Сказка"</a></li>
+      <li><i class="fas fa-file-pdf color-green"></i> <a href="{% static "doc/polozhenie-ob-obshhem-sobranii-uchreditelej-1.pdf" %}">Положение об общем собрании учредителей</a></li>
+      <li><i class="fas fa-file-pdf color-purple"></i> <a href="{% static "doc/pravila-vnutrennego-trudovogo-rasporyadka-rab-4.pdf" %}">Правила внутреннего трудового распорядка в детском саду</a></li>
+      <li><i class="fas fa-file-pdf color-orange"></i> <a href="{% static "doc/polozhenie-o-pedsovete.pdf" %}">Положение о педагогическом совете ЧДОО в форме АНО</a></li>
+    </ul>
+  </div>
+{% endblock %}

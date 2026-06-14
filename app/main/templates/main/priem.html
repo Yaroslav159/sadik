@@ -1,29 +1,28 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block title %}Приём в детский сад{% endblock %}
+{% block title %}Прием в образовательную организацию — Детский сад «Сказка»{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="section">
-        <h1 class="section-title">Приём в образовательную организацию</h1>
-        <div class="official-info">
-            <p>Приём детей в детский сад осуществляется в течение всего года при наличии свободных мест.</p>
-            <p style="margin-top: 16px;"><strong>Документы для поступления:</strong></p>
-            <ul class="sitemap-list" style="margin-top: 8px;">
-                <li>Личное заявление родителя (законного представителя)</li>
-                <li>Свидетельство о рождении ребенка</li>
-                <li>Документ, удостоверяющий личность родителя</li>
-                <li>Медицинская карта ребенка</li>
-            </ul>
-            <p style="margin-top: 24px;"><strong>Контакты для записи:</strong></p>
-            <p>📍 Фрунзе, 101 — тел. (4212) 56-88-72</p>
-            <p>📍 Шеронова, 99 — тел. (4212) 32-79-02</p>
-            <p>✉️ dietsriisad.skazka.2014@mail.ru</p>
-            <div style="margin-top: 32px; text-align: center;">
-                <span class="small-note">Мы будем рады видеть вашего ребёнка в нашем саду!</span>
-            </div>
-        </div>
+<div class="wrapper">
+  <div class="pre">
+    <div class="section-title">
+      <i class="fas fa-door-open"></i>
+      <span>Прием в образовательную организацию</span>
     </div>
+    <div class="bear">
+      <img src="{% static "img/Мишка_2.png" %}" alt="">
+    </div>
+  </div>
+
+  <div class="glass-card" style="margin-bottom: 100px !important">
+    <div class="doc-section-title" style="border-left-color: #3f51b5;">
+      <i class="fas fa-download color-indigo"></i> Скачать документы
+    </div>
+    <ul class="doc-list">
+      <li><a href="#" target="_blank"><i class="fas fa-file-pdf color-red"></i> Приказы о зачислении воспитанников</a></li>
+      <li><a href="{% static "doc/oop-chdoo-v-forme-ano-detskij-sad-skazka-7.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-green"></i> Приказы о зачислении воспитанников в 2025 году</a></li>
+    </ul>
+  </div>
 </div>
 {% endblock %}

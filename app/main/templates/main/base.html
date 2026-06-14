@@ -5,53 +5,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>{% block title %}Детский сад «Сказка»{% endblock %}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Fredoka+One&family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block extra_css %}{% endblock %}
 </head>
+
 <body>
-<header>
-    <div class="container">
-        <div class="navbar">
-            <a href="{% url 'main:index' %}" class="logo">
-                <div class="logo-icon"><i class="fas fa-dragon"></i></div>
-                <div class="logo-text">
-                    <h1>Сказка</h1>
-                    <p>частный детский сад</p>
+    <div class="fairy-bg">
+        <i class="fas fa-castle"></i>
+        <i class="fas fa-hat-wizard"></i>
+        <i class="fas fa-crown"></i>
+        <i class="fas fa-chess-queen"></i>
+        <i class="fas fa-chess-queen"></i>
+        <i class="fas fa-dove"></i>
+        <i class="fas fa-tree"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-wand-magic"></i>
+        <i class="fas fa-chess-knight"></i>
+        <i class="fas fa-dragon"></i>
+        <i class="fas fa-crown"></i>
+        <i class="fas fa-dragon"></i>
+        <i class="fas fa-hat-wizard"></i>
+        <i class="fas fa-dove"></i>
+        <i class="fas fa-star-of-life"></i>
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <nav>
+        <div class="logo">
+            <a href="{% url 'main:index' %}"><img src="{% static 'img/logo.png' %}" alt="Логотип детского сада Сказка"></a>
+        </div>
+        <div class="nav-links">
+            <!-- Первая строка -->
+            <div class="nav-row">
+                <div class="dropdown">
+                    <p class="dropbtn"><i class="fas fa-info-circle"></i> Сведения об образовательной организации <i class="fas fa-chevron-down"></i></p>
+                    <div class="dropdown-content">
+                        <a href="{% url 'main:svedeniya' %}"><i class="fas fa-landmark"></i> Основные сведения</a>
+                        <a href="{% url 'main:structure' %}"><i class="fas fa-sitemap"></i> Структура и органы управления</a>
+                        <a href="{% url 'main:documents' %}"><i class="fas fa-file-alt"></i> Документы</a>
+                        <a href="{% url 'main:obrazovanie' %}"><i class="fas fa-book"></i> Образование</a>
+                        <a href="{% url 'main:standarts' %}"><i class="fas fa-graduation-cap"></i> Образовательные стандарты</a>
+                        <a href="{% url 'main:rukovodstvo' %}"><i class="fas fa-user-tie"></i> Руководство. Педагогический состав</a>
+                        <a href="{% url 'main:material' %}"><i class="fas fa-laptop"></i> Материально-техническое обеспечение</a>
+                        <a href="{% url 'main:paid_services' %}"><i class="fas fa-ruble-sign"></i> Платные образовательные услуги</a>
+                        <a href="{% url 'main:finance' %}"><i class="fas fa-chart-line"></i> Финансово-хозяйственная деятельность</a>
+                        <a href="{% url 'main:vacancies' %}"><i class="fas fa-door-open"></i> Вакантные места для приема</a>
+                        <a href="{% url 'main:accessible_environment' %}"><i class="fas fa-universal-access"></i> Доступная среда</a>
+                        <a href="{% url 'main:international_cooperation' %}"><i class="fas fa-globe"></i> Международное сотрудничество</a>
+                        <a href="{% url 'main:nutrition' %}"><i class="fas fa-utensils"></i> Организация питания</a>
+                    </div>
                 </div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="{% url 'main:index' %}" {% if request.resolver_match.url_name == 'index' %}class="active"{% endif %}>Главная</a></li>
-                <li><a href="{% url 'main:svedeniya' %}" {% if request.resolver_match.url_name == 'svedeniya' %}class="active"{% endif %}>Сведения об организации</a></li>
-                <li><a href="{% url 'main:pedagogam' %}" {% if request.resolver_match.url_name == 'pedagogam' %}class="active"{% endif %}>Педагогам</a></li>
-                <li><a href="{% url 'main:roditelyam' %}" {% if request.resolver_match.url_name == 'roditelyam' %}class="active"{% endif %}>Родителям</a></li>
-                <li><a href="{% url 'main:obratnaya-svyaz' %}" {% if request.resolver_match.url_name == 'obratnaya-svyaz' %}class="active"{% endif %}>Обратная связь</a></li>
-                <li><a href="{% url 'main:priem' %}" {% if request.resolver_match.url_name == 'priem' %}class="active"{% endif %}>Приём</a></li>
-            </ul>
-            <button class="btn-outline" id="scrollContactBtn">Связаться</button>
+                <div class="dropdown">
+                    <p class="dropbtn"><i class="fas fa-shield-alt"></i> Информационная безопасность <i class="fas fa-chevron-down"></i></p>
+                    <div class="dropdown-content">
+                        <a href="{% url 'main:loyalacts' %}"><i class="fas fa-file-contract"></i> Локальные акты</a>
+                        <a href="{% url 'main:regulatory' %}"><i class="fas fa-gavel"></i> Нормативное регулирование</a>
+                        <a href="{% url 'main:teachers' %}"><i class="fas fa-chalkboard-teacher"></i> Педагогам</a>
+                        <a href="{% url 'main:parents' %}"><i class="fas fa-users"></i> Родителям</a>
+                        <a href="{% url 'main:safe_sites' %}"><i class="fas fa-child"></i> Детские безопасные сайты</a>
+                    </div>
+                </div>
+                <a href="{% url 'main:social_support' %}"><i class="fas fa-hand-holding-heart"></i> Соц. поддержка</a>
+                <div class="dropdown">
+                    <p class="dropbtn"><i class="fas fa-heart"></i> Родителям <i class="fas fa-chevron-down"></i></p>
+                    <div class="dropdown-content">
+                        <a href="{% url 'main:parents_info' %}"><i class="fas fa-bullhorn"></i> Информация для родителей</a>
+                        <a href="{% url 'main:senior_teacher' %}"><i class="fas fa-chalkboard-teacher"></i> Страничка старшего воспитателя</a>
+                        <a href="{% url 'main:psychologist' %}"><i class="fas fa-brain"></i> Страничка психолога</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Вторая строка -->
+            <div class="nav-row">
+                <a href="{% url 'main:site_structure' %}"><i class="fas fa-sitemap"></i> Структура сайта</a>
+                <a href="{% url 'main:feedback' %}"><i class="fas fa-envelope"></i> Обратная связь</a>
+                <a href="{% url 'main:priem' %}"><i class="fas fa-door-open"></i> Прием в образовательную организацию</a>
+                <a href="{% url 'main:personal_data' %}"><i class="fas fa-user-shield"></i> Обработка персональных данных</a>
+            </div>
+        </div>
+        <div class="burger" id="burgerBtn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-section">
+            <div class="mobile-menu-title">
+                <i class="fas fa-info-circle"></i> Сведения об образовательной организации
+            </div>
+            <div class="mobile-menu-links">
+                <a href="{% url 'main:svedeniya' %}"><i class="fas fa-landmark"></i> Основные сведения</a>
+                <a href="{% url 'main:structure' %}"><i class="fas fa-sitemap"></i> Структура и органы управления</a>
+                <a href="{% url 'main:documents' %}"><i class="fas fa-file-alt"></i> Документы</a>
+                <a href="{% url 'main:obrazovanie' %}"><i class="fas fa-book"></i> Образование</a>
+                <a href="{% url 'main:standarts' %}"><i class="fas fa-graduation-cap"></i> Образовательные стандарты</a>
+                <a href="{% url 'main:rukovodstvo' %}"><i class="fas fa-user-tie"></i> Руководство. Педагогический состав</a>
+                <a href="{% url 'main:material' %}"><i class="fas fa-laptop"></i> Материально-техническое обеспечение</a>
+                <a href="{% url 'main:paid_services' %}"><i class="fas fa-ruble-sign"></i> Платные образовательные услуги</a>
+                <a href="{% url 'main:finance' %}"><i class="fas fa-chart-line"></i> Финансово-хозяйственная деятельность</a>
+                <a href="{% url 'main:vacancies' %}"><i class="fas fa-door-open"></i> Вакантные места для приема</a>
+                <a href="{% url 'main:accessible_environment' %}"><i class="fas fa-universal-access"></i> Доступная среда</a>
+                <a href="{% url 'main:international_cooperation' %}"><i class="fas fa-globe"></i> Международное сотрудничество</a>
+                <a href="{% url 'main:nutrition' %}"><i class="fas fa-utensils"></i> Организация питания</a>
+            </div>
+        </div>
+        <div class="mobile-menu-section">
+            <div class="mobile-menu-title">
+                <i class="fas fa-shield-alt"></i> Информационная безопасность
+            </div>
+            <div class="mobile-menu-links">
+                <a href="{% url 'main:loyalacts' %}"><i class="fas fa-file-contract"></i> Локальные акты</a>
+                <a href="{% url 'main:regulatory' %}"><i class="fas fa-gavel"></i> Нормативное регулирование</a>
+                <a href="{% url 'main:teachers' %}"><i class="fas fa-chalkboard-teacher"></i> Педагогам</a>
+                <a href="{% url 'main:parents' %}"><i class="fas fa-users"></i> Родителям</a>
+                <a href="{% url 'main:safe_sites' %}"><i class="fas fa-child"></i> Детские безопасные сайты</a>
+            </div>
+        </div>
+        <div class="mobile-menu-section">
+            <div class="mobile-menu-title">
+                <a style="text-decoration: none; color: #014e86" href="{% url 'main:social_support' %}"><i class="fas fa-hand-holding-heart"></i> Соц. поддержка</a>
+            </div>
+        </div>
+        <div class="mobile-menu-section">
+            <div class="mobile-menu-title">
+                <i class="fas fa-heart"></i> Родителям
+            </div>
+            <div class="mobile-menu-links">
+                <a href="{% url 'main:parents_info' %}"><i class="fas fa-bullhorn"></i> Информация для родителей</a>
+                <a href="{% url 'main:senior_teacher' %}"><i class="fas fa-chalkboard-teacher"></i> Страничка старшего воспитателя</a>
+                <a href="{% url 'main:psychologist' %}"><i class="fas fa-brain"></i> Страничка психолога</a>
+            </div>
+        </div>
+        <div class="mobile-menu-section">
+            <div class="mobile-menu-title">
+                <a style="text-decoration: none; color: #014e86" href="{% url 'main:site_structure' %}"><i class="fas fa-sitemap"></i> Структура сайта</a>
+            </div>
+        </div>
+        <div class="mobile-menu-section">
+            <div class="mobile-menu-title">
+                <a style="text-decoration: none; color: #014e86" href="{% url 'main:feedback' %}"><i class="fas fa-envelope"></i> Обратная связь</a>
+            </div>
+        </div>
+        <div class="mobile-menu-section">
+            <div class="mobile-menu-title">
+                <a style="text-decoration: none; color: #014e86" href="{% url 'main:priem' %}"><i class="fas fa-door-open"></i> Прием в образовательную организацию</a>
+            </div>
+        </div>
+        <div class="mobile-menu-section">
+            <div class="mobile-menu-title">
+                <a style="text-decoration: none; color: #014e86" href="{% url 'main:personal_data' %}"><i class="fas fa-user-shield"></i> Обработка персональных данных</a>
+            </div>
         </div>
     </div>
-</header>
 
-<main>
-    {% block content %}{% endblock %}
-</main>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
 
-<footer>
-    <div class="container">
-        <div style="display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin-bottom: 24px;">
-            <span><i class="fas fa-certificate"></i> Лицензия на образовательную деятельность</span>
-            <span><i class="fas fa-shield-alt"></i> Безопасная среда</span>
+    <footer style="background: url('{% static 'img/Подвал_2_2.jpg' %}');">
+        <div style="padding: 5px; margin-bottom: 10px; background-color: rgba(255, 255, 255, 0.7); border-radius: 20px;">
+            <p>© 2026 Детский сад «Сказка». Все права защищены волшебством ✨</p>
         </div>
-        <p>ЧДОО в форме АНО «Детский сад „Сказка“»</p>
-        <p>г. Хабаровск, ул. Фрунзе, 101 | ул. Шеронова, 99</p>
-        <p>© 2025 Детский сад «Сказка», Хабаровск. Все права защищены.</p>
-        <p style="margin-top: 12px;">Создаём пространство, где детство становится настоящей сказкой ✨</p>
-    </div>
-</footer>
+    </footer>
 
-<script src="{% static 'js/script.js' %}"></script>
-{% block extra_js %}{% endblock %}
+    <script src="{% static "js/script.js" %}"></script>
+    {% block extra_js %}{% endblock %}
 </body>
 </html>

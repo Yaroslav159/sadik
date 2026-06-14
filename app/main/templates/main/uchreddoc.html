@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Документы — Детский сад «Сказка»{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="pre">
+    <div class="section-title">
+      <i class="fas fa-file-alt"></i>
+      <span>Учредительные документы, устав, лицензия</span>
+    </div>
+    <div class="bear">
+      <img src="{% static "img/Мишка_2.png" %}" alt="">
+    </div>
+  </div>
+
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #3f51b5;">
+      <i class="fas fa-download color-indigo"></i> Скачать документы
+    </div>
+    <ul class="doc-list">
+        <li><a href="#"><i class="fas fa-file-pdf color-red"></i> Приказы о зачислении воспитанников в 2022 году</a></li>
+        <li><a href="#"><i class="fas fa-file-pdf color-green"></i> Приказы о зачислении воспитанников в 2025 году</a></li>
+        <li><a href="{% static "doc/311_sanitarno_epidemiologicheskoe_zaklyuchenie.jpg" %}"><i class="fas fa-file-pdf color-purple"></i> Санитарно-эпидемиологическое заключение 2020 г.</a></li>
+        <li><a href="{% static "doc/268_pologenie_o_poryadke_prinyatiya_lokalnih_aktov.pdf" %}"><i class="fas fa-file-pdf color-blue"></i> Положение о порядке разработки, принятия и утверждения локальных нормативных актов</a></li>
+        <li><a href="{% static "doc/269_poryadok_ucheta_mneniya_roditeley.pdf" %}"><i class="fas fa-file-pdf color-orange"></i> Порядок учета мнения родителей несовершеннолетних воспитанников при принятии локальных нормативных актов</a></li>
+        <li><a href="{% static "doc/ustav-1.pdf" %}"><i class="fas fa-file-pdf color-teal"></i> Устав</a></li>
+        <li><a href="{% static "doc/201_litsenziya_1-scaled.jpg" %}"><i class="fas fa-file-pdf color-pink"></i> Лицензия 1</a></li>
+        <li><a href="{% static "doc/202_litsenziya_2-scaled.jpg" %}"><i class="fas fa-file-pdf color-indigo"></i> Лицензия 2</a></li>
+        <li><a href="{% static "doc/203_prilogenie_1-scaled.jpg" %}"><i class="fas fa-file-pdf color-red"></i> Приложение к лицензии</a></li>
+        <li><a href="{% static "doc/204_sv_vo_o_gos_registratsii.pdf" %}"><i class="fas fa-file-pdf color-green"></i> Свидетельство о гос.регистрации</a></li>
+        <li><a href="{% static "doc/205_sv_vo_o_postanovke_na_uchet.pdf" %}"><i class="fas fa-file-pdf color-purple"></i> Свидетельство о постановке на учет</a></li>
+        <li><a href="{% static "doc/157_pologenie_o_kalendarnom_planirovanii.pdf" %}"><i class="fas fa-file-pdf color-blue"></i> Положение о календарном планировании</a></li>
+        <li><a href="#"><i class="fas fa-file-pdf color-orange"></i> Коллективный трудовой договор</a></li>
+        <li><a href="{% static "doc/9_rasporyagenie.jpg" %}"><i class="fas fa-file-pdf color-teal"></i> Распоряжение министерства образования и науки Хабаровского края о лицензировании НДОО в форме АНО «Детский сад «Сказка» на право ведения образовательной деятельности</a></li>
+        <li><a href="{% static "doc/2_egrul.jpg" %}"><i class="fas fa-file-pdf color-pink"></i> Свидетельство о внесении в Единый государственный реестр юридических лиц</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

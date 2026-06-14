@@ -4,100 +4,189 @@
 {% block title %}Детский сад «Сказка» — главная{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="hero">
-        <div class="hero-content">
-            <span class="hero-badge"><i class="fas fa-star"></i> 12 лет заботы</span>
-            <h1>Гармоничное развитие <br> в мире «Сказки»</h1>
-            <p>Частный детский сад в Хабаровске, где каждый ребенок чувствует себя любимым, а родители — спокойны за его будущее. Уют, профессионализм и настоящая сказка каждый день.</p>
-            <div class="hero-buttons">
-                <button class="btn-primary" id="heroContactBtn">Свяжитесь с нами</button>
-                <button class="btn-outline" id="moreInfoBtn">Подробнее о саде</button>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="https://placehold.co/550x450/ffefdf/c57f46?text=Дети+в+Сказке&font=montserrat" alt="Дети в детском саду Сказка">
-        </div>
-    </div>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home"><i class="fas fa-home"></i> Главная</a>
+  <a href="#about"><i class="fas fa-child"></i> О нас</a>
+  <a href="#programs"><i class="fas fa-puzzle-piece"></i> Программы</a>
+  <a href="#contact"><i class="fas fa-envelope"></i> Контакты</a>
 </div>
 
-<div class="section">
-    <div class="container">
-        <h2 class="section-title">Почему родители выбирают «Сказку»</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <i class="fas fa-home"></i>
-                <h3>Домашняя атмосфера</h3>
-                <p>Камерные группы до 15 детей, индивидуальный подход и забота как дома.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-apple-alt"></i>
-                <h3>Полезное питание</h3>
-                <p>5-разовое сбалансированное меню, сезонные фрукты и овощи.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-heart"></i>
-                <h3>Опытные педагоги</h3>
-                <p>Высшее образование, любовь к детям и регулярные курсы повышения квалификации.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-palette"></i>
-                <h3>Творчество и развитие</h3>
-                <p>Студия рисования, музыка, театральные кружки, английский язык.</p>
-            </div>
-        </div>
+<div class="wrapper">
+  <div class="hero1" style="background: url('{% static "img/ff3c8ceb6737b81b32a0a4f0ef214a6a.jpg" %}') no-repeat center center / cover;">
+    <img src="{% static "img/title.png" %}" alt="Детский сад Сказка - логотип" loading="lazy">
+  </div>
+
+  <section id="about" class="fade-up">
+    <div class="section-title">
+      <i class="fas fa-magic"></i>
+      <span>Почему «Сказка»?</span>
     </div>
+    <div class="features-grid">
+      <div class="feature-card glass-card">
+        <i class="fas fa-heart"></i>
+        <h3>Тепло & забота</h3>
+        <p>Опытные воспитатели, индивидуальный подход и атмосфера доброй сказки.</p>
+      </div>
+      <div class="feature-card glass-card">
+        <i class="fas fa-apple-alt"></i>
+        <h3>Здоровое питание</h3>
+        <p>5-разовое сбалансированное меню, собственный повар, свежие продукты.</p>
+      </div>
+      <div class="feature-card glass-card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Безопасность</h3>
+        <p>Закрытая территория, видеонаблюдение, круглосуточная охрана.</p>
+      </div>
+      <div class="feature-card glass-card">
+        <i class="fas fa-puzzle-piece"></i>
+        <h3>Творчество & игра</h3>
+        <p>Шахматы, конструирование и робототехника, японский и английский языки.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="programs" class="fade-up">
+    <div class="section-title">
+      <i class="fas fa-chess-queen"></i>
+      <span>Наши сказочные филиалы и группы</span>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card glass-card">
+        <i class="fas fa-location-dot"></i>
+        <h4>2 филиала</h4>
+        <p>Детский сад «Сказка» имеет 2 филиала в центре Хабаровска
+           (ул. Фрунзе, д. 101 и ул. Шеронова, д. 99). В каждом из которых по 2 возрастные группы.
+        </p>
+      </div>
+      <div class="program-card glass-card">
+        <i class="fas fa-child"></i>
+        <h4>Группа 1</h4>
+        <div class="age">3 – 5 лет</div>
+        <p>Исследование мира, основы математики, речи, творческие мастерские.</p>
+      </div>
+      <div class="program-card glass-card">
+        <i class="fas fa-graduation-cap"></i>
+        <h4>Группа 2</h4>
+        <div class="age">5 – 7 лет</div>
+        <p>Чтение, письмо, логика, иностранные языки, подготовка к школе.</p>
+      </div>
+      <div class="program-card glass-card">
+        <i class="fas fa-calendar-check"></i>
+        <h4>Срок приема документов</h4>
+        <p>В течение всего года при наличии свободных мест. Прием осуществляется по личному заявлению родителя (законного представителя) ребенка.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="fade-up">
+    <div class="section-title">
+      <i class="fas fa-map-marked-alt"></i>
+      <span>Ждём вас в гости</span>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card glass-card">
+        <div class="contact-item">
+          <i class="fas fa-building" style="color: #F28B0C;"></i>
+          <div class="contact-text">
+            <span>Частная дошкольная образовательная организация в форме автономной некоммерческой организации «Детский сад „Сказка“»</span>          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-location-dot" style="color: #e63946;"></i>
+          <div class="contact-text">
+            <span>680028, г. Хабаровск, ул. Фрунзе, 101; ул. Шеронова, 99</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone" style="color: #2ecc71;"></i>
+          <div class="contact-text">
+            <span>(4212) 56-88-72 (Фрунзе); (4212) 32-79-02 (Шеронова)</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope-open-text"></i>
+          <div class="contact-text">
+            <span>dietsriisad.skazka.2014@mail.ru</span>
+          </div>
+        </div>
+        <div class="contact-item" style="margin-bottom: 0 !important;">
+          <i class="fas fa-fax" style="color: #7139BF;"></i>
+          <div class="contact-text">
+            <span>Бухгалтерия факс: (42-12) 38-15-98</span>
+          </div>
+        </div>
+      </div>
+      <div class="map-placeholder glass-card">
+        <h3 style="margin: 0 0 12px 0; color: #014f88; font-size: 1.4rem;">🗺️ Как нас найти?</h3>
+        <div class="map-container">
+          <iframe 
+            title="Карта детского сада Сказка в Хабаровске"
+            src="https://yandex.ru/map-widget/v1/?from=mapframe&ll=135.074026%2C48.481808&mode=usermaps&source=mapframe&um=constructor%3A3353a4d039aac02c4b708ef1c6104ec7d8c5d3ac86f05747a45c32048bd95395&utm_source=mapframe&z=14.2" 
+            frameborder="0" 
+            allowfullscreen="true"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок полезные ссылки — без иконки в заголовке, слайдер исправлен -->
+  <div class="section-title">
+      <i class="fas fa-link"></i>
+      <span>Полезные ссылки</span>
+    </div>
+  <div class="useful-links-section glass-card">  
+    <div class="footer-slider">
+      <div class="slider-track">
+        <div class="slider-wrapper" id="sliderWrapper">
+          <div class="slide">
+            <a href="http://минобрнауки.рф/" target="_blank" rel="noopener noreferrer">
+              <img src="{% static 'img/mon.gif' %}" alt="Минобрнауки">
+            </a>
+          </div>
+          <div class="slide">
+            <a href="http://khabarovskadm.ru/" target="_blank" rel="noopener noreferrer">
+              <img src="{% static 'img/khabarovskadm.gif' %}" alt="Администрация Хабаровска">
+            </a>
+          </div>
+          <div class="slide">
+            <a href="http://edu.khabarovskadm.ru/" target="_blank" rel="noopener noreferrer">
+              <img src="{% static 'img/edukhabarovskadm.gif' %}" alt="Управление образования">
+            </a>
+          </div>
+          <div class="slide">
+            <a href="http://edu.ru/" target="_blank" rel="noopener noreferrer">
+              <img src="{% static 'img/edu.gif' %}" alt="Российское образование">
+            </a>
+          </div>
+          <div class="slide">
+            <a href="http://window.edu.ru/" target="_blank" rel="noopener noreferrer">
+              <img src="{% static 'img/eo.gif' %}" alt="Единое окно">
+            </a>
+          </div>
+          <div class="slide">
+            <a href="http://school-collection.edu.ru/" target="_blank" rel="noopener noreferrer">
+              <img src="{% static 'img/sc.gif' %}" alt="Коллекция">
+            </a>
+          </div>
+          <div class="slide">
+            <a href="http://fcior.edu.ru/" target="_blank" rel="noopener noreferrer">
+              <img src="{% static 'img/fcior.gif' %}" alt="ФЦИОР">
+            </a>
+          </div>
+          <div class="slide">
+            <a href="https://gosuslugi.ru/" target="_blank" rel="noopener noreferrer">
+              <img src="{% static 'img/pgu.gif' %}" alt="Госуслуги">
+            </a>
+          </div>
+        </div>
+      </div>
+      <button class="slider-btn prev" id="sliderPrev" aria-label="Предыдущий слайд"><i class="fas fa-chevron-left"></i></button>
+      <button class="slider-btn next" id="sliderNext" aria-label="Следующий слайд"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
 </div>
 
-<div class="section" id="contacts-official">
-    <div class="container">
-        <h2 class="section-title">Официальная информация</h2>
-        <div class="official-info">
-            <div class="info-grid">
-                <div class="info-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h4>Наши адреса</h4>
-                    <p>г. Хабаровск, ул. Фрунзе, 101</p>
-                    <p>г. Хабаровск, ул. Шеронова, 99</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-phone-alt"></i>
-                    <h4>Телефоны</h4>
-                    <p>(4212) 56-88-72 (Фрунзе)</p>
-                    <p>(4212) 32-79-02 (Шеронова)</p>
-                    <p>Факс (бухгалтерия): (4212) 38-15-98</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-envelope"></i>
-                    <h4>Электронная почта</h4>
-                    <p><a href="mailto:dietsriisad.skazka.2014@mail.ru">dietsriisad.skazka.2014@mail.ru</a></p>
-                </div>
-            </div>
-            <div class="info-grid">
-                <div class="info-card">
-                    <i class="fas fa-building"></i>
-                    <h4>Полное наименование</h4>
-                    <p>Частная дошкольная образовательная организация в форме автономной некоммерческой организации «Детский сад „Сказка“»</p>
-                    <p style="font-size: 0.85rem; margin-top: 8px;">ЧДОО в форме АНО «Детский сад „Сказка“»</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-users"></i>
-                    <h4>Учредители</h4>
-                    <p>Пестова Марина Викторовна</p>
-                    <p>Стоянович Светлана Владимировна</p>
-                    <p>Пестов Иван Владимирович</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-calendar-alt"></i>
-                    <h4>Приём документов</h4>
-                    <p>В течение всего года при наличии свободных мест</p>
-                    <p>Приём осуществляется по личному заявлению родителя (законного представителя)</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 32px;">
-                <span class="small-note"><i class="fas fa-check-circle"></i> Лицензия на образовательную деятельность. Ждём вас в «Сказке»!</span>
-            </div>
-        </div>
-    </div>
-</div>
 {% endblock %}
+

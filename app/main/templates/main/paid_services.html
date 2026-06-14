@@ -1,0 +1,251 @@
+<!-- filepath: templates/main/paid_services.html -->
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Платные образовательные услуги — Детский сад «Сказка»{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="pre">
+    <div class="section-title">
+      <i class="fas fa-ruble-sign"></i>
+      <span>Платные образовательные услуги</span>
+    </div>
+    <div class="bear">
+      <img src="{% static "img/Мишка_2.png" %}" alt="">
+    </div>
+  </div>
+
+  <!-- Важное уведомление -->
+  <div class="glass-card" style="background: linear-gradient(135deg, rgba(46, 204, 113, 0.1) 0%, rgba(46, 204, 113, 0.05) 100%); border-left: 4px solid #2ecc71;">
+    <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+      <i class="fas fa-info-circle" style="font-size: 2rem; color: #2ecc71;"></i>
+      <div>
+        <strong style="font-size: 1.1rem; color: #014f88;">Дополнительные образовательные услуги входят в оплату за детский сад</strong>
+        <p style="margin: 5px 0 0; color: #01518a;">Дополнительная плата не взимается. Все услуги уже включены в ежемесячный платеж.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Перечень услуг -->
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #e63946;">
+      <i class="fas fa-star-of-life"></i> Дополнительные образовательные услуги
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 10px;">
+      <div class="service-badge"><i class="fas fa-language"></i> Английский язык</div>
+      <div class="service-badge"><i class="fas fa-language"></i> Японский язык</div>
+      <div class="service-badge"><i class="fas fa-paintbrush"></i> Изобразительная деятельность</div>
+      <div class="service-badge"><i class="fas fa-cubes"></i> Конструктивно-модельная деятельность</div>
+      <div class="service-badge"><i class="fas fa-chess"></i> Обучение игре в шахматы</div>
+    </div>
+  </div>
+
+  <!-- Стоимость -->
+  <div class="glass-card" style="text-align: center;">
+    <div class="doc-section-title" style="border-left-color: #F28B0C; justify-content: center;">
+      <i class="fas fa-receipt"></i> Ежемесячная оплата
+    </div>
+    <div style="font-size: 2.5rem; font-weight: 800; color: #e63946; margin: 15px 0;">
+      19 450 ₽
+    </div>
+    <p style="color: #01518a;">(присмотр, уход, питание, дополнительные образовательные услуги)</p>
+    <p style="margin-top: 15px; font-size: 0.9rem;">Девятнадцать тысяч четыреста пятьдесят рублей</p>
+  </div>
+
+  <!-- Порядок оказания услуг -->
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #019bd3;">
+      <i class="fas fa-list-ol"></i> Порядок оказания платных образовательных услуг
+    </div>
+    
+    <div class="order-item"><span class="order-num">1.</span> Платные образовательные услуги предоставляются с целью всестороннего удовлетворения образовательных потребностей воспитанников и их родителей (законных представителей).</div>
+    <div class="order-item"><span class="order-num">2.</span> Платные дополнительные образовательные услуги — это дополнительные образовательные услуги, оказываемые Организацией по дополнительным программам за счет средств родителей.</div>
+    <div class="order-item"><span class="order-num">3.</span> Специалисты (педагоги), оказывающие дополнительные образовательные услуги, должны иметь соответствующее образование и квалификацию.</div>
+    
+    <div class="order-subsection">
+      <div class="order-subtitle"><i class="fas fa-file-alt"></i> Документы Организации</div>
+      <ul class="doc-list">
+        <li>программы на каждый вид услуги, согласованные педагогическим советом</li>
+        <li>договоры с родителями (законными представителями)</li>
+      </ul>
+    </div>
+    
+    <div class="order-subsection">
+      <div class="order-subtitle"><i class="fas fa-tasks"></i> Руководитель Организации:</div>
+      <ul class="doc-list">
+        <li>привлекает специалистов для оказания платных дополнительных услуг путем заключения договора</li>
+        <li>утверждает сметы расходов, калькуляцию на платные дополнительные образовательные услуги</li>
+        <li>определяет систему и размер оплаты специалистов</li>
+        <li>заключает договора с родителями (законными представителями) воспитанников</li>
+        <li>утверждает график занятий с указанием помещений и специалистов (педагогов), оказывающих платные дополнительные услуги</li>
+      </ul>
+    </div>
+    
+    <div class="order-item"><span class="order-num">4.</span> Платные дополнительные услуги не могут быть оказаны Организацией взамен или в рамках основной образовательной деятельности.</div>
+    <div class="order-item"><span class="order-num">5.</span> Требования к оказанию платных дополнительных услуг, в том числе к содержанию образовательных программ, определяются по соглашению сторон и могут быть выше, чем это предусмотрено Федеральными государственными требованиями.</div>
+    <div class="order-item"><span class="order-num">6.</span> Организация обеспечивает оказание платных дополнительных услуг в полном объеме в соответствии с образовательными программами и условиями договора об оказании образовательных услуг.</div>
+    <div class="order-item"><span class="order-num">7.</span> Организация, до заключения договора с родителями, предоставляет достоверную информацию об оказываемых образовательных услугах, обеспечивающими возможность их правильного выбора.</div>
+  </div>
+
+  <!-- Информация для потребителей -->
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #e84393;">
+      <i class="fas fa-info-circle"></i> Информация для потребителей
+    </div>
+    <p><strong>Организация обязана довести до потребителей (в том числе путем размещения в удобном для обозрения месте) информацию, содержащую следующие сведения:</strong></p>
+    <ul class="doc-list">
+      <li>наименование и место нахождения Организации, сведения о наличии лицензии на право ведения образовательной деятельности и другими документами, регламентирующими организацию образовательного процесса с указанием регистрационного номера и срока действия, а также наименования, адреса и телефона органа, их выдавшего</li>
+      <li>уровень и направленность реализуемых основных и дополнительных образовательных программ, формы и сроки их освоения</li>
+      <li>перечень образовательных услуг, перечень дополнительных образовательных услуг, оказываемых с согласия потребителя, порядок их предоставления</li>
+      <li>стоимость образовательных услуг, оказываемых за основную плату по договору, а также стоимость дополнительных образовательных услуг</li>
+    </ul>
+    
+    <p style="margin-top: 20px;"><strong>Организация обязана также предоставить для ознакомления по требованию потребителя:</strong></p>
+    <ul class="doc-list">
+      <li>Устав Организации</li>
+      <li>лицензию на осуществление образовательной деятельности и другие документы, регламентирующие организацию образовательного процесса</li>
+      <li>адрес и телефон учредителя Организации</li>
+      <li>образцы договоров об оказании образовательных услуг</li>
+      <li>дополнительные образовательные программы, стоимость образовательных услуг по которым включается в основную плату по договору</li>
+    </ul>
+    
+    <div class="order-item"><span class="order-num">10.</span> Организация обязана сообщать потребителю по его просьбе другие относящиеся к договору и соответствующей образовательной услуге сведения. Информация должна доводиться до потребителя на русском языке.</div>
+    <div class="order-item"><span class="order-num">11.</span> Организация обязана соблюдать утвержденный им учебный план, годовой календарный график, расписание занятий. Режим работы (занятий) устанавливается руководителем Организации.</div>
+  </div>
+
+  <!-- Договор -->
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #3f51b5;">
+      <i class="fas fa-file-signature"></i> Договор об оказании услуг
+    </div>
+    <p><strong>Договор заключается в письменной форме и должен содержать следующие сведения:</strong></p>
+    <ul class="doc-list">
+      <li>наименование Организации, место его нахождения (юридический адрес)</li>
+      <li>фамилия, имя, отчество, телефон и адрес потребителя</li>
+      <li>сроки оказания образовательных услуг</li>
+      <li>уровень и направленность основных и дополнительных образовательных программ, перечень (виды) образовательных услуг, их стоимость и порядок оплаты</li>
+      <li>другие необходимые сведения, связанные со спецификой оказываемых образовательных услуг</li>
+      <li>должность, фамилия, имя, отчество лица, подписывающего договор от имени Организации, его подпись, а также подпись потребителя</li>
+    </ul>
+    
+    <div class="order-item"><span class="order-num">13.</span> Договор составляется в двух экземплярах, один из которых находится в Организации, другой — у Потребителя. Потребитель обязан оплатить оказываемые услуги в порядке и в сроки, указанные в договоре. Потребителю должен быть выдан документ в соответствии с законодательством Российской Федерации, подтверждающий оплату образовательной услуги.</div>
+    <div class="order-item"><span class="order-num">14.</span> Организация оказывает платные дополнительные образовательные услуги в порядке и в сроки, определенные договором.</div>
+    <div class="order-item"><span class="order-num">15.</span> Контроль за осуществлением платных дополнительных услуг ведет директор Организации.</div>
+  </div>
+
+  <!-- Скачать документы -->
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #2ecc71;">
+      <i class="fas fa-download"></i> Скачать документы
+    </div>
+    <ul class="doc-list">
+      <li><a href="{% static "doc/314_pologenie_o_poryadke_okazaniya_platnih_obrazovat_uslug.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-red"></i> Положение о порядке оказания платных образовательных услуг</a></li>
+      <li><a href="{% static "doc/kal-plan-angl-yazyk-4.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-green"></i> Календарный план дополнительных услуг — английский язык</a></li>
+      <li><a href="{% static "doc/ucheb-plan-dop-obr-2.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-purple"></i> Учебный план дополнительного образования</a></li>
+      <li><a href="#" target="_blank"><i class="fas fa-file-pdf color-blue"></i> Приказ Министерства образования и науки 1185 от 25 октября 2013г. «Об утверждении примерной формы договора об образовании на обучение по дополнительным образовательным программам</a></li>
+      <li><a href="#" target="_blank"><i class="fas fa-file-pdf color-orange"></i> Постановление правительства Российской Федерации № 706 от 15.08.2013г. «Об утверждении правил оказания платных образовательных услуг»</a></li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  .service-badge {
+    background: rgba(230, 57, 70, 0.1);
+    border-radius: 40px;
+    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #014f88;
+    border: 1px solid rgba(230, 57, 70, 0.3);
+  }
+  
+  .service-badge i {
+    color: #e63946;
+    font-size: 1.1rem;
+  }
+  
+  .order-item {
+    margin-bottom: 12px;
+    line-height: 1.5;
+    padding-left: 30px;
+    position: relative;
+  }
+  
+  .order-num {
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: #e63946;
+  }
+  
+  .order-subsection {
+    margin: 20px 0 20px 30px;
+  }
+  
+  .order-subtitle {
+    font-weight: 700;
+    color: #014f88;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .order-subtitle i {
+    color: #019bd3;
+  }
+  
+  .glass-card p {
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 700px) {
+    .glass-card {
+      padding: 16px;
+    }
+    
+    .doc-section-title {
+      font-size: 1.2rem;
+    }
+    
+    .service-badge {
+      padding: 6px 14px;
+      font-size: 0.85rem;
+    }
+    
+    .order-item {
+      font-size: 0.9rem;
+      padding-left: 25px;
+    }
+    
+    .order-subsection {
+      margin-left: 15px;
+    }
+    
+    .doc-list li {
+      font-size: 0.85rem;
+    }
+    
+    .pre {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .bear {
+      text-align: right;
+    }
+    
+    .bear img {
+      max-width: 60px;
+    }
+    
+    .section-title {
+      font-size: 1.3rem;
+    }
+  }
+</style>
+{% endblock %}

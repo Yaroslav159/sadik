@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Педагогам — информационная безопасность — Детский сад «Сказка»{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="pre">
+    <div class="section-title">
+      <i class="fas fa-chalkboard-teacher"></i>
+      <span>Педагогам</span>
+    </div>
+    <div class="bear">
+      <img src="{% static "img/Мишка_2.png" %}" alt="">
+    </div>
+  </div>
+  
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #3f51b5;">
+      <i class="fas fa-download color-indigo"></i> Скачать документы
+    </div>
+    <ul class="doc-list">
+      <li><a href="{% static "doc/356_kak_bezopasno_polzovatsya_setyu.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-green"></i> Памятка «Как безопасно пользоваться сетью»</a></li>
+      <li><a href="{% static "doc/357_kak_zashchitit_svoyu_reputatsiyu.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-blue"></i> Памятка «Как защитить свою репутацию»</a></li>
+      <li><a href="{% static "doc/358_kak_polzovatsya_pochtoy.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-purple"></i> Памятка «Как пользоваться почтой»</a></li>
+      <li><a href="{% static "doc/353_kak_zashchitit_ot_vrednoy_informatsii.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-red"></i> Памятка «Как защититься от вредной информации»</a></li>
+      <li><a href="{% static "doc/354_kak_zashchitit_ot_kiberbullinga.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-orange"></i> Памятка «Как защитить от кибербуллинга»</a></li>
+      <li><a href="{% static "doc/355_kak_zashchititsya_ot_fishinga.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-teal"></i> Памятка «Как защититься от фишинга»</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

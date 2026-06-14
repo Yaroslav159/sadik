@@ -1,0 +1,166 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Обратная связь — Детский сад «Сказка»{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="pre">
+    <div class="section-title">
+      <i class="fas fa-envelope"></i>
+      <span>Обратная связь</span>
+    </div>
+    <div class="bear">
+      <img src="{% static "img/Мишка_2.png" %}" alt="">
+    </div>
+  </div>
+
+  <div class="glass-card">
+    <p style="margin-bottom: 20px;">Если у вас появился вопрос по работе детского сада, вы можете задать его через форму обратной связи.</p>
+    <p style="margin-bottom: 20px; color: #e63946; font-weight: 500;">Все поля обязательны для заполнения.</p>
+    <p style="margin-bottom: 25px;">Если вы хотите получить ответ на ваш вопрос, то укажите ваш реальный электронный адрес в поле «Электронная почта».</p>
+
+    {# Вывод сообщений #}
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <form method="post" action="{% url 'main:feedback' %}" class="feedback-form">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="name"><i class="fas fa-user"></i> Имя</label>
+        <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email"><i class="fas fa-envelope"></i> Электронная почта</label>
+        <input type="email" id="email" name="email" placeholder="your@email.ru" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message"><i class="fas fa-comment"></i> Сообщение</label>
+        <textarea id="message" name="message" rows="5" placeholder="Ваше сообщение..." required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        <i class="fas fa-paper-plane"></i> Отправить
+      </button>
+    </form>
+  </div>
+</div>
+
+<style>
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 700;
+    color: #014f88;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+}
+
+.form-group label i {
+    width: 20px;
+    color: #e63946;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(1, 79, 136, 0.2);
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(4px);
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    color: #014f88;
+    transition: all 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #e63946;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(1, 79, 136, 0.4);
+}
+
+.submit-btn {
+    background: rgba(230, 57, 70, 0.8);
+    backdrop-filter: blur(4px);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: #e63946;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.3);
+}
+
+.alert {
+    padding: 12px 20px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+.alert-success {
+    border-left: 4px solid #2ecc71;
+    color: #27ae60;
+}
+
+.alert-danger, .alert-error {
+    border-left: 4px solid #e63946;
+    color: #e63946;
+}
+
+@media (max-width: 700px) {
+    .form-group input,
+    .form-group textarea {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+    
+    .submit-btn {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+}
+</style>
+{% endblock %}

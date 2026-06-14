@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Международное сотрудничество — Детский сад «Сказка»{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="pre">
+    <div class="section-title">
+      <i class="fas fa-globe"></i>
+      <span>Международное сотрудничество</span>
+    </div>
+    <div class="bear">
+      <img src="{% static "img/Мишка_2.png" %}" alt="">
+    </div>
+  </div>
+
+  <div class="glass-card" style="background: linear-gradient(135deg, rgba(1, 95, 158, 0.05) 0%, rgba(1, 95, 158, 0.02) 100%); margin-bottom:190px">
+    <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+      <i class="fas fa-info-circle" style="font-size: 2rem; color: #019bd3;"></i>
+      <div>
+        <strong style="font-size: 1rem; color: #014f88;">Уважаемые родители!</strong>
+        <p style="margin: 8px 0 0; color: #01518a;">В детском саду нет договоров с иностранными и международными организациями по вопросам образования и науки.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

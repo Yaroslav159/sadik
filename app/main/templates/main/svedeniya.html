@@ -1,53 +1,156 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block title %}Сведения об образовательной организации{% endblock %}
+{% block title %}Основные сведения — Детский сад «Сказка»{% endblock %}
+
 
 {% block content %}
-<div class="container">
-    <div class="section">
-        <h1 class="section-title">Сведения об образовательной организации</h1>
-        <div class="official-info">
-            <ul class="sitemap-list">
-                <li><a href="#">Основные сведения</a></li>
-                <li><a href="#">Структура и органы управления организации</a></li>
-                <li>
-                    <a href="#">Документы</a>
-                    <ul class="sub-list">
-                        <li><a href="#">Учредительные документы, устав, лицензия</a></li>
-                        <li><a href="#">Федеральные документы</a></li>
-                        <li><a href="#">Образцы договоров и заявлений</a></li>
-                        <li><a href="#">Предписания органов, осуществляющих контроль (надзор)</a></li>
-                        <li><a href="#">Локальные акты</a></li>
-                        <li><a href="#">Распорядительные акты</a></li>
-                        <li><a href="#">Сайт, персональные данные</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Образование</a></li>
-                <li><a href="#">Образовательные стандарты и требования</a></li>
-                <li><a href="#">Руководство. Педагогический состав</a></li>
-                <li><a href="#">Материально-техническое обеспечение и оснащенность образовательного процесса</a></li>
-                <li><a href="#">Стипендии и иные виды материальной поддержки</a></li>
-                <li><a href="#">Платные образовательные услуги</a></li>
-                <li><a href="#">Финансово-хозяйственная деятельность</a></li>
-                <li><a href="#">Вакантные места для приема</a></li>
-                <li><a href="#">Доступная среда</a></li>
-                <li><a href="#">Международное сотрудничество</a></li>
-                <li><a href="#">Организация питания в образовательной организации</a></li>
-                <li>
-                    <a href="#">Информационная безопасность</a>
-                    <ul class="sub-list">
-                        <li><a href="#">Локальные акты</a></li>
-                        <li><a href="#">Работа с персональными данными</a></li>
-                        <li><a href="#">Локальные акты по информационной безопасности</a></li>
-                        <li><a href="#">Нормативное регулирование</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <div style="margin-top: 32px; text-align: center;">
-                <span class="small-note">Более подробная информация доступна по ссылкам выше.</span>
-            </div>
-        </div>
+<div class="wrapper">
+  <div class="pre">
+    <div class="section-title">
+      <i class="fas fa-landmark"></i>
+      <span>Основные сведения</span>
     </div>
+    <div class="bear">
+      <img src="{% static "img/Мишка_2.png" %}" alt="">
+    </div>
+  </div>
+  
+
+  <div class="glass-table-card">
+    <div class="section-subtitle subtitle-common">
+      <i class="fas fa-building"></i> Общие данные
+    </div>
+    <table class="info-table">
+      <tr>
+        <td><i class="fas fa-tag color-green"></i> Полное наименование</td>
+        <td>Частная дошкольная образовательная организация в форме автономной некоммерческой организации «Детский сад „Сказка“» г. Хабаровска</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-compress-alt color-purple"></i> Сокращённое наименование</td>
+        <td>ЧДОО в форме АНО «Детский сад „Сказка“»</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-calendar-alt color-blue"></i> Дата основания</td>
+        <td>12 мая 1993 года</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-history color-orange"></i> История переименования</td>
+        <td>В 2016 году на основании Устава переименован в ЧДОО в форме АНО «Детский сад „Сказка“»</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-gavel color-teal"></i> Организационно-правовая форма</td>
+        <td>Частная автономная организация</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-school color-pink"></i> Тип / Вид</td>
+        <td>Дошкольная образовательная организация / Детский сад</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-location-dot color-red"></i> Расположение</td>
+        <td>1-й этаж 5-ти этажного здания</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="glass-table-card">
+    <div class="section-subtitle subtitle-reg">
+      <i class="fas fa-registered"></i> Регистрация и реквизиты
+    </div>
+    <table class="info-table">
+      <tr>
+        <td><i class="fas fa-certificate color-purple"></i> Свидетельство о регистрации</td>
+        <td>№ 22714050091 от 07.11.2016 (Минюст РФ, Администрация Хабаровского края)</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-chart-line color-indigo"></i> ОГРН</td>
+        <td>1022701133620 (запись от 06.12.2002)</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-map-pin color-red"></i> Юридический адрес</td>
+        <td>680000, г. Хабаровск, ул. Фрунзе, 101</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-envelope color-green"></i> Электронная почта</td>
+        <td>dietsriisad.skazka.2014@mail.ru</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-globe color-orange"></i> Сайт</td>
+        <td>skaska-detsad-27.ru</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-phone color-teal"></i> Телефон</td>
+        <td>62-83-70</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="glass-table-card">
+    <div class="section-subtitle subtitle-founders">
+      <i class="fas fa-users"></i> Учредители
+    </div>
+    <table class="info-table">
+      <tr>
+        <td><i class="fas fa-user color-red"></i> Пестова Марина Викторовна</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-user color-green"></i> Пестов Иван Владимирович</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-user color-teal"></i> Стоянович Светлана Владимировна</td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="glass-table-card">
+    <div class="section-subtitle subtitle-director">
+      <i class="fas fa-user-tie"></i> Директор
+    </div>
+    <table class="info-table">
+      <tr>
+        <td><i class="fas fa-user color-purple"></i> Пестова Марина Викторовна</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="glass-table-card">
+    <div class="section-subtitle subtitle-schedule">
+      <i class="fas fa-clock"></i> Режим работы
+    </div>
+    <table class="info-table">
+      <tr>
+        <td><i class="fas fa-calendar-week color-purple"></i> Дни работы</td>
+        <td>понедельник – пятница</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-hourglass-half color-green"></i> Часы работы</td>
+        <td>7:30 – 19:30</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="glass-table-card">
+    <div class="section-subtitle subtitle-admission">
+      <i class="fas fa-file-alt"></i> Порядок приёма
+    </div>
+    <table class="info-table">
+      <tr>
+        <td><i class="fas fa-calendar-check color-teal"></i> Срок приёма документов</td>
+        <td>В течение всего года при наличии свободных мест</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-file-signature color-blue"></i> Условия приёма</td>
+        <td>По личному заявлению родителя (законного представителя) ребёнка</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-wheelchair color-red"></i> Льготные категории</td>
+        <td>Инвалиды I и II групп принимаются вне очереди</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-clock color-orange"></i> Приём родителей по личным вопросам</td>
+        <td>среда, 14:00 – 18:00</td>
+      </tr>
+    </table>
+  </div>
 </div>
 {% endblock %}

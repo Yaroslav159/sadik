@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Образцы договоров и заявлений — Детский сад «Сказка»{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="pre">
+    <div class="section-title">
+      <i class="fas fa-file-signature"></i>
+      <span>Образцы договоров и заявлений</span>
+    </div>
+    <div class="bear">
+      <img src="{% static "img/Мишка_2.png" %}" alt="">
+    </div>
+  </div>
+
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #3f51b5;">
+      <i class="fas fa-download color-indigo"></i> Скачать документы
+    </div>
+    <ul class="doc-list">
+      <li><a target="_blank" href="{% static "doc/200_prikaz_51_o_sozdanii_rabochey_gruppi.pdf" %}"><i class="fas fa-file-pdf color-red"></i> Приказ о создании рабочей группы по обеспечению перехода на ФГОС</a></li>
+      <li><a target="_blank" href="{% static "doc/194_plan_grafik.pdf" %}"><i class="fas fa-file-pdf color-green"></i> План-график 2013-2014гг</a></li>
+      <li><a target="_blank" href="{% static "doc/191_prikaz_62.pdf" %}"><i class="fas fa-file-pdf color-purple"></i> Приказ № 62 «О создании рабочей группы по разработке образовательной программы детского сада»</a></li>
+      <li><a target="_blank" href="{% static "doc/190_prikaz_51.pdf" %}"><i class="fas fa-file-pdf color-blue"></i> Приказ № 51 «Об утверждении плана-графика мероприятий»</a></li>
+      <li><a target="_blank" href="{% static "doc/189_dorognaya_karta.pdf" %}"><i class="fas fa-file-pdf color-orange"></i> Дорожная карта по внедрению ФГОС на 2015–2016 гг</a></li>
+      <li><a target="_blank" href="{% static "doc/192_pologenie_o_rabochey_gruppe_po_razrabotke_obrazovatelnoy_programmi.pdf" %}"><i class="fas fa-file-pdf color-teal"></i> Положение о создании рабочей группы по ФГОС</a></li>
+      <li><a target="_blank" href="{% static "doc/193_plan_rabochey_gruppi.pdf" %}"><i class="fas fa-file-pdf color-pink"></i> План деятельности рабочей группы</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

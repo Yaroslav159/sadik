@@ -1,0 +1,97 @@
+<!-- filepath: templates/main/staff.html -->
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Руководство. Педагогический состав — Детский сад «Сказка»{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="pre">
+    <div class="section-title">
+      <i class="fas fa-users"></i>
+      <span>Руководство. Педагогический состав</span>
+    </div>
+    <div class="bear">
+      <img src="{% static "img/Мишка_2.png" %}" alt="">
+    </div>
+  </div>
+
+  <!-- Директор -->
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #e63946;">
+      <i class="fas fa-user-tie"></i> Директор детского сада
+    </div>
+    
+    <div class="director-layout">
+      <!-- Карточка с аватаркой -->
+      <div class="director-card">
+        <div class="director-avatar">
+          <i class="fas fa-user-circle"></i>
+        </div>
+        <div class="director-info">
+          <h3 class="director-name">Пестова Марина Викторовна</h3>
+          <div class="director-badge">
+            <span class="badge badge-red">Директор</span>
+            <span class="director-email"><i class="fas fa-envelope"></i> dietskiisad.skazka.2014@mail.ru</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- История работы -->
+      <div class="director-history">
+        <div class="history-item"><i class="fas fa-history"></i> <strong>1983 год</strong> — поступила работать в детский сад № 28 на должность воспитателя</div>
+        <div class="history-item"><i class="fas fa-church"></i> <strong>1990 год</strong> — детский сад преобразован в частный. Смена названия на «Сказка»</div>
+        <div class="history-item"><i class="fas fa-building"></i> <strong>1993 год</strong> — образовано ТОО частный детский сад «Сказка»</div>
+        <div class="history-item"><i class="fas fa-balance-scale"></i> <strong>2000 год</strong> — преобразовано в НДОО в форме АНО «Детский сад „Сказка“»</div>
+        <div class="history-item"><i class="fas fa-file-signature"></i> <strong>2 ноября 2016</strong> — переименовано в ЧДОО в форме АНО «Детский сад „Сказка“»</div>
+      </div>
+    </div>
+    
+    <!-- Контакты директора -->
+    <div class="director-contacts">
+      <div class="contact-chip"><i class="fas fa-phone"></i> <strong>Тел:</strong> 56-88-72</div>
+      <div class="contact-chip"><i class="fas fa-clock"></i> <strong>График:</strong> 9:00 — 18:00</div>
+      <div class="contact-chip"><i class="fas fa-calendar-alt"></i> <strong>Прием:</strong> ср 14:00-18:00, пт 15:00-17:00</div>
+    </div>
+  </div>
+
+  <!-- Заместитель директора -->
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #2ecc71;">
+      <i class="fas fa-user-friends"></i> Заместитель директора
+    </div>
+    <div class="deputy-card">
+      <div class="deputy-avatar">
+        <i class="fas fa-user-circle"></i>
+      </div>
+      <div class="deputy-info">
+        <h3 class="deputy-name">Пестов Иван Владимирович</h3>
+        <div class="deputy-badge">
+          <span class="badge badge-green">Заместитель директора</span>
+          <span class="deputy-email"><i class="fas fa-envelope"></i> pestov777@mail.ru</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Персональные данные -->
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #7139BF;">
+      <i class="fas fa-shield-alt"></i> Публикация персональных данных
+    </div>
+    <p class="personal-data-text">
+      Публикация персональных данных сотрудников производится в соответствии с Федеральным Законом от 27.07.2006г № 152-ФЗ «О персональных данных», с согласия субъекта персональных данных.
+    </p>
+  </div>
+
+  <!-- Скачать документы -->
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #3f51b5;">
+      <i class="fas fa-download"></i> Скачать документы
+    </div>
+    <ul class="doc-list">
+      <li class="download-item"><a target="_blank" href="{% static "doc/oop-chdoo-v-forme-ano-detskij-sad-skazka-7.pdf" %}"><i class="fas fa-file-pdf"></i> Список педагогов ЧДОО в форме АНО "Детский сад "Сказка" 2025 г.</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

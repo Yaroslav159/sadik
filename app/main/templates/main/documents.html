@@ -1,0 +1,85 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Документы — Детский сад «Сказка»{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="pre">
+    <div class="section-title">
+      <i class="fas fa-file-alt"></i>
+      <span>Документы</span>
+    </div>
+    <div class="bear">
+      <img src="{% static "img/Мишка_2.png" %}" alt="">
+    </div>
+  </div>
+
+  <!-- ПЕРВАЯ КАРТОЧКА: ЗАГОЛОВКИ-ССЫЛКИ -->
+  <div class="glass-card">
+    <div class="nav-link-row">
+      <a href="{% url "main:uchreditelnye_dokumenty_ustav_liczenziya_dokumenty" %}"><i class="fas fa-file-contract color-red"></i> Учредительные документы, устав, лицензия</a>
+    </div>
+    <div class="nav-link-row">
+      <a href="{% url "main:federalnye_dokumenty_dokumenty" %}"><i class="fas fa-gavel color-green"></i> Федеральные документы</a>
+    </div>
+    <div class="nav-link-row">
+      <a href="{% url "main:obrazczy_dogovorov_i_zayavlenij_dokumenty" %}"><i class="fas fa-file-signature color-purple"></i> Образцы договоров и заявлений</a>
+    </div>
+    <div class="nav-link-row">
+      <a href="{% url "main:predpisanie_organov_osushhestvlyayushhih_kontrol_nadzor_dokumenty" %}"><i class="fas fa-clipboard-list color-orange"></i> Предписания органов, осуществляющих контроль (надзор)</a>
+    </div>
+    <div class="nav-link-row">
+      <a href="{% url "main:rasporyaditelnye_akty" %}"><i class="fas fa-chalkboard-user color-teal"></i> Распорядительные акты</a>
+    </div>
+    <div class="nav-link-row">
+      <a href=""><i class="fas fa-database color-pink"></i> Сайт, персональные данные</a>
+    </div>
+  </div>
+
+  <!-- ВТОРАЯ КАРТОЧКА: БОЛЬШОЙ СПИСОК ДОКУМЕНТОВ -->
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #3f51b5;">
+      <i class="fas fa-download color-indigo"></i> Скачать документы
+    </div>
+    <ul class="doc-list">
+      <li><a href="{% static "doc/polozhenie-o-normah-prof-etiki-1.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-red"></i> Правила внутреннего трудового распорядка сотрудников</a></li>
+      <li><a href="#" target="_blank"><i class="fas fa-file-pdf color-green"></i> Режим занятий воспитанников 2025 г.</a></li>
+      <li><a href="#" target="_blank"><i class="fas fa-file-pdf color-purple"></i> Приказы о зачислении детей в 2025 г.</a></li>
+      <li><a href="{% static "doc/samoobsledovanie-2024-1.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-blue"></i> Положение о должностном контроле в ЧДОО в форме АНО "Детский сад "Сказка"</a></li>
+      <li><a href="{% static "doc/rezhim-zanyatij-vospitannikov-1.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-orange"></i> Положение о режиме занятий воспитанников</a></li>
+      <li><a href="{% static "doc/rezhim-zanyatij-vospitannikov-1.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-teal"></i> Правила приема обучающихся</a></li>
+      <li><a href="#" target="_blank"><i class="fas fa-file-pdf color-pink"></i> Положение о нормах профессиональной этике</a></li>
+      <li><a href="{% static "doc/rezhim-zanyatij-vospitannikov-1 (1).pdf" %}" target="_blank"><i class="fas fa-file-pdf color-indigo"></i> Положение об общем собрании учредителей</a></li>
+      <li><a href="{% static "doc/oop-chdoo-v-forme-ano-detskij-sad-skazka-3.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-red"></i> ООП ЧДОО в форме АНО "Детский сад "Сказка"</a></li>
+      <li><a href="{% static "doc/418_akt_1.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-green"></i> Акт оценки готовности детского сада к новому учебному 2024–2025 году</a></li>
+      <li><a href="{% static "doc/419_akt_2.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-purple"></i> Акт оценки готовности детского сада 2024-2025</a></li>
+      <li><a href="{% static "doc/421_akt_4.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-blue"></i> Акт оценки готовности детского сада к новому 2024–2025 году (продолжение)</a></li>
+      <li><a href="#" target="_blank"><i class="fas fa-file-pdf color-orange"></i> Федеральная программа дошкольного образования</a></li>
+      <li><a href="#" target="_blank"><i class="fas fa-file-pdf color-teal"></i> Самообследование ЧДОО в форме АНО «Детский сад „Сказка“» за 2023 год</a></li>
+      <li><a href="{% static "doc/404_samoobsledovanie_2022.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-pink"></i> Отчет о результатах самообследования за 2022 год</a></li>
+      <li><a href="{% static "doc/396_svodnaya_vedomost.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-indigo"></i> Сводная ведомость результатов проведения специальной оценки условий труда — СОУТ</a></li>
+      <li><a href="{% static "doc/398_akt_otsenki_gotovnosti.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-red"></i> Акт оценки готовности к новому учебному 2022–2023 году</a></li>
+      <li><a href="{% static "doc/374_otchet_o_rezultatah_samoobsledovaniya_za_2021_god.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-green"></i> Отчет о результатах самообследования за 2021 год</a></li>
+      <li><a href="{% static "doc/368_prikaz_8.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-purple"></i> Приказ о деятельности в условиях распространения COVID-19</a></li>
+      <li><a href="#" target="_blank"><i class="fas fa-file-pdf color-blue"></i> Отчет о самообследовании за 2020 год</a></li>
+      <li><a href="{% static "doc/polozhenie-o-prinyatii-lokalnyh-aktov-1-1.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-orange"></i> Положение о принятии локальных актов</a></li>
+      <li><a href="{% static "doc/313_poryadok_ucheta_mneniya_roditeley.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-teal"></i> Положение о порядке учета мнения родителей</a></li>
+      <li><a href="{% static "doc/272_pologenie_o_poryadke_okazaniya_platnih_obrazovat_uslug.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-pink"></i> Положение об оказании платных образовательных услуг</a></li>
+      <li><a href="{% static "doc/237_pologenie_o_vnutrenney_sisteme.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-indigo"></i> Положение о внутренней системе оценки качества образования</a></li>
+      <li><a href="{% static "doc/231_poryadok_sotrudnichestva.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-red"></i> Порядок сотрудничества с правоохранительными органами по вопросам противодействия коррупции</a></li>
+      <li><a href="{% static "doc/232_kodeks_etiki.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-green"></i> Кодекс этики и служебного поведения работников</a></li>
+      <li><a href="{% static "doc/149_pologeie_o_roditelskom_komitete.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-purple"></i> Положение о родительском комитете</a></li>
+      <li><a href="{% static "doc/153_poryadok_sozdaniya_organizatsii_raboti_prinyatiya_resheniy_komissiey_po_uregulirovaniyu_sporov.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-blue"></i> Порядок создания, организации работы комиссии по урегулированию споров</a></li>
+      <li><a href="{% static "doc/150_pologenie_o_poryadke_besplatnogo_polzovaniya.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-orange"></i> Положение о порядке бесплатного пользования педагогических работников образовательными и методическими услугами</a></li>
+      <li><a href="{% static "doc/151_poryadok_sozdaniya_organizatsii_raboti_prinyatiya_resheniy_komissiey_po_uregulirovaniyu_sporov.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-teal"></i> Порядок оформления возникновения, приостановления и прекращения отношений</a></li>
+      <li><a href="{% static "doc/146_poryadok_oformleniya_vozniknoveniya_priostanovleniya_i_prekrashcheniya_otnosheniy.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-pink"></i> Положение о родительском собрании</a></li>
+      <li><a href="{% static "doc/141_pologenie_o_sootnoshenii_uchebnoy_i_drugoy_pedagogicheskoy_raboti_v_predelah_rabrchey_nedeli.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-indigo"></i> Положение о соотношении учебной и другой педагогической работы</a></li>
+      <li><a href="{% static "doc/140_pologenie_o_poryadke_dostupa_pedagogicheskih_rabotnikov_k_informatsionno_kommunikatsionnim_setyam_uchebnim_.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-red"></i> Положение о порядке доступа педагогических работников к информационно-телекоммуникационным сетям</a></li>
+      <li><a href="{% static "doc/147_pologenie_ob_obshchem_sobranii_kollektiva.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-green"></i> Положение об общем собрании коллектива</a></li>
+      <li><a href="{% static "doc/polozhenie-o-sovete-trudovogo-kollektiva-1.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-purple"></i> Положение о совете трудового коллектива</a></li>
+      <li><a href="#" target="_blank"><i class="fas fa-file-pdf color-blue"></i> Самообследование детского сада за 2024 г.</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

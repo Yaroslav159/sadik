@@ -1,0 +1,174 @@
+<!-- filepath: templates/main/material.html -->
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Материально-техническое обеспечение — Детский сад «Сказка»{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="pre">
+    <div class="section-title">
+      <i class="fas fa-laptop"></i>
+      <span>Материально-техническое обеспечение и оснащенность образовательного процесса</span>
+    </div>
+    <div class="bear">
+      <img src="{% static "img/Мишка_2.png" %}" alt="">
+    </div>
+  </div>
+
+  <!-- Общая информация -->
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #e63946;">
+      <i class="fas fa-child"></i> Условия для развития детей
+    </div>
+    <p style="margin-bottom: 15px; line-height: 1.6;">В нашем детском саду «Сказка» светлые, просторные игровые комнаты, оснащены необходимой удобной мебелью, которая соответствует антропометрическим показателям детей. Для детей подобран игровой и дидактический материал, что способствует развитию творческих и интеллектуальных способностей детей.</p>
+    <p style="margin-bottom: 15px; line-height: 1.6;">Зонирование пространства в группах позволяет каждому ребенку найти занятие в соответствие с его интересами и замыслом. Библиотека расположена в методическом кабинете, имеется библиотека методической и детской художественной литературы, иллюстративный материал, дидактические пособия. Создана библиотека мультимедийного презентационного материала. В каждой группе создана мини-библиотека детских книг и методической литературы.</p>
+    <p style="margin-bottom: 15px; line-height: 1.6;">В предметно-пространственную среду каждой группы включены не только искусственные объекты, но и естественные, природные. Обобщать результаты своих наблюдений за объектами природы дети учатся при ведении календаря природы.</p>
+    <p style="margin-bottom: 15px; line-height: 1.6;">В уголках экспериментирования дошкольники знакомятся с простейшими техническими средствами, помогающими познать мир (магниты, весы, микроскопы, лупы и др.), ставят простейшие опыты. Детям предоставляется возможность разбирать и собирать механические устройства: часы, старые игрушки, телефоны, чтобы понять способ действия данных предметов.</p>
+    <p style="margin-bottom: 15px; line-height: 1.6;">Имеется необходимый инвентарь для работы и проведения экспериментов с растениями: ящики для рассады, рыхлители, лейки. Воспитатели учат детей делать зарисовки, записи в виде условных знаков.</p>
+    <p style="margin-bottom: 15px; line-height: 1.6;">Элементы культуры — живописи, литературы, музыки, театра — входят в дизайн интерьера детского сада. В каждой группе организуются выставки детского творчества (поделок, рисунков). Для формирования элементарных математических представлений изготовлены и приобретены демонстрационный материал, раздаточный материал, схемы, таблицы, тетради с заданиями, подобраны задачи-шутки, задачи-головоломки для развития логического мышления детей.</p>
+  </div>
+
+  <!-- Площадь зданий -->
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #F28B0C;">
+      <i class="fas fa-building"></i> Площадь зданий и помещений
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+      <div style="background: rgba(242, 139, 12, 0.08); border-radius: 20px; padding: 16px 24px; flex: 1; min-width: 200px;">
+        <i class="fas fa-map-marker-alt" style="color: #F28B0C; margin-right: 8px;"></i>
+        <strong>ул. Фрунзе, 101</strong>
+        <div style="font-size: 1.5rem; font-weight: 700; color: #014f88; margin-top: 8px;">318,2 м²</div>
+      </div>
+      <div style="background: rgba(46, 204, 113, 0.08); border-radius: 20px; padding: 16px 24px; flex: 1; min-width: 200px;">
+        <i class="fas fa-map-marker-alt" style="color: #2ecc71; margin-right: 8px;"></i>
+        <strong>ул. Шеронова, 99</strong>
+        <div style="font-size: 1.5rem; font-weight: 700; color: #014f88; margin-top: 8px;">352,9 м²</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Помещения на Фрунзе -->
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #019bd3;">
+      <i class="fas fa-flag-checkered"></i> Помещения (ул. Фрунзе, 101)
+    </div>
+    <ul class="doc-list">
+      <li><i class="fas fa-stethoscope color-red"></i> Медицинский кабинет</li>
+      <li><i class="fas fa-chalkboard-teacher color-purple"></i> Методический кабинет, совмещенный с музыкальным кабинетом</li>
+      <li><i class="fas fa-paint-brush color-orange"></i> Кабинет для изодеятельности, совмещенный с кабинетом логопеда</li>
+    </ul>
+  </div>
+
+  <!-- Помещения на Шеронова -->
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #2ecc71;">
+      <i class="fas fa-flag-checkered"></i> Помещения (ул. Шеронова, 99)
+    </div>
+    <ul class="doc-list">
+      <li><i class="fas fa-music color-green"></i> Музыкальный зал, оснащенный необходимым оборудованием</li>
+      <li><i class="fas fa-notes-medical color-red"></i> Медицинский блок (процедурный кабинет, изолятор)</li>
+      <li><i class="fas fa-brain color-purple"></i> Методический кабинет, совмещенный с кабинетом педагога-психолога</li>
+      <li><i class="fas fa-palette color-orange"></i> Кабинет изодеятельности, совместно с кабинетом логопеда</li>
+    </ul>
+  </div>
+
+  <!-- Техническая инфраструктура -->
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #3f51b5;">
+      <i class="fas fa-microchip"></i> Техническая инфраструктура
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+      <div class="tech-chip"><i class="fas fa-laptop"></i> 6 ноутбуков</div>
+      <div class="tech-chip"><i class="fas fa-desktop"></i> 1 моноблок</div>
+      <div class="tech-chip"><i class="fas fa-computer"></i> 2 стационарных компьютера</div>
+      <div class="tech-chip"><i class="fas fa-video"></i> Мультимедийное оборудование</div>
+      <div class="tech-chip"><i class="fas fa-print"></i> 2 струйных принтера</div>
+      <div class="tech-chip"><i class="fas fa-print"></i> 1 лазерный принтер со сканером</div>
+      <div class="tech-chip"><i class="fas fa-copy"></i> 2 цветных МФЦ</div>
+      <div class="tech-chip"><i class="fas fa-music"></i> Музыкальный центр</div>
+      <div class="tech-chip"><i class="fas fa-tv"></i> 4 телевизора</div>
+      <div class="tech-chip"><i class="fas fa-broadcast-tower"></i> 3 магнитолы</div>
+    </div>
+    <p style="margin-top: 15px;"><i class="fas fa-globe" style="color: #2ecc71;"></i> <strong>Выход в Интернет и сайт</strong> — детский сад имеет выход в сеть Интернет и свой сайт. Имеющееся оборудование находит применение в работе с детьми, с родителями, с педагогами.</p>
+  </div>
+
+  <!-- Медиатека -->
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #e84393;">
+      <i class="fas fa-photo-video"></i> Медиатека электронных образовательных ресурсов
+    </div>
+    
+    <div class="media-section">
+      <div class="media-title"><i class="fas fa-slideshare"></i> Презентации</div>
+      <ul class="media-list">
+        <li>о космосе, об окружающем мире</li>
+        <li>демонстрационный материал Ю.Дунской «Дальневосточная природа глазами художника», «Защитники Отечества»</li>
+        <li>сценарии праздников, развлечений</li>
+        <li>образцы оформления предметной среды</li>
+      </ul>
+    </div>
+    
+    <div class="media-section">
+      <div class="media-title"><i class="fas fa-film"></i> Обучающие фильмы</div>
+      <ul class="media-list">
+        <li>«Животные Дальнего Востока»</li>
+        <li>«Явления природы»</li>
+        <li>«Уроки безопасности»</li>
+        <li>«Времена года»</li>
+        <li>«Уроки доброты» и многое другое</li>
+      </ul>
+    </div>
+    
+    <div class="media-section">
+      <div class="media-title"><i class="fas fa-headphones"></i> Звуковые файлы</div>
+      <ul class="media-list">
+        <li>«Звуки природы»</li>
+        <li>«Танцевальные ритмы»</li>
+        <li>«Музыка для релаксации»</li>
+        <li>«Классическая музыка»</li>
+        <li>«Русские народные и хороводные песни»</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Физкультурно-оздоровительная работа -->
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #2ecc71;">
+      <i class="fas fa-heartbeat"></i> Физкультурно-оздоровительная работа
+    </div>
+    <p style="margin-bottom: 15px; line-height: 1.6;">Работа по физическому воспитанию дошкольников проводится с учетом возрастных и психологических особенностей детей, при четко организованном медико-педагогическом контроле, соблюдении оптимального двигательного режима.</p>
+    <p style="margin-bottom: 15px; line-height: 1.6;">Физкультурно-оздоровительная работа осуществляется в следующих формах:</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px;">
+      <div class="sport-chip"><i class="fas fa-walking"></i> Двигательная активность в течение дня</div>
+      <div class="sport-chip"><i class="fas fa-dumbbell"></i> Занятия</div>
+      <div class="sport-chip"><i class="fas fa-water"></i> Закаливающие мероприятия</div>
+      <div class="sport-chip"><i class="fas fa-sun"></i> Утренний прием на воздухе</div>
+      <div class="sport-chip"><i class="fas fa-running"></i> Утренняя гимнастика</div>
+      <div class="sport-chip"><i class="fas fa-hand-peace"></i> Физкульминутки, динамические паузы</div>
+      <div class="sport-chip"><i class="fas fa-music"></i> Музыкально-ритмические движения</div>
+      <div class="sport-chip"><i class="fas fa-futbol"></i> Спортивные досуги и развлечения</div>
+      <div class="sport-chip"><i class="fas fa-bed"></i> Гимнастика после сна</div>
+      <div class="sport-chip"><i class="fas fa-lungs"></i> Дыхательные упражнения</div>
+      <div class="sport-chip"><i class="fas fa-tree"></i> Ежедневные прогулки 3–4 часа</div>
+      <div class="sport-chip"><i class="fas fa-apple-alt"></i> Сбалансированное питание</div>
+    </div>
+    <p>Физкультурно-оздоровительные мероприятия включают в себя также комплекс специальных игр и упражнения, которые проводят воспитатели и инструктор по физическому воспитанию.</p>
+  </div>
+
+  <!-- Скачать документы -->
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #3f51b5;">
+      <i class="fas fa-download"></i> Скачать документы
+    </div>
+    <ul class="doc-list">
+      <li><a href="#" target="_blank"><i class="fas fa-file-pdf color-red"></i> Меню ежедневное ЧДОО в форме АНО «Детский сад „Сказка“»</a></li>
+      <li><a href="#" target="_blank"><i class="fas fa-file-pdf color-green"></i> Акт обследования ЧДОО в форме АНО «Детский сад „Сказка“» (приложение к паспорту доступности)</a></li>
+      <li><a href="#" target="_blank"><i class="fas fa-file-pdf color-purple"></i> Методическая литература к образовательной программе детского сада</a></li>
+      <li><a href="#" target="_blank"><i class="fas fa-file-pdf color-blue"></i> Материально-техническая база</a></li>
+      <li><a href="{% static "doc/54_mater_tehn_baza-scaled.jpg" %}" target="_blank"><i class="fas fa-file-pdf color-orange"></i> Материально-техническая база детского сада</a></li>
+      <li><a href="{% static "doc/oczenka-uslovij-truda.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-teal"></i> Оценка условий труда</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

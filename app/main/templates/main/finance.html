@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Финансово-хозяйственная деятельность — Детский сад «Сказка»{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="pre">
+    <div class="section-title">
+      <i class="fas fa-chart-line"></i>
+      <span>Финансово-хозяйственная деятельность</span>
+    </div>
+    <div class="bear">
+      <img src="{% static "img/Мишка_2.png" %}" alt="">
+    </div>
+  </div>
+
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #3f51b5;">
+      <i class="fas fa-download color-indigo"></i> Скачать документы
+    </div>
+    <ul class="doc-list">
+      <li><a href="{% static "doc/nalogovaya-deklaracziya-po-knd-1152017.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-red"></i> Извещение о вводе сведений 2025 г.</a></li>
+      <li><a href="{% static "doc/nalogovaya-deklaracziya-po-knd-1152017.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-green"></i> Упрощенная бухгалтерская отчетность за 2024 г.</a></li>
+      <li><a href="{% static "doc/nalogovaya-deklaracziya-po-knd-1152017.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-purple"></i> Квитанция о приеме налоговой декларации 2024 год</a></li>
+      <li><a href="{% static "doc/nalogovaya-deklaracziya-po-knd-1152017.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-blue"></i> Налоговая декларация за 2024 год</a></li>
+      <li><a href="{% static "doc/372_uproshchennaya_buhgalterskaya_otchetnost_za_2021_g.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-orange"></i> Упрощенная бухгалтерская отчетность за 2012 год</a></li>
+      <li><a href="{% static "doc/373_finansoviy_otchet_za_2021_god.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-teal"></i> Финансовый отчет за 2021 г.</a></li>
+      <li><a href="{% static "doc/288_finansoviy_otchet_za2018.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-pink"></i> Финансовый отчет за 2018 г.</a></li>
+      <li><a href="{% static "doc/289_finansoviy_otchet_za_2019_g.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-indigo"></i> Финансовый отчет за 2019 г.</a></li>
+      <li><a href="{% static "doc/285_uproshchennaya_buhgalterskaya_finansovaya_s_2019_g_dlya_otchetnosti_s_01_01_2020_5_03.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-red"></i> Упрощенная бухгалтерская финансовая отчетность</a></li>
+      <li><a href="{% static "doc/286_podtvergdenie_dati_otpravki_s_fevralya_2012g_1.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-green"></i> Упрощенная финансовая отчетность</a></li>
+      <li><a href="{% static "doc/287_izveshchenie_o_vvode_svedeniy_s_sentyabrya_2014g_1.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-purple"></i> Извещение о вводе сведений</a></li>
+      <li><a href="{% static "doc/234_uproshchennaya_buhgalterskaya_finansovaya_s_2016g_5_02.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-blue"></i> Упрощенная бухгалтерская (финансовая) отчетность</a></li>
+      <li><a href="{% static "doc/107_nalogovaya_deklaratsiya_1-scaled.jpg" %}" target="_blank"><i class="fas fa-file-pdf color-orange"></i> Налоговая декларация</a></li>
+      <li><a href="{% static "doc/108_raschet_1_2-scaled.jpg" %}" target="_blank"><i class="fas fa-file-pdf color-teal"></i> Расчет 1.2</a></li>
+      <li><a href="#" target="_blank"><i class="fas fa-file-pdf color-pink"></i> Расчет 2.2</a></li>
+      <li><a href="{% static "doc/110_raschet3-scaled.jpg" %}" target="_blank"><i class="fas fa-file-pdf color-indigo"></i> Расчет 3</a></li>
+      <li><a href="{% static "doc/111_mater_tehn_baza1-scaled.jpg" %}" target="_blank"><i class="fas fa-file-pdf color-red"></i> Материально-техническая база</a></li>
+      <li><a href="{% static "doc/53_fin_ekon_deyat_t-scaled.jpg" %}" target="_blank"><i class="fas fa-file-pdf color-green"></i> Финансово-экономическая деятельность детского сада</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

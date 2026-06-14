@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Документы — Детский сад «Сказка»{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="pre">
+    <div class="section-title">
+      <i class="fas fa-book"></i>
+      <span>Образование</span>
+    </div>
+    <div class="bear">
+      <img src="{% static "img/Мишка_2.png" %}" alt="">
+    </div>
+  </div>
+
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #3f51b5;">
+      <i class="fas fa-download color-indigo"></i> Скачать документы
+    </div>
+    <ul class="doc-list">
+      <li><a target="_blank" href="#"><i class="fas fa-file-pdf color-red"></i> Публичный доклад директора детского сада</a></li>
+      <li><a target="_blank" href="#"><i class="fas fa-file-pdf color-green"></i> Календарный план по дополнительному образованию на 2025-2026 (японский язык)</a></li>
+      <li><a target="_blank" href="#"><i class="fas fa-file-pdf color-purple"></i> Режим занятий воспитанников</a></li>
+      <li><a target="_blank" href="{% static "doc/oop-chdoo-v-forme-ano-detskij-sad-skazka-7.pdf" %}"><i class="fas fa-file-pdf color-blue"></i> ООП ДО ЧДОО в форме АНО "Детский сад "Сказка"</a></li>
+      <li><a target="_blank" href="{% static "doc/kal-plan-vosp-raboty-2025-26.pdf" %}"><i class="fas fa-file-pdf color-orange"></i> Календарный план воспитательной работы на 2025-2026 учебный год</a></li>
+      <li><a target="_blank" href="{% static "doc/polozhenie-o-rabochej-programme-vospitaniya-1.pdf" %}"><i class="fas fa-file-pdf color-teal"></i> Положение о рабочей программе воспитателя</a></li>
+      <li><a target="_blank" href="{% static "doc/polozhenie-o-yazyke-obucheniya-1.pdf" %}"><i class="fas fa-file-pdf color-pink"></i> Положение о языке</a></li>
+      <li><a target="_blank" href="{% static "doc/kal-plan-angl-yazyk-2.pdf" %}"><i class="fas fa-file-pdf color-indigo"></i> Календарный план по дополнительному образованию - английский язык</a></li>
+      <li><a target="_blank" href="{% static "doc/polozhenie-o-rabochej-programme-vospitaniya-1.pdf" %}"><i class="fas fa-file-pdf color-red"></i> Положение о рабочей программе воспитания</a></li>
+      <li><a target="_blank" href="{% static "doc/polozhenie-o-logopedicheskoj-pomoshhi.pdf" %}"><i class="fas fa-file-pdf color-green"></i> Положение о логопедическом пункте</a></li>
+      <li><a target="_blank" href="{% static "doc/raspisanie-skazka2-25.pdf" %}"><i class="fas fa-file-pdf color-purple"></i> Расписание занятий Сказка - 2</a></li>
+      <li><a target="_blank" href="{% static "doc/raspisanie-skazka-2-5.pdf" %}"><i class="fas fa-file-pdf color-pink"></i> Расписание занятий Сказка-2</a></li>
+      <li><a target="_blank" href="{% static "doc/raspisanie-skazka-1-05.pdf" %}"><i class="fas fa-file-pdf color-blue"></i> Расписание занятий 5-7 лет</a></li>
+      <li><a target="_blank" href="{% static "doc/raspisanie-skazka-1-3-1.pdf" %}"><i class="fas fa-file-pdf color-orange"></i> Расписание занятий 3-5 лет</a></li>
+      <li><a target="_blank" href="{% static "doc/uchebnyj-plan-2024-2025.pdf" %}"><i class="fas fa-file-pdf color-teal"></i> Учебный план</a></li>
+      <li><a target="_blank" href="{% static "doc/kratkaya-prezentacziya-programmy-3.pdf" %}"><i class="fas fa-file-pdf color-pink"></i> Краткая презентация ООП детского сада</a></li>
+      <li><a target="_blank" href="{% static "doc/kalendarnyj-plan-vospitatelnoj-raboty.pdf" %}"><i class="fas fa-file-pdf color-indigo"></i> Календарный план воспитательной работы</a></li>
+      <li><a target="_blank" href="{% static "doc/oop-chdoo-v-forme-ano-detskij-sad-skazka-7.pdf" %}"><i class="fas fa-file-pdf color-blue"></i> ООП ДО ЧДОО в форме АНО "Детский сад "Сказка"</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
