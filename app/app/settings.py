@@ -125,7 +125,7 @@ STATICFILES_DIRS = [
 
 if 'PYTHONANYWHERE_DOMAIN' in os.environ:
     DEBUG = False
-    ALLOWED_HOSTS = ['yaroslav67.pythonanywhere.com'] 
+    ALLOWED_HOSTS = ['yaroslav61.pythonanywhere.com'] 
 
     STATIC_URL = '/static/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

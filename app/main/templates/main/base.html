@@ -39,10 +39,10 @@
             <a href="{% url 'main:index' %}"><img src="{% static 'img/logo.png' %}" alt="Логотип детского сада Сказка"></a>
         </div>
         <div class="nav-links">
-            <!-- Первая строка -->
-            <div class="nav-row">
-                <div class="dropdown">
-                    <p class="dropbtn"><i class="fas fa-info-circle"></i> Сведения об образовательной организации <i class="fas fa-chevron-down"></i></p>
+            <!-- Первая строка: 4 элемента -->
+            <div class="nav-row nav-row-top">
+                <div class="dropdown nav-item">
+                    <p class="dropbtn"><i class="fas fa-info-circle"></i> Сведения об ОО <i class="fas fa-chevron-down"></i></p>
                     <div class="dropdown-content">
                         <a href="{% url 'main:svedeniya' %}"><i class="fas fa-landmark"></i> Основные сведения</a>
                         <a href="{% url 'main:structure' %}"><i class="fas fa-sitemap"></i> Структура и органы управления</a>
@@ -59,8 +59,8 @@
                         <a href="{% url 'main:nutrition' %}"><i class="fas fa-utensils"></i> Организация питания</a>
                     </div>
                 </div>
-                <div class="dropdown">
-                    <p class="dropbtn"><i class="fas fa-shield-alt"></i> Информационная безопасность <i class="fas fa-chevron-down"></i></p>
+                <div class="dropdown nav-item">
+                    <p class="dropbtn"><i class="fas fa-shield-alt"></i> Информ. безопасность <i class="fas fa-chevron-down"></i></p>
                     <div class="dropdown-content">
                         <a href="{% url 'main:loyalacts' %}"><i class="fas fa-file-contract"></i> Локальные акты</a>
                         <a href="{% url 'main:regulatory' %}"><i class="fas fa-gavel"></i> Нормативное регулирование</a>
@@ -69,8 +69,7 @@
                         <a href="{% url 'main:safe_sites' %}"><i class="fas fa-child"></i> Детские безопасные сайты</a>
                     </div>
                 </div>
-                <a href="{% url 'main:social_support' %}"><i class="fas fa-hand-holding-heart"></i> Соц. поддержка</a>
-                <div class="dropdown">
+                <div class="dropdown nav-item">
                     <p class="dropbtn"><i class="fas fa-heart"></i> Родителям <i class="fas fa-chevron-down"></i></p>
                     <div class="dropdown-content">
                         <a href="{% url 'main:parents_info' %}"><i class="fas fa-bullhorn"></i> Информация для родителей</a>
@@ -78,13 +77,14 @@
                         <a href="{% url 'main:psychologist' %}"><i class="fas fa-brain"></i> Страничка психолога</a>
                     </div>
                 </div>
+                <a href="{% url 'main:site_structure' %}" class="nav-item"><i class="fas fa-sitemap"></i> Структура сайта</a>
             </div>
-            <!-- Вторая строка -->
-            <div class="nav-row">
-                <a href="{% url 'main:site_structure' %}"><i class="fas fa-sitemap"></i> Структура сайта</a>
-                <a href="{% url 'main:feedback' %}"><i class="fas fa-envelope"></i> Обратная связь</a>
-                <a href="{% url 'main:priem' %}"><i class="fas fa-door-open"></i> Прием в образовательную организацию</a>
-                <a href="{% url 'main:personal_data' %}"><i class="fas fa-user-shield"></i> Обработка персональных данных</a>
+            <!-- Вторая строка: 4 элемента -->
+            <div class="nav-row nav-row-bottom">
+                <a href="{% url 'main:feedback' %}" class="nav-item"><i class="fas fa-envelope"></i> Обратная связь</a>
+                <a href="{% url 'main:priem' %}" class="nav-item"><i class="fas fa-door-open"></i> Прием в ОО</a>
+                <a href="{% url 'main:social_support' %}" class="nav-item"><i class="fas fa-hand-holding-heart"></i> Соц. поддержка</a>
+                <a href="{% url 'main:personal_data' %}" class="nav-item"><i class="fas fa-user-shield"></i> Обработка персональных данных</a>
             </div>
         </div>
         <div class="burger" id="burgerBtn">
