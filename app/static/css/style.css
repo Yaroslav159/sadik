@@ -788,6 +788,8 @@ section {
 
 footer {
     width: 100%;
+    position: sticky;
+    top: 100vh;
     margin-top: 0;
     padding: 20px 0;
     border-radius: 0;
