@@ -166,9 +166,44 @@
         {% block content %}{% endblock %}
     </main>
 
-    <footer style="background: url('{% static 'img/Подвал_2_2.jpg' %}');">
-        <div style="padding: 5px; margin-bottom: 10px; background-color: rgba(255, 255, 255, 0.7); border-radius: 20px;">
-            <p>© 2026 Детский сад «Сказка». Все права защищены волшебством ✨</p>
+    <footer style="background: url('{% static 'img/footer_2_2.jpg' %}'); background-size: cover; background-position: center;">
+        <div style="padding: 20px 24px; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(10px); border-radius: 30px; margin: 0 20px; max-width: 1200px; width: 100%; box-shadow: 0 8px 30px rgba(0, 70, 120, 0.12); border: 1px solid rgba(255, 255, 255, 0.6); box-sizing: border-box;">
+            
+            <!-- Контакты -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px 16px; margin-bottom: 14px;">
+                
+                <!-- Адрес -->
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-location-dot" style="color: #e63946; font-size: 1.1rem; width: 24px; text-align: center; flex-shrink: 0;"></i>
+                    <span style="color: #014f88; font-weight: 600; font-size: 0.85rem; line-height: 1.3;">680028, г. Хабаровск, ул. Фрунзе, 101; ул. Шеронова, 99</span>
+                </div>
+                
+                <!-- Телефоны -->
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-phone" style="color: #2ecc71; font-size: 1.1rem; width: 24px; text-align: center; flex-shrink: 0;"></i>
+                    <div style="color: #014f88; font-weight: 600; font-size: 0.85rem; line-height: 1.3;">
+                        <div>(4212) 56-88-72 (Фрунзе)</div>
+                        <div>(4212) 32-79-02 (Шеронова)</div>
+                    </div>
+                </div>
+                
+                <!-- Email -->
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-envelope-open-text" style="color: #0279d4; font-size: 1.1rem; width: 24px; text-align: center; flex-shrink: 0;"></i>
+                    <span style="color: #014f88; font-weight: 600; font-size: 0.85rem; line-height: 1.3; word-break: break-all;">dietsriisad.skazka.2014@mail.ru</span>
+                </div>
+                
+                <!-- Факс -->
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-fax" style="color: #7139BF; font-size: 1.1rem; width: 24px; text-align: center; flex-shrink: 0;"></i>
+                    <span style="color: #014f88; font-weight: 600; font-size: 0.85rem; line-height: 1.3;">Бухгалтерия факс: (42-12) 38-15-98</span>
+                </div>
+            </div>
+            
+            <!-- Копирайт -->
+            <div style="border-top: 2px solid rgba(1, 79, 136, 0.12); padding-top: 10px; text-align: center;">
+                <p style="margin: 0; color: #01518a; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.3px;">© 2026 Детский сад «Сказка». Все права защищены волшебством ✨</p>
+            </div>
         </div>
     </footer>
 

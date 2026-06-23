@@ -125,16 +125,14 @@ STATICFILES_DIRS = [
 
 if 'PYTHONANYWHERE_DOMAIN' in os.environ:
     DEBUG = False
-    ALLOWED_HOSTS = ['yaroslav67.pythonanywhere.com'] # Замените на свой username
+    ALLOWED_HOSTS = ['yaroslav67.pythonanywhere.com'] 
 
-    # Настройка статических файлов
     STATIC_URL = '/static/'
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # Папка, куда Django соберет статику
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'static'), # Папка, где вы храните свои статические файлы
+        os.path.join(BASE_DIR, 'static'),
     ]
 
-    # База данных (для бесплатного аккаунта используем SQLite)
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
