@@ -17,7 +17,6 @@
 
   <div class="glass-card">
     <div class="site-structure">
-      <!-- Сведения об образовательной организации -->
       <div class="structure-section">
         <div class="structure-main">
           <i class="fas fa-info-circle" style="color: #e63946;"></i>
@@ -52,7 +51,6 @@
         </div>
       </div>
 
-      <!-- Информационная безопасность -->
       <div class="structure-section">
         <div class="structure-main">
           <i class="fas fa-shield-alt" style="color: #2ecc71;"></i>
@@ -67,18 +65,6 @@
         </div>
       </div>
 
-      <!-- Соц. поддержка -->
-      <div class="structure-section">
-        <div class="structure-main">
-          <i class="fas fa-hand-holding-heart" style="color: #e84393;"></i>
-          <a style="text-decoration: none; color: #014e86" href="{% url 'main:social_support' %}"> Соц. поддержка</a></span>
-        </div>
-        <div class="structure-children">
-          <div class="structure-item"></div>
-        </div>
-      </div>
-
-      <!-- Родителям -->
       <div class="structure-section">
         <div class="structure-main">
           <i class="fas fa-heart" style="color: #F28B0C;"></i>
@@ -91,28 +77,34 @@
         </div>
       </div>
 
-      <!-- Обратная связь и другие -->
-            <!-- Обратная связь -->
       <div class="structure-section">
         <div class="structure-main">
-          <i class="fas fa-envelope" style="color: #019bd3;"></i>
-          <a style="text-decoration: none; color: #014e86" href="{% url 'main:feedback' %}"> Обратная связь</a>
+          <i class="fas fa-hand-holding-heart" style="color: #e84393;"></i>
+          <a style="text-decoration: none; color: #014e86" href="{% url 'main:social_support' %}"> Соц. поддержка</a></span>
+        </div>
+        <div class="structure-children">
+          <div class="structure-item"></div>
         </div>
       </div>
 
-      <!-- Прием в образовательную организацию -->
       <div class="structure-section">
         <div class="structure-main">
-          <i class="fas fa-door-open" style="color: #1abc9c;"></i>
+          <i class="fas fa-door-open" style="color: #34917e;"></i>
           <a style="text-decoration: none; color: #014e86" href="{% url 'main:priem' %}"> Прием в образовательную организацию</a>
         </div>
       </div>
 
-      <!-- Обработка персональных данных -->
       <div class="structure-section">
         <div class="structure-main">
           <i class="fas fa-user-shield" style="color: #7139BF;"></i>
           <a style="text-decoration: none; color: #014e86" href="{% url 'main:personal_data' %}"> Обработка персональных данных</a>
+        </div>
+      </div>
+
+      <div class="structure-section">
+        <div class="structure-main">
+          <i class="fas fa-envelope" style="color: #019bd3;"></i>
+          <a style="text-decoration: none; color: #014e86" href="{% url 'main:feedback' %}"> Обратная связь</a>
         </div>
       </div>
     </div>
@@ -133,9 +125,11 @@
 
 .structure-section:nth-child(1) { border-left-color: #e63946; }
 .structure-section:nth-child(2) { border-left-color: #2ecc71; }
-.structure-section:nth-child(3) { border-left-color: #e84393; }
-.structure-section:nth-child(4) { border-left-color: #F28B0C; }
-.structure-section:nth-child(5) { border-left-color: #7139BF; }
+.structure-section:nth-child(4) { border-left-color: #e84393; }
+.structure-section:nth-child(3) { border-left-color: #F28B0C; }
+.structure-section:nth-child(6) { border-left-color: #7139BF; }
+.structure-section:nth-child(5) { border-left-color: #34917e; }
+.structure-section:nth-child(7) { border-left-color: #019bd3; }
 
 .structure-main {
     font-size: 1.3rem;

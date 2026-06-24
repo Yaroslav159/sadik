@@ -42,7 +42,7 @@
             <!-- Первая строка -->
             <div class="nav-row nav-row-top">
                 <div class="dropdown">
-                    <p class="dropbtn"><i class="fas fa-info-circle"></i> Сведения об образовательной организации <i class="fas fa-chevron-down"></i></p>
+                    <p class="dropbtn"><i class="fas fa-info-circle" style="color: #e63946"></i> Сведения об образовательной организации <i class="fas fa-chevron-down"></i></p>
                     <div class="dropdown-content">
                         <a href="{% url 'main:svedeniya' %}"><i class="fas fa-landmark"></i> Основные сведения</a>
                         <a href="{% url 'main:structure' %}"><i class="fas fa-sitemap"></i> Структура и органы управления</a>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="dropdown">
-                    <p class="dropbtn"><i class="fas fa-shield-alt"></i> Информационная безопасность <i class="fas fa-chevron-down"></i></p>
+                    <p class="dropbtn"><i class="fas fa-shield-alt" style="color: #2ecc71"></i> Информационная безопасность <i class="fas fa-chevron-down"></i></p>
                     <div class="dropdown-content">
                         <a href="{% url 'main:loyalacts' %}"><i class="fas fa-file-contract"></i> Локальные акты</a>
                         <a href="{% url 'main:regulatory' %}"><i class="fas fa-gavel"></i> Нормативное регулирование</a>
@@ -70,24 +70,24 @@
                     </div>
                 </div>
                 <div class="dropdown">
-                    <p class="dropbtn"><i class="fas fa-heart"></i> Родителям <i class="fas fa-chevron-down"></i></p>
+                    <p class="dropbtn"><i class="fas fa-heart" style="color: #F28B0C"></i> Родителям <i class="fas fa-chevron-down"></i></p>
                     <div class="dropdown-content">
                         <a href="{% url 'main:parents_info' %}"><i class="fas fa-bullhorn"></i> Информация для родителей</a>
                         <a href="{% url 'main:senior_teacher' %}"><i class="fas fa-chalkboard-teacher"></i> Страничка старшего воспитателя</a>
                         <a href="{% url 'main:psychologist' %}"><i class="fas fa-brain"></i> Страничка психолога</a>
                     </div>
                 </div>
-                <a href="{% url 'main:social_support' %}"><i class="fas fa-hand-holding-heart"></i> Соц. поддержка</a>
+                <a href="{% url 'main:social_support' %}"><i class="fas fa-hand-holding-heart" style="color: #e84393"></i> Соц. поддержка</a>
                 
             </div>
             <!-- Вторая строка -->
             <div class="nav-row nav-row-bottom">
                 <a style="width:200px; text-align:center" href="{% url 'main:site_structure' %}"><i class="fas fa-sitemap"></i> Структура сайта</a>
                 
-                <a href="{% url 'main:priem' %}"><i class="fas fa-door-open"></i> Прием в образовательную организацию</a>
+                <a href="{% url 'main:priem' %}"><i class="fas fa-door-open" style="color: #34917e"></i> Прием в образовательную организацию</a>
                 
-                <a href="{% url 'main:personal_data' %}"><i class="fas fa-user-shield"></i> Обработка персональных данных</a>
-                <a href="{% url 'main:feedback' %}"><i class="fas fa-envelope"></i> Обратная связь</a>
+                <a href="{% url 'main:personal_data' %}"><i class="fas fa-user-shield" style="color: #7139BF"></i> Обработка персональных данных</a>
+                <a href="{% url 'main:feedback' %}"><i class="fas fa-envelope" style="color: #019bd3"></i> Обратная связь</a>
             </div>
         </div>
         <div class="burger" id="burgerBtn">
