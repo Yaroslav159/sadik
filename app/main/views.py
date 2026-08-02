@@ -2,9 +2,31 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.conf import settings
+# views.py
+from datetime import date
+from .utils import get_menu_schedule
+from .models import MenuPhoto
 
 def index(request):
-    return render(request, 'main/index.html')
+    schedule = get_menu_schedule()  # [(date, day_number), ...]
+    photos = {p.day_number: p for p in MenuPhoto.objects.all()}
+
+    # Словарь русских названий месяцев (сокращённые)
+    months_ru = {
+        1: 'Январь', 2: 'Февраль', 3: 'Март', 4: 'Апрель', 5: 'Май', 6: 'Июнь',
+        7: 'Июль', 8: 'Август', 9: 'Сентябрь', 10: 'Октябрь', 11: 'Ноябрь', 12: 'Декабрь'
+    }
+
+    menu_days = []
+    for dt, day_num in schedule:
+        photo_obj = photos.get(day_num)
+        menu_days.append({
+            'date': dt,
+            'day_number': day_num,
+            'image_url': photo_obj.image.url if photo_obj else None,
+            'month_ru': months_ru[dt.month],  # <-- русское название
+        })
+    return render(request, 'main/index.html', {'menu_days': menu_days})
 
 def svedeniya(request):
     return render(request, 'main/svedeniya.html')
@@ -123,3 +145,4 @@ def feedback(request):
         return redirect('main:feedback')
 
     return render(request, 'main/feedback.html')
+
