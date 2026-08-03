@@ -120,6 +120,40 @@
         </h3>
         <div class="gallery-slider-container">
           <div class="gallery-slider-track" id="gallerySliderTrack">
+            <!-- Все изображения вставлены через static, чтобы гарантировать корректные пути -->
+            <div class="gallery-slide">
+              <img src="{% static 'img/photoalbom/20251020_124728.jpg' %}" alt="Фото сада 1" loading="lazy">
+            </div>
+            <div class="gallery-slide">
+              <img src="{% static 'img/photoalbom/20251020_124820.jpg' %}" alt="Фото сада 2" loading="lazy">
+            </div>
+            <div class="gallery-slide">
+              <img src="{% static 'img/photoalbom/20251020_124858.jpg' %}" alt="Фото сада 3" loading="lazy">
+            </div>
+            <div class="gallery-slide">
+              <img src="{% static 'img/photoalbom/20251020_124911.jpg' %}" alt="Фото сада 4" loading="lazy">
+            </div>
+            <div class="gallery-slide">
+              <img src="{% static 'img/photoalbom/IMG_20260420_133028.webp' %}" alt="Фото сада 5" loading="lazy">
+            </div>
+            <div class="gallery-slide">
+              <img src="{% static 'img/photoalbom/IMG_20260420_133158.webp' %}" alt="Фото сада 6" loading="lazy">
+            </div>
+            <div class="gallery-slide">
+              <img src="{% static 'img/photoalbom/IMG_20260420_133209.webp' %}" alt="Фото сада 7" loading="lazy">
+            </div>
+            <div class="gallery-slide">
+              <img src="{% static 'img/photoalbom/IMG_20260420_133226.webp' %}" alt="Фото сада 8" loading="lazy">
+            </div>
+            <div class="gallery-slide">
+              <img src="{% static 'img/photoalbom/IMG_20260420_133303.webp' %}" alt="Фото сада 9" loading="lazy">
+            </div>
+            <div class="gallery-slide">
+              <img src="{% static 'img/photoalbom/IMG_20260420_133313.webp' %}" alt="Фото сада 10" loading="lazy">
+            </div>
+            <div class="gallery-slide">
+              <img src="{% static 'img/photoalbom/NATA1648.jpg' %}" alt="Фото сада 11" loading="lazy">
+            </div>
           </div>
           <button class="gallery-slider-btn gallery-prev" id="galleryPrev" aria-label="Previous photo">
             <i class="fas fa-chevron-left"></i>
@@ -358,7 +392,7 @@
 }
 
 /* ============================================================
-   СТИЛИ ДЛЯ МОДАЛЬНОГО ОКНА МЕНУ
+   СТИЛИ ДЛЯ МОДАЛЬНОГО ОКНА МЕНЮ
    ============================================================ */
 .menu-modal {
   display: none;
@@ -693,63 +727,33 @@
 
 <script>
 // ============================================================
-// СКРИПТ ГАЛЕРЕИ (исправлен)
+// СКРИПТ ГАЛЕРЕИ (переделан – используется DOM вместо массива)
 // ============================================================
 (function() {
-  const photoPaths = [
-    '{% static "img/photoalbom/20251020_124728.jpg" %}',
-    '{% static "img/photoalbom/20251020_124820.jpg" %}',
-    '{% static "img/photoalbom/20251020_124858.jpg" %}',
-    '{% static "img/photoalbom/20251020_124911.jpg" %}',
-    '{% static "img/photoalbom/IMG_20260420_133028.webp" %}',
-    '{% static "img/photoalbom/IMG_20260420_133158.webp" %}',
-    '{% static "img/photoalbom/IMG_20260420_133209.webp" %}',
-    '{% static "img/photoalbom/IMG_20260420_133226.webp" %}',
-    '{% static "img/photoalbom/IMG_20260420_133303.webp" %}',
-    '{% static "img/photoalbom/IMG_20260420_133313.webp" %}',
-    '{% static "img/photoalbom/NATA1648.jpg" %}'
-  ];
-
   const track = document.getElementById('gallerySliderTrack');
   const dotsContainer = document.getElementById('galleryDots');
   const prevBtn = document.getElementById('galleryPrev');
   const nextBtn = document.getElementById('galleryNext');
 
   if (!track || !dotsContainer) {
-    console.warn('Gallery slider elements not found');
+    console.warn('Элементы галереи не найдены');
     return;
   }
 
-  const totalSlides = photoPaths.length;
+  // Получаем все слайды из HTML
+  const slides = track.querySelectorAll('.gallery-slide');
+  const totalSlides = slides.length;
   if (totalSlides === 0) {
     track.innerHTML = '<p style="text-align:center; color:#999; width:100%;">Фотоальбом пуст</p>';
     return;
   }
 
-  track.innerHTML = '';
+  // Создаём точки (dots)
   dotsContainer.innerHTML = '';
-
-  photoPaths.forEach((path, index) => {
-    const slide = document.createElement('div');
-    slide.className = 'gallery-slide';
-    const img = document.createElement('img');
-    img.src = path;
-    img.alt = 'Kindergarten photo ' + (index + 1);
-    img.loading = 'lazy';
-    img.onerror = function() {
-      this.style.display = 'none';
-      const placeholder = document.createElement('div');
-      placeholder.style.cssText = 'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#eee;color:#999;font-size:1.2rem;';
-      placeholder.textContent = 'Фото не найдено';
-      this.parentNode.appendChild(placeholder);
-    };
-    img.onclick = function() { openGalleryModal(index); };
-    slide.appendChild(img);
-    track.appendChild(slide);
-
+  slides.forEach((slide, index) => {
     const dot = document.createElement('button');
     dot.className = 'gallery-dot' + (index === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', 'Go to photo ' + (index + 1));
+    dot.setAttribute('aria-label', 'Перейти к фото ' + (index + 1));
     dot.addEventListener('click', function() {
       goToSlide(index);
     });
@@ -775,15 +779,25 @@
   if (prevBtn) prevBtn.addEventListener('click', prevSlide);
   if (nextBtn) nextBtn.addEventListener('click', nextSlide);
 
+  // Автоплей
   let autoplayInterval = setInterval(nextSlide, 4000);
   const container = document.querySelector('.gallery-slider-container');
   if (container) {
-    container.addEventListener('mouseenter', function() { clearInterval(autoplayInterval); });
-    container.addEventListener('mouseleave', function() { autoplayInterval = setInterval(nextSlide, 4000); });
-    container.addEventListener('touchstart', function() { clearInterval(autoplayInterval); });
-    container.addEventListener('touchend', function() { autoplayInterval = setInterval(nextSlide, 4000); });
+    container.addEventListener('mouseenter', function() {
+      clearInterval(autoplayInterval);
+    });
+    container.addEventListener('mouseleave', function() {
+      autoplayInterval = setInterval(nextSlide, 4000);
+    });
+    container.addEventListener('touchstart', function() {
+      clearInterval(autoplayInterval);
+    });
+    container.addEventListener('touchend', function() {
+      autoplayInterval = setInterval(nextSlide, 4000);
+    });
   }
 
+  // Свайп
   let touchStartX = 0;
   let touchEndX = 0;
   track.addEventListener('touchstart', function(e) {
@@ -798,53 +812,89 @@
     }
   }, { passive: true });
 
+  // ===== МОДАЛЬНОЕ ОКНО =====
   const modal = document.getElementById('galleryModal');
   const modalImg = document.getElementById('galleryModalImg');
   const modalCounter = document.getElementById('galleryModalCounter');
   let modalCurrentIndex = 0;
 
-  window.openGalleryModal = function(index) {
+  function openGalleryModal(index) {
     if (!modal || !modalImg) return;
     modalCurrentIndex = index;
     updateModalImage();
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
-  };
-
-  window.closeGalleryModal = function() {
-    if (!modal) return;
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-  };
-
-  window.closeGalleryModalOutside = function(event) {
-    if (event.target === modal) closeGalleryModal();
-  };
-
-  window.changeGalleryImage = function(direction) {
-    modalCurrentIndex += direction;
-    if (modalCurrentIndex < 0) modalCurrentIndex = totalSlides - 1;
-    if (modalCurrentIndex >= totalSlides) modalCurrentIndex = 0;
-    updateModalImage();
-  };
+  }
 
   function updateModalImage() {
-    if (!modalImg || !modalCounter) return;
-    modalImg.src = photoPaths[modalCurrentIndex];
-    modalImg.alt = 'Kindergarten photo ' + (modalCurrentIndex + 1);
+    const img = slides[modalCurrentIndex]?.querySelector('img');
+    if (img) {
+      modalImg.src = img.src;
+      modalImg.alt = img.alt || 'Фото сада';
+    }
     modalCounter.textContent = (modalCurrentIndex + 1) + ' / ' + totalSlides;
   }
 
+  function closeGalleryModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Навешиваем клик на каждое изображение
+  slides.forEach((slide, index) => {
+    const img = slide.querySelector('img');
+    if (img) {
+      img.addEventListener('click', function(e) {
+        e.stopPropagation();
+        openGalleryModal(index);
+      });
+    }
+  });
+
+  // Кнопки в модалке
+  document.querySelector('.gallery-modal-close')?.addEventListener('click', closeGalleryModal);
+  document.querySelector('.gallery-modal-prev')?.addEventListener('click', function() {
+    modalCurrentIndex = (modalCurrentIndex - 1 + totalSlides) % totalSlides;
+    updateModalImage();
+  });
+  document.querySelector('.gallery-modal-next')?.addEventListener('click', function() {
+    modalCurrentIndex = (modalCurrentIndex + 1) % totalSlides;
+    updateModalImage();
+  });
+
+  // Закрытие по клику вне контента
+  modal?.addEventListener('click', function(e) {
+    if (e.target === modal) closeGalleryModal();
+  });
+
+  // Клавиши
   document.addEventListener('keydown', function(e) {
     if (!modal || !modal.classList.contains('active')) return;
     if (e.key === 'Escape') closeGalleryModal();
-    if (e.key === 'ArrowLeft') changeGalleryImage(-1);
-    if (e.key === 'ArrowRight') changeGalleryImage(1);
+    if (e.key === 'ArrowLeft') {
+      modalCurrentIndex = (modalCurrentIndex - 1 + totalSlides) % totalSlides;
+      updateModalImage();
+    }
+    if (e.key === 'ArrowRight') {
+      modalCurrentIndex = (modalCurrentIndex + 1) % totalSlides;
+      updateModalImage();
+    }
   });
+
+  // Глобальные функции для onclick (если нужны)
+  window.openGalleryModal = openGalleryModal;
+  window.closeGalleryModal = closeGalleryModal;
+  window.changeGalleryImage = function(dir) {
+    modalCurrentIndex = (modalCurrentIndex + dir + totalSlides) % totalSlides;
+    updateModalImage();
+  };
+
+  // Стартуем с первого слайда
+  goToSlide(0);
 })();
 
 // ============================================================
-// СКРИПТ ДЛЯ МОДАЛЬНОГО ОКНА МЕНЮ (исправлен с отладкой)
+// СКРИПТ ДЛЯ МОДАЛЬНОГО ОКНА МЕНЮ (оставлен без изменений)
 // ============================================================
 (function() {
   const cells = document.querySelectorAll('.menu-day-cell');
@@ -861,8 +911,6 @@
     menuData.push({ img, date });
   });
 
-  console.log('menuData:', menuData); // отладка
-
   const modal = document.getElementById('menuModal');
   const modalImg = document.getElementById('menuModalImg');
   const caption = document.getElementById('menuModalCaption');
@@ -874,12 +922,10 @@
   }
 
   const validEntries = menuData.filter(item => item.img);
-  console.log('validEntries (with images):', validEntries); // отладка
   let currentIndex = 0;
 
   window.openMenuModal = function(cell) {
     let img = cell.dataset.img;
-    console.log('Clicked cell, data-img:', img); // отладка
     if (!img) {
       alert('Фото для этого дня пока не загружено.');
       return;
@@ -888,9 +934,7 @@
       img = new URL(img, window.location.origin).href;
     } catch (_) {}
     const index = menuData.findIndex(item => item.img === img);
-    console.log('Found index:', index); // отладка
     if (index === -1) {
-      console.warn('Image not found in menuData:', img);
       alert('Фото не найдено в списке меню.');
       return;
     }
