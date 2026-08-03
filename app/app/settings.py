@@ -13,25 +13,18 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 from pathlib import Path
 import os
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-no5gl7m3h$cmx)m%e8k*bjy8@@@20*b5cj!20qgt2yxc4c9usl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main',
+    'main',  # ваше приложение
 ]
 
 MIDDLEWARE = [
@@ -71,10 +64,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
-
 # Database
-# https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -82,10 +72,7 @@ DATABASES = {
     }
 }
 
-
 # Password validation
-# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -102,13 +89,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
+# Email (оставлено как у вас)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -118,21 +103,34 @@ EMAIL_HOST_USER = 'mi5973915@gmail.com'
 EMAIL_HOST_PASSWORD = 'xoxd buvk urkr knnw'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+# =====================================================
+# ОБЩИЕ НАСТРОЙКИ ДЛЯ СТАТИКИ И МЕДИА (по умолчанию)
+# =====================================================
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
+# Настройки для медиафайлов (загружаемые пользователем фото)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# =====================================================
+# НАСТРОЙКИ ДЛЯ РАЗНЫХ ОКРУЖЕНИЙ
+# =====================================================
 if 'PYTHONANYWHERE_DOMAIN' in os.environ:
+    # Режим продакшена на PythonAnywhere
     DEBUG = False
-    ALLOWED_HOSTS = ['yaroslav61.pythonanywhere.com'] 
+    ALLOWED_HOSTS = ['yaroslav61.pythonanywhere.com']
 
+    # Статика
     STATIC_URL = '/static/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'static'),
-    ]
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
+    # Медиа (для загруженных файлов)
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+    # База данных (можно оставить SQLite или переключить на MySQL/PostgreSQL)
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -140,6 +138,8 @@ if 'PYTHONANYWHERE_DOMAIN' in os.environ:
         }
     }
 else:
-    # Это настройки для вашего локального компьютера
+    # Локальная разработка
     DEBUG = True
     ALLOWED_HOSTS = []
+    # MEDIA_ROOT и STATICFILES_DIRS уже заданы выше
+    pass

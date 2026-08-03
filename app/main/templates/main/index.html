@@ -79,6 +79,7 @@
     </div>
   </section>
 
+  <!-- ===== КАЛЕНДАРЬ МЕНЮ ===== -->
   <section id="menu-calendar" class="fade-up">
     <div class="section-title">
       <i class="fas fa-calendar-alt"></i>
@@ -88,7 +89,6 @@
     <div class="menu-calendar-small">
       {% for day in menu_days %}
         <div class="menu-day-cell"
-             data-index="{{ forloop.counter0 }}"
              data-img="{% if day.image_url %}{{ day.image_url }}{% endif %}"
              data-date="{{ day.date|date:'d.m.Y' }}"
              onclick="openMenuModal(this)">
@@ -131,6 +131,7 @@
         </div>
       </div>
 
+      <!-- Map -->
       <div class="map-placeholder">
         <h3 style="text-align: center; margin: 0 0 14px 0; color: #014f88; font-size: 1.2rem; font-weight: 700; flex-shrink: 0;">
           <i class="fas fa-map-pin" style="color: #e63946; margin-right: 8px;"></i> Как нас найти?
@@ -204,6 +205,7 @@
   </div>
 </div>
 
+<!-- Gallery Modal -->
 <div class="gallery-modal" id="galleryModal" onclick="closeGalleryModalOutside(event)">
   <span class="gallery-modal-close" onclick="closeGalleryModal()">&times;</span>
   <button class="gallery-modal-prev" onclick="changeGalleryImage(-1)"><i class="fas fa-chevron-left"></i></button>
@@ -214,6 +216,7 @@
   <div class="gallery-modal-counter" id="galleryModalCounter">1 / 11</div>
 </div>
 
+<!-- Menu Modal -->
 <div class="menu-modal" id="menuModal" onclick="closeMenuModalOutside(event)">
   <span class="menu-modal-close" onclick="closeMenuModal()">&times;</span>
   <button class="menu-modal-prev" onclick="changeMenuImage(-1)"><i class="fas fa-chevron-left"></i></button>
@@ -226,7 +229,9 @@
 </div>
 
 <style>
-/* Все стили остаются без изменений, я их не трогаю */
+/* ============================================================
+   СТИЛИ ДЛЯ КАЛЕНДАРЯ МЕНЮ (исправлены)
+   ============================================================ */
 .menu-calendar-small {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -252,22 +257,26 @@
   justify-content: center;
   align-items: center;
 }
+
 .menu-day-cell:hover {
   transform: translateY(-6px) scale(1.03);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
   background: rgba(255, 255, 255, 0.92);
 }
+
 .menu-day-date-small {
   display: flex;
   flex-direction: column;
   align-items: center;
   line-height: 1.2;
 }
+
 .menu-day-number-small {
   font-size: 2.8rem;
   font-weight: 700;
   color: #014f88;
 }
+
 .menu-day-month-small {
   font-size: 0.95rem;
   font-weight: 500;
@@ -276,6 +285,7 @@
   margin-top: 2px;
   text-transform: none;
 }
+
 .menu-day-indicator {
   width: 14px;
   height: 14px;
@@ -283,6 +293,7 @@
   margin: 12px auto 8px;
   transition: background 0.3s;
 }
+
 .menu-day-label-small {
   font-size: 0.85rem;
   font-weight: 500;
@@ -293,6 +304,20 @@
   display: inline-block;
   margin-top: 4px;
 }
+
+.menu-calendar-note {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.menu-calendar-note i {
+  color: #e84393;
+  margin-right: 6px;
+}
+
+/* Адаптив для планшетов */
 @media (max-width: 768px) {
   .menu-calendar-small {
     grid-template-columns: repeat(3, 1fr);
@@ -309,6 +334,8 @@
     font-size: 0.85rem;
   }
 }
+
+/* Адаптив для телефонов */
 @media (max-width: 480px) {
   .menu-calendar-small {
     grid-template-columns: repeat(2, 1fr);
@@ -330,7 +357,9 @@
   }
 }
 
-/* Стили модального окна меню (без изменений) */
+/* ============================================================
+   СТИЛИ ДЛЯ МОДАЛЬНОГО ОКНА МЕНУ
+   ============================================================ */
 .menu-modal {
   display: none;
   position: fixed;
@@ -344,7 +373,9 @@
   justify-content: center;
   cursor: default;
 }
-.menu-modal.active { display: flex; }
+.menu-modal.active {
+  display: flex;
+}
 .menu-modal-content {
   max-width: 90vw;
   max-height: 85vh;
@@ -452,7 +483,9 @@
   }
 }
 
-/* Стили галереи (без изменений) */
+/* ============================================================
+   СТИЛИ ДЛЯ ГАЛЕРЕИ
+   ============================================================ */
 .gallery-slider-card {
   padding: 20px !important;
   overflow: hidden;
@@ -546,6 +579,7 @@
 .gallery-dot:hover {
   background: rgba(255, 255, 255, 0.8);
 }
+
 .gallery-modal {
   display: none;
   position: fixed;
@@ -636,6 +670,7 @@
   z-index: 10001;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 @media (max-width: 700px) {
   .gallery-slider-container { min-height: 220px; }
   .gallery-slider-btn { width: 28px; height: 28px; font-size: 0.8rem; }
@@ -658,7 +693,7 @@
 
 <script>
 // ============================================================
-// СКРИПТ ГАЛЕРЕИ (без изменений)
+// СКРИПТ ГАЛЕРЕИ (исправлен)
 // ============================================================
 (function() {
   const photoPaths = [
@@ -703,6 +738,10 @@
     img.loading = 'lazy';
     img.onerror = function() {
       this.style.display = 'none';
+      const placeholder = document.createElement('div');
+      placeholder.style.cssText = 'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#eee;color:#999;font-size:1.2rem;';
+      placeholder.textContent = 'Фото не найдено';
+      this.parentNode.appendChild(placeholder);
     };
     img.onclick = function() { openGalleryModal(index); };
     slide.appendChild(img);
@@ -805,21 +844,25 @@
 })();
 
 // ============================================================
-// СКРИПТ ДЛЯ МОДАЛЬНОГО ОКНА МЕНЮ (используем data-index)
+// СКРИПТ ДЛЯ МОДАЛЬНОГО ОКНА МЕНЮ (исправлен с отладкой)
 // ============================================================
 (function() {
-  // Собираем все ячейки
   const cells = document.querySelectorAll('.menu-day-cell');
-  // Формируем массив данных в порядке их появления на странице
-  const menuItems = [];
+  const menuData = [];
+
   cells.forEach(cell => {
-    const img = cell.dataset.img || '';
+    let img = cell.dataset.img || '';
+    if (img) {
+      try {
+        img = new URL(img, window.location.origin).href;
+      } catch (_) {}
+    }
     const date = cell.dataset.date || '';
-    const index = parseInt(cell.dataset.index, 10);
-    menuItems.push({ img, date, index });
+    menuData.push({ img, date });
   });
 
-  // Элементы модалки
+  console.log('menuData:', menuData); // отладка
+
   const modal = document.getElementById('menuModal');
   const modalImg = document.getElementById('menuModalImg');
   const caption = document.getElementById('menuModalCaption');
@@ -830,28 +873,28 @@
     return;
   }
 
-  // Только те, у которых есть фото
-  const validItems = menuItems.filter(item => item.img);
+  const validEntries = menuData.filter(item => item.img);
+  console.log('validEntries (with images):', validEntries); // отладка
+  let currentIndex = 0;
 
-  let currentIndex = 0; // индекс в menuItems
-
-  // Функция открытия по клику на ячейку
   window.openMenuModal = function(cell) {
-    const img = cell.dataset.img;
+    let img = cell.dataset.img;
+    console.log('Clicked cell, data-img:', img); // отладка
     if (!img) {
       alert('Фото для этого дня пока не загружено.');
       return;
     }
-    // Получаем индекс из data-атрибута
-    const idx = parseInt(cell.dataset.index, 10);
-    if (isNaN(idx)) {
-      // fallback: поиск по img
-      const found = menuItems.findIndex(item => item.img === img);
-      if (found === -1) return;
-      currentIndex = found;
-    } else {
-      currentIndex = idx;
+    try {
+      img = new URL(img, window.location.origin).href;
+    } catch (_) {}
+    const index = menuData.findIndex(item => item.img === img);
+    console.log('Found index:', index); // отладка
+    if (index === -1) {
+      console.warn('Image not found in menuData:', img);
+      alert('Фото не найдено в списке меню.');
+      return;
     }
+    currentIndex = index;
     updateModal();
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -866,38 +909,28 @@
     if (e.target === modal) closeMenuModal();
   };
 
-  // Переключение по стрелкам (только по валидным)
   window.changeMenuImage = function(direction) {
-    if (validItems.length === 0) return;
-    // Текущее изображение
+    if (validEntries.length === 0) return;
     const currentSrc = modalImg.src;
-    let currentValidIndex = validItems.findIndex(item => item.img === currentSrc);
+    let currentValidIndex = validEntries.findIndex(item => item.img === currentSrc);
     if (currentValidIndex === -1) currentValidIndex = 0;
-    let newValidIndex = (currentValidIndex + direction + validItems.length) % validItems.length;
-    const newItem = validItems[newValidIndex];
-    // Находим оригинальный индекс в menuItems
-    const originalIndex = menuItems.findIndex(item => item.img === newItem.img);
+    let newValidIndex = (currentValidIndex + direction + validEntries.length) % validEntries.length;
+    const newEntry = validEntries[newValidIndex];
+    const originalIndex = menuData.findIndex(item => item.img === newEntry.img);
     if (originalIndex === -1) return;
     currentIndex = originalIndex;
     updateModal();
   };
 
   function updateModal() {
-    const item = menuItems[currentIndex];
-    if (!item) return;
-    modalImg.src = item.img;
-    caption.textContent = item.date ? `Меню на ${item.date}` : '';
-    const validIndex = validItems.findIndex(v => v.img === item.img);
-    counter.textContent = `${validIndex + 1} / ${validItems.length}`;
-    // Сбрасываем возможную ошибку
-    modalImg.onerror = function() {
-      this.alt = 'Изображение не доступно';
-      this.style.display = 'none';
-    };
-    modalImg.style.display = '';
+    const entry = menuData[currentIndex];
+    if (!entry) return;
+    modalImg.src = entry.img;
+    caption.textContent = entry.date ? `Меню на ${entry.date}` : '';
+    const validIndex = validEntries.findIndex(item => item.img === entry.img);
+    counter.textContent = `${validIndex + 1} / ${validEntries.length}`;
   }
 
-  // Клавиатура
   document.addEventListener('keydown', function(e) {
     if (!modal.classList.contains('active')) return;
     if (e.key === 'Escape') closeMenuModal();
@@ -905,10 +938,9 @@
     if (e.key === 'ArrowRight') changeMenuImage(1);
   });
 
-  // Скрыть кнопки при отсутствии фото
   const prevBtn = document.querySelector('.menu-modal-prev');
   const nextBtn = document.querySelector('.menu-modal-next');
-  if (validItems.length <= 1) {
+  if (validEntries.length <= 1) {
     if (prevBtn) prevBtn.style.display = 'none';
     if (nextBtn) nextBtn.style.display = 'none';
   }
