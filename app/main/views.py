@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.conf import settings
-# views.py
 from datetime import date
 from .utils import get_menu_schedule
 from .models import MenuPhoto
@@ -14,6 +13,10 @@ def index(request):
     months_ru = {
         1: 'Январь', 2: 'Февраль', 3: 'Март', 4: 'Апрель', 5: 'Май', 6: 'Июнь',
         7: 'Июль', 8: 'Август', 9: 'Сентябрь', 10: 'Октябрь', 11: 'Ноябрь', 12: 'Декабрь'
+    }
+    weekdays_ru = {
+        0: 'Понедельник', 1: 'Вторник', 2: 'Среда', 3: 'Четверг',
+        4: 'Пятница', 5: 'Суббота', 6: 'Воскресенье'
     }
 
     menu_days = []
@@ -27,6 +30,7 @@ def index(request):
             'day_number': day_num,
             'image_url': image_url,
             'month_ru': months_ru[dt.month],
+            'weekday_ru': weekdays_ru[dt.weekday()],
         })
     return render(request, 'main/index.html', {'menu_days': menu_days})
 
@@ -147,4 +151,3 @@ def feedback(request):
         return redirect('main:feedback')
 
     return render(request, 'main/feedback.html')
-

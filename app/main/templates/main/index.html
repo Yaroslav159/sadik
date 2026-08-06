@@ -99,7 +99,7 @@
           <div class="menu-day-indicator"
                style="background: {% if day.image_url %}#4CAF50{% else %}#ccc{% endif %};">
           </div>
-          <div class="menu-day-label-small">День {{ day.day_number }}</div>
+          <div class="menu-day-label-small">{{ day.weekday_ru }}</div>
         </div>
       {% empty %}
         <p style="grid-column: 1 / -1; text-align: center; color: #999;">Меню пока не загружено</p>
@@ -120,7 +120,6 @@
         </h3>
         <div class="gallery-slider-container">
           <div class="gallery-slider-track" id="gallerySliderTrack">
-            <!-- Все изображения вставлены через static, чтобы гарантировать корректные пути -->
             <div class="gallery-slide">
               <img src="{% static 'img/photoalbom/20251020_124728.jpg' %}" alt="Фото сада 1" loading="lazy" onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#eee;color:#999;font-size:1.2rem;\'>Фото не найдено</div>';">
             </div>
