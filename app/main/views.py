@@ -10,9 +10,9 @@ def index(request):
     schedule = get_menu_schedule()
     photos = {p.day_number: p for p in MenuPhoto.objects.all()}
     
-    months_ru = {
-        1: 'Январь', 2: 'Февраль', 3: 'Март', 4: 'Апрель', 5: 'Май', 6: 'Июнь',
-        7: 'Июль', 8: 'Август', 9: 'Сентябрь', 10: 'Октябрь', 11: 'Ноябрь', 12: 'Декабрь'
+    months_genitive = {
+        1: 'Января', 2: 'Февраля', 3: 'Марта', 4: 'Апреля', 5: 'Мая', 6: 'Июня',
+        7: 'Июля', 8: 'Августа', 9: 'Сентября', 10: 'Октября', 11: 'Ноября', 12: 'Декабря'
     }
     weekdays_ru = {
         0: 'Понедельник', 1: 'Вторник', 2: 'Среда', 3: 'Четверг',
@@ -29,7 +29,7 @@ def index(request):
             'date': dt,
             'day_number': day_num,
             'image_url': image_url,
-            'month_ru': months_ru[dt.month],
+            'month_ru': months_genitive[dt.month],
             'weekday_ru': weekdays_ru[dt.weekday()],
         })
     return render(request, 'main/index.html', {'menu_days': menu_days})
