@@ -103,7 +103,7 @@
     fadeElements.forEach(el => observer.observe(el));
 })();
 
-// ========== СЛАЙДЕР ==========
+// ========== СЛАЙДЕР ПОЛЕЗНЫХ ССЫЛОК (без автопрокрутки) ==========
 (function initSlider() {
     const wrapper = document.getElementById('sliderWrapper');
     const prevBtn = document.getElementById('sliderPrev');
@@ -116,8 +116,7 @@
     let maxOffset = 0;
     let slideWidth = 160;
     let gap = 20;
-    let autoTimer = null;
-    const AUTO_INTERVAL = 5000;
+    let isSliderActive = false;
 
     function recalc() {
         if (!wrapper.parentElement) return;
@@ -137,14 +136,32 @@
         const container = wrapper.parentElement;
         const containerWidth = container ? container.offsetWidth : 0;
         const totalWidth = slidesCount * (slideWidth + gap) - gap;
-        maxOffset = Math.max(0, totalWidth - containerWidth);
 
-        if (currentOffset > maxOffset) currentOffset = maxOffset;
-        if (currentOffset < 0) currentOffset = 0;
+        // Определяем, помещается ли всё содержимое без прокрутки
+        const fits = totalWidth <= containerWidth;
+        if (fits) {
+            // Всё помещается – отключаем слайдер
+            isSliderActive = false;
+            wrapper.style.transform = 'none';
+            wrapper.style.transition = 'none';
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+            maxOffset = 0;
+            currentOffset = 0;
+        } else {
+            // Не помещается – включаем слайдер
+            isSliderActive = true;
+            prevBtn.style.display = 'flex';
+            nextBtn.style.display = 'flex';
+            maxOffset = totalWidth - containerWidth;
+            if (currentOffset > maxOffset) currentOffset = maxOffset;
+            if (currentOffset < 0) currentOffset = 0;
+            updateSlider(false);
+        }
     }
 
     function updateSlider(animate = true) {
-        if (!wrapper) return;
+        if (!isSliderActive) return;
         wrapper.style.transition = animate ? 'transform 0.35s ease-out' : 'none';
         wrapper.style.transform = `translateX(-${currentOffset}px)`;
     }
@@ -152,84 +169,46 @@
     const step = () => (slideWidth + gap);
 
     function goNext() {
-        if (slidesCount === 0) return;
+        if (!isSliderActive || slidesCount === 0) return;
         recalc();
         let newOffset = currentOffset + step();
         if (newOffset >= maxOffset - 0.5) newOffset = maxOffset;
         if (newOffset <= maxOffset) {
             currentOffset = newOffset;
             updateSlider(true);
-            resetAutoTimer();
-            if (currentOffset >= maxOffset) stopAutoTimer();
         }
     }
 
     function goPrev() {
-        if (slidesCount === 0) return;
+        if (!isSliderActive || slidesCount === 0) return;
         recalc();
         let newOffset = currentOffset - step();
         if (newOffset <= 0.5) newOffset = 0;
         if (newOffset >= 0) {
             currentOffset = newOffset;
             updateSlider(true);
-            resetAutoTimer();
-            if (autoTimer === null && currentOffset < maxOffset) startAutoTimer();
         }
-    }
-
-    function autoStep() {
-        if (slidesCount === 0) return;
-        recalc();
-        if (currentOffset < maxOffset - 0.5) {
-            let newOffset = currentOffset + step();
-            if (newOffset > maxOffset) newOffset = maxOffset;
-            currentOffset = newOffset;
-            updateSlider(true);
-        }
-        if (currentOffset >= maxOffset) stopAutoTimer();
-    }
-
-    function startAutoTimer() {
-        if (autoTimer) clearInterval(autoTimer);
-        if (currentOffset < maxOffset - 0.5) {
-            autoTimer = setInterval(autoStep, AUTO_INTERVAL);
-        }
-    }
-
-    function stopAutoTimer() {
-        if (autoTimer) {
-            clearInterval(autoTimer);
-            autoTimer = null;
-        }
-    }
-
-    function resetAutoTimer() {
-        stopAutoTimer();
-        startAutoTimer();
     }
 
     function handleResize() {
         recalc();
-        updateSlider(false);
-        if (currentOffset >= maxOffset) stopAutoTimer();
-        else startAutoTimer();
+        if (isSliderActive) {
+            updateSlider(false);
+        }
     }
 
+    // Ждём загрузки изображений для корректных размеров
     function waitForImages() {
         const images = wrapper.querySelectorAll('img');
         let pending = images.length;
         if (pending === 0) {
             recalc();
-            updateSlider(false);
-            startAutoTimer();
             return;
         }
         const onLoadOrError = () => {
             pending--;
             if (pending === 0) {
                 recalc();
-                updateSlider(false);
-                startAutoTimer();
             }
         };
         images.forEach(img => {
@@ -241,18 +220,10 @@
         });
     }
 
-    prevBtn.addEventListener('click', goPrev);
-    nextBtn.addEventListener('click', goNext);
+    prevBtn.addEventListener('click', goNext);
+    nextBtn.addEventListener('click', goPrev);
     window.addEventListener('resize', handleResize);
 
-    const sliderContainer = document.querySelector('.footer-slider');
-    if (sliderContainer) {
-        sliderContainer.addEventListener('mouseenter', stopAutoTimer);
-        sliderContainer.addEventListener('mouseleave', () => {
-            if (currentOffset < maxOffset - 0.5) startAutoTimer();
-            else stopAutoTimer();
-        });
-    }
-
+    // Инициализация
     waitForImages();
 })();
