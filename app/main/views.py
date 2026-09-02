@@ -151,3 +151,6 @@ def feedback(request):
         return redirect('main:feedback')
 
     return render(request, 'main/feedback.html')
+
+def site(request):
+    return render(request, 'main/site.html')

@@ -1,8 +1,32 @@
-<!-- filepath: templates/main/staff.html -->
+<!-- filepath: templates/main/rukovodstvo.html -->
 {% extends 'main/base.html' %}
 {% load static %}
 
 {% block title %}Руководство. Педагогический состав — Детский сад «Сказка»{% endblock %}
+
+{% block extra_css %}
+<style>
+  /* Принудительное переопределение для десктопа */
+  @media (min-width: 769px) {
+    .director-card .director-badge {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 8px !important;
+    }
+  }
+  /* На мобильных — обратно в строку */
+  @media (max-width: 768px) {
+    .director-card .director-badge {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 12px !important;
+    }
+  }
+</style>
+{% endblock %}
 
 {% block content %}
 <div class="wrapper">
@@ -39,19 +63,20 @@
       
       <!-- История работы -->
       <div class="director-history">
-        <div class="history-item"><i class="fas fa-history"></i> <strong>1983 год</strong> — поступила работать в детский сад № 28 на должность воспитателя</div>
-        <div class="history-item"><i class="fas fa-church"></i> <strong>1990 год</strong> — детский сад преобразован в частный. Смена названия на «Сказка»</div>
-        <div class="history-item"><i class="fas fa-building"></i> <strong>1993 год</strong> — образовано ТОО частный детский сад «Сказка»</div>
-        <div class="history-item"><i class="fas fa-balance-scale"></i> <strong>2000 год</strong> — преобразовано в НДОО в форме АНО «Детский сад „Сказка“»</div>
-        <div class="history-item"><i class="fas fa-file-signature"></i> <strong>2 ноября 2016</strong> — переименовано в ЧДОО в форме АНО «Детский сад „Сказка“»</div>
+        <div class="history-item"><i class="fas fa-history"></i> <span><strong>1983 год</strong> — поступила работать в детский сад № 28 на должность воспитателя. С тех пор вся ее жизнь неразрывно связана с этим садиком.</span></div>
+        <div class="history-item"><i class="fas fa-church"></i> <span><strong>1990 год</strong> — детский сад преобразован в частный детский сад. Учредителем и руководителем которого является Марина Викторовна. В этом же году коллектив детского сада решил сменить название детского сада: «Сказка».</span></div>
+        <div class="history-item"><i class="fas fa-building"></i> <span><strong>1993 год</strong> — образовано товарищество с ограниченной ответственностью (ТОО) частный детский сад «Сказка».</span></div>
+        <div class="history-item"><i class="fas fa-balance-scale"></i> <span><strong>2000 год</strong> — ТОО преобразовано в негосударственную дошкольную образовательную организацию в форме АНО «Детский сад „Сказка“».</span></div>
+        <div class="history-item"><i class="fas fa-file-signature"></i> <span><strong>2016 год 2 ноября</strong> — переименовано в Частную дошкольную образовательную организацию в форме автономной некоммерческой организации «Детский сад „Сказка“».</span></div>
+        <div class="history-item"><i class="fas fa-briefcase"></i> <span><strong>В настоящее время</strong> — директор ЧДОО в форме АНО «Детский сад „Сказка“» — Пестова Марина Викторовна.</span></div>
       </div>
     </div>
     
     <!-- Контакты директора -->
     <div class="director-contacts">
       <div class="contact-chip"><i class="fas fa-phone"></i> <strong>Тел:</strong> 56-88-72</div>
-      <div class="contact-chip"><i class="fas fa-clock"></i> <strong>График:</strong> 9:00 — 18:00</div>
-      <div class="contact-chip"><i class="fas fa-calendar-alt"></i> <strong>Прием:</strong> ср 14:00-18:00, пт 15:00-17:00</div>
+      <div class="contact-chip"><i class="fas fa-clock"></i> <strong>График работы:</strong> 9:00 — 18:00</div>
+      <div class="contact-chip"><i class="fas fa-calendar-alt"></i> <strong>Приемные дни:</strong> ср 14:00-18:00, пт 15:00-17:00</div>
     </div>
   </div>
 

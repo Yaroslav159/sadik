@@ -10,6 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static "img/ico/logo64.ico" %}">
+    <link rel="icon" type="image/png" sizes="256x256" href="{% static "img/ico/logo256.ico" %}">
+    <link rel="icon" type="image/png" sizes="64x64" href="{% static "img/ico/logo64.ico" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "img/ico/logo32.ico" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "img/ico/logo16.ico" %}">
     {% block extra_css %}{% endblock %}
 </head>
 
@@ -97,10 +102,11 @@
         </div>
     </nav>
 
+    <!-- Мобильное меню с цветными иконками -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-section">
             <div class="mobile-menu-title">
-                <i class="fas fa-info-circle"></i> Сведения об образовательной организации
+                <i class="fas fa-info-circle" style="color: #e63946;"></i> Сведения об образовательной организации
             </div>
             <div class="mobile-menu-links">
                 <a href="{% url 'main:svedeniya' %}"><i class="fas fa-landmark color-blue"></i> Основные сведения</a>
@@ -120,7 +126,7 @@
         </div>
         <div class="mobile-menu-section">
             <div class="mobile-menu-title">
-                <i class="fas fa-shield-alt"></i> Информационная безопасность
+                <i class="fas fa-shield-alt" style="color: #2ecc71;"></i> Информационная безопасность
             </div>
             <div class="mobile-menu-links">
                 <a href="{% url 'main:loyalacts' %}"><i class="fas fa-file-contract color-blue"></i> Локальные акты</a>
@@ -132,12 +138,12 @@
         </div>
         <div class="mobile-menu-section">
             <div class="mobile-menu-title">
-                <a style="text-decoration: none; color: #014e86" href="{% url 'main:social_support' %}"><i class="fas fa-hand-holding-heart color-pink"></i> Соц. поддержка</a>
+                <a style="text-decoration: none; color: #014e86" href="{% url 'main:social_support' %}"><i class="fas fa-hand-holding-heart" style="color: #e84393;"></i> Соц. поддержка</a>
             </div>
         </div>
         <div class="mobile-menu-section">
             <div class="mobile-menu-title">
-                <i class="fas fa-heart"></i> Родителям
+                <i class="fas fa-heart" style="color: #F28B0C;"></i> Родителям
             </div>
             <div class="mobile-menu-links">
                 <a href="{% url 'main:parents_info' %}"><i class="fas fa-bullhorn color-blue"></i> Информация для родителей</a>
@@ -147,22 +153,22 @@
         </div>
         <div class="mobile-menu-section">
             <div class="mobile-menu-title">
-                <a style="text-decoration: none; color: #014e86" href="{% url 'main:site_structure' %}"><i class="fas fa-sitemap color-teal"></i> Структура сайта</a>
+                <a style="text-decoration: none; color: #014e86" href="{% url 'main:site_structure' %}"><i class="fas fa-sitemap" style="color: #8a786b;"></i> Структура сайта</a>
             </div>
         </div>
         <div class="mobile-menu-section">
             <div class="mobile-menu-title">
-                <a style="text-decoration: none; color: #014e86" href="{% url 'main:feedback' %}"><i class="fas fa-envelope color-blue"></i> Обратная связь</a>
+                <a style="text-decoration: none; color: #014e86" href="{% url 'main:feedback' %}"><i class="fas fa-envelope" style="color: #019bd3;"></i> Обратная связь</a>
             </div>
         </div>
         <div class="mobile-menu-section">
             <div class="mobile-menu-title">
-                <a style="text-decoration: none; color: #014e86" href="{% url 'main:priem' %}"><i class="fas fa-door-open color-teal"></i> Прием в образовательную организацию</a>
+                <a style="text-decoration: none; color: #014e86" href="{% url 'main:priem' %}"><i class="fas fa-door-open" style="color: #34917e;"></i> Прием в образовательную организацию</a>
             </div>
         </div>
         <div class="mobile-menu-section">
             <div class="mobile-menu-title">
-                <a style="text-decoration: none; color: #014e86" href="{% url 'main:personal_data' %}"><i class="fas fa-user-shield color-purple"></i> Обработка персональных данных</a>
+                <a style="text-decoration: none; color: #014e86" href="{% url 'main:personal_data' %}"><i class="fas fa-user-shield" style="color: #7139BF;"></i> Обработка персональных данных</a>
             </div>
         </div>
     </div>

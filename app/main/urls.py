@@ -38,4 +38,5 @@ urlpatterns = [
     path('priem-v-obrazovatelnuyu-organizacziyu', views.priem, name='priem'),
     path('obrabotka-personalnyh-dannyh/', views.personal_data, name='personal_data'),
     path('obratnaya-svyaz/', views.feedback, name='feedback'),
+    path('site/', views.site, name='site'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Сайт — Детский сад «Сказка»{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="pre">
+    <div class="section-title">
+      <i class="fas fa-database"></i>
+      <span>Сайт</span>
+    </div>
+    <div class="bear">
+      <img src="{% static "img/Мишка_2.png" %}" alt="">
+    </div>
+  </div>
+
+  <div class="glass-card">
+    <div class="doc-section-title" style="border-left-color: #3f51b5;">
+      <i class="fas fa-download color-indigo"></i> Скачать документы
+    </div>
+    <ul class="doc-list">
+      <li><a href="{% static "doc/318_prikaz_70.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-red"></i> Приказ № 70 "Об утверждении положений о порядке и защите персональных данных от 20.11.2015г"</a></li>
+      <li><a href="{% static "doc/319_pologenie_o_sayte_detskogo_sada.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-green"></i> Положение о сайте</a></li>
+      <li><a href="{% static "doc/320_prilogenie_o_poryadke_obrabotki_pers_dannih.docx" %}" target="_blank"><i class="fas fa-file-pdf color-purple"></i> Положение об обработке персональных данных воспитанников и третьих лиц (приложение к приказу № 70)</a></li>
+      <li><a href="{% static "doc/322_pologenie_o_poryadke_dostupa_pedagogicheskih_rabotnikov_k_informatsionno_kommunikatsionnim_setyam_uchebnim_.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-orange"></i> Положение о порядке доступа педагогических работников и информационно-телекоммуникационным сетям</a></li>
+      <li><a href="{% static "doc/323_politika_obrabotki_i_zashchiti_pd.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-teal"></i> Политика обработки и защиты персональных данных</a></li>
+      <li><a href="{% static "doc/324_pologenie_ob_ofitsialnom_sayte.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-pink"></i> Положение об официальном сайте ЧДОО в форме АНО «Детский сад „Сказка“»</a></li>
+      <li><a href="{% static "doc/326_pologenie_ob_obrabotke_personalnih_dannih_vospitannikov_i_tretih_lits.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-red"></i> Положение об обработке персональных данных воспитанников и третьих лиц</a></li>
+      <li><a href="{% static "doc/327_pologenie_ob_obrabotke_pd_rabotnikov.pdf" %}" target="_blank"><i class="fas fa-file-pdf color-green"></i> Положение об обработке персональных данных работников</a></li>
+      <li><a href="{% static "doc/328_obyazatelstvo_rabotnika_detskogo_sada_o_soblyudenii_regima_konfidentsialnosti_personalnih_dannih.docx" %}" target="_blank"><i class="fas fa-file-pdf color-purple"></i> Обязательство работников ЧДОО в форме АНО «Детский сад „Сказка“» о соблюдении режима конфиденциальности</a></li>
+      <li><a href="{% static "doc/329_otziv_soglasiya_na_obrabotku_personalnih_dannih.doc" %}" target="_blank"><i class="fas fa-file-pdf color-blue"></i> Отзыв согласия на отработку персональных данных</a></li>
+      <li><a href="{% static "doc/330_soglasie_sotrudnikov_na_obrabotku_pd.docx" %}" target="_blank"><i class="fas fa-file-pdf color-orange"></i> Согласие работников на обработку персональных данных</a></li>
+      <li><a href="{% static "doc/331_soglasie_na_obrabotku_pd_vospitannikov.docx" %}" target="_blank"><i class="fas fa-file-pdf color-teal"></i> Согласие на обработку персональных данных воспитанников</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
