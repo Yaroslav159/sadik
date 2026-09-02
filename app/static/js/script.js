@@ -2,6 +2,7 @@
     const burger = document.getElementById('burgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
 
+    // Открытие/закрытие бургер-меню
     if (burger && mobileMenu) {
         burger.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -19,6 +20,7 @@
         });
     }
 
+    // Закрытие меню при клике на ссылку
     const mobileLinks = document.querySelectorAll('.mobile-menu a');
     mobileLinks.forEach(link => {
         link.addEventListener('click', function() {
@@ -34,6 +36,7 @@
         });
     });
 
+    // Закрытие при клике вне меню
     document.addEventListener('click', function(e) {
         if (mobileMenu && mobileMenu.classList.contains('open')) {
             if (!burger.contains(e.target) && !mobileMenu.contains(e.target)) {
@@ -48,6 +51,7 @@
         }
     });
 
+    // Закрытие при ресайзе
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768 && mobileMenu && mobileMenu.classList.contains('open')) {
             mobileMenu.classList.remove('open');
@@ -60,6 +64,7 @@
         }
     });
 
+    // Плавный скролл для якорей
     const nav = document.querySelector('nav');
     if (nav) {
         const navHeight = nav.offsetHeight;
@@ -85,6 +90,7 @@
         });
     }
 
+    // Анимация появления секций
     const fadeElements = document.querySelectorAll('.fade-up');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -97,6 +103,9 @@
     fadeElements.forEach(el => observer.observe(el));
 })();
 
+// ================================================================
+// НОВЫЙ СЛАЙДЕР ДЛЯ ПОЛЕЗНЫХ ССЫЛОК (без автопрокрутки, с адаптивом)
+// ================================================================
 (function initSlider() {
     const wrapper = document.getElementById('sliderWrapper');
     const prevBtn = document.getElementById('sliderPrev');
@@ -114,26 +123,40 @@
     let slideWidth = 160;
     let gap = 20;
     let isSliderActive = false;
+    let resizeTimer = null;
 
+    // Пересчёт размеров и состояния слайдера
     function recalc() {
         slides = Array.from(wrapper.children);
         slidesCount = slides.length;
         if (slidesCount === 0) return;
 
+        // Ширина первого слайда (точное значение)
         const firstSlide = slides[0];
         if (firstSlide) {
-            slideWidth = firstSlide.offsetWidth;
+            const rect = firstSlide.getBoundingClientRect();
+            slideWidth = rect.width || firstSlide.offsetWidth || 160;
             if (slideWidth <= 0) slideWidth = 160;
         }
+
+        // Расстояние между слайдами
         const wrapperStyle = window.getComputedStyle(wrapper);
         const gapValue = wrapperStyle.gap;
         gap = parseInt(gapValue) || 20;
 
-        const containerWidth = sliderContainer ? sliderContainer.offsetWidth : 0;
+        // Доступная ширина контейнера (без padding)
+        const containerWidth = sliderContainer.clientWidth || sliderContainer.offsetWidth || 0;
 
+        // Общая ширина всех слайдов с учётом gap
         const totalWidth = slidesCount * (slideWidth + gap) - gap;
 
-        if (totalWidth <= containerWidth) {
+        // Проверка, переносятся ли элементы (при текущем wrap)
+        const isWrapped = wrapper.scrollHeight > wrapper.clientHeight && wrapper.style.flexWrap !== 'nowrap';
+
+        // Активируем слайдер, если элементы не помещаются или уже перенесены
+        const shouldActivate = (totalWidth > containerWidth) || isWrapped;
+
+        if (!shouldActivate) {
             isSliderActive = false;
             sliderContainer.classList.remove('slider-active');
             wrapper.style.transform = 'none';
@@ -145,6 +168,7 @@
             return;
         }
 
+        // Включаем слайдер
         isSliderActive = true;
         sliderContainer.classList.add('slider-active');
         wrapper.style.flexWrap = 'nowrap';
@@ -152,24 +176,31 @@
         prevBtn.style.display = 'flex';
         nextBtn.style.display = 'flex';
 
+        // Максимальный сдвиг
         maxOffset = Math.max(0, totalWidth - containerWidth);
         if (currentOffset > maxOffset) currentOffset = maxOffset;
         if (currentOffset < 0) currentOffset = 0;
+
         wrapper.style.transform = `translateX(-${currentOffset}px)`;
     }
 
+    // Применение позиции с анимацией или без
     function updateSlider(animate = true) {
         wrapper.style.transition = animate ? 'transform 0.35s ease-out' : 'none';
         wrapper.style.transform = `translateX(-${currentOffset}px)`;
     }
 
+    // Шаг прокрутки
     function step() {
         return slideWidth + gap;
     }
 
+    // Вперёд
     function goNext() {
-        if (!isSliderActive) return;
-        recalc(); 
+        if (!isSliderActive) {
+            recalc();
+            if (!isSliderActive) return;
+        }
         let newOffset = currentOffset + step();
         if (newOffset >= maxOffset) newOffset = maxOffset;
         if (newOffset !== currentOffset) {
@@ -178,9 +209,12 @@
         }
     }
 
+    // Назад
     function goPrev() {
-        if (!isSliderActive) return;
-        recalc();
+        if (!isSliderActive) {
+            recalc();
+            if (!isSliderActive) return;
+        }
         let newOffset = currentOffset - step();
         if (newOffset <= 0) newOffset = 0;
         if (newOffset !== currentOffset) {
@@ -189,30 +223,48 @@
         }
     }
 
+    // Обработчик ресайза с debounce
     function handleResize() {
-        recalc();
-        if (isSliderActive) {
-            updateSlider(false);
-        }
+        if (resizeTimer) clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            recalc();
+            if (isSliderActive) {
+                updateSlider(false);
+            }
+            resizeTimer = null;
+        }, 100);
     }
 
+    // Навешиваем обработчики на кнопки
+    prevBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        goPrev();
+    });
+    nextBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        goNext();
+    });
+
+    // Гарантируем, что кнопки кликабельны
+    prevBtn.style.pointerEvents = 'auto';
+    nextBtn.style.pointerEvents = 'auto';
+
+    window.addEventListener('resize', handleResize);
+
+    // Ожидаем загрузки изображений для корректных замеров
     function waitForImages() {
         const images = wrapper.querySelectorAll('img');
         let pending = images.length;
         if (pending === 0) {
             recalc();
-            if (isSliderActive) {
-                updateSlider(false);
-            }
+            if (isSliderActive) updateSlider(false);
             return;
         }
         const onLoadOrError = () => {
             pending--;
             if (pending === 0) {
                 recalc();
-                if (isSliderActive) {
-                    updateSlider(false);
-                }
+                if (isSliderActive) updateSlider(false);
             }
         };
         images.forEach(img => {
@@ -224,8 +276,5 @@
         });
     }
 
-    prevBtn.addEventListener('click', goPrev);
-    nextBtn.addEventListener('click', goNext);
-    window.addEventListener('resize', handleResize);
     waitForImages();
 })();

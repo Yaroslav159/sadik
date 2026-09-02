@@ -2272,38 +2272,10 @@ html {
     color: #8a786b;
 }
 
-.footer-slider:not(.slider-active) .slider-btn {
-    display: none !important;
+.slide img {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.footer-slider:not(.slider-active) .slider-track {
-    overflow: visible !important;
-}
-.footer-slider:not(.slider-active) #sliderWrapper {
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    transform: none !important;
-}
-.footer-slider.slider-active .slider-track {
-    overflow: hidden;
-}
-.footer-slider.slider-active #sliderWrapper {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-}
-
-.footer-slider .slide {
-    transition: transform 0.25s ease;
-}
-.footer-slider .slide:hover {
-    transform: translateY(-4px);
-}
-
-.footer-slider .slide img {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: block;
-    border-radius: 8px;
-}
-.footer-slider .slide img:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+.slide img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 80, 130, 0.2);
 }
