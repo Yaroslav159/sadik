@@ -1,4 +1,3 @@
-<!-- filepath: templates/main/rukovodstvo.html -->
 {% extends 'main/base.html' %}
 {% load static %}
 
@@ -6,16 +5,17 @@
 
 {% block extra_css %}
 <style>
-  /* Принудительное переопределение для десктопа */
+  /* Принудительное переопределение для десктопа: бейдж и email в строку */
   @media (min-width: 769px) {
     .director-card .director-badge {
       display: flex !important;
-      flex-direction: column !important;
-      align-items: flex-start !important;
-      gap: 8px !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      gap: 12px !important;
     }
   }
-  /* На мобильных — обратно в строку */
+  /* На мобильных — тоже строка с переносом при необходимости */
   @media (max-width: 768px) {
     .director-card .director-badge {
       display: flex !important;
@@ -24,6 +24,48 @@
       align-items: center !important;
       gap: 12px !important;
     }
+  }
+
+  /* Ссылки на странице: обычные (не email) при наведении становятся #0390e6 */
+  .glass-card a:not(.director-email-link):not(.deputy-email-link):hover {
+    color: #0390e6 !important;
+    text-decoration: underline !important;
+  }
+
+  /* Email ссылки — свои цвета, при hover цвет НЕ МЕНЯЕТСЯ, только подчёркивание */
+  .director-email-link {
+    color: #e63946 !important;
+    text-decoration: none !important;
+  }
+  .director-email-link:hover {
+    color: #e63946 !important; /* цвет не меняется */
+    text-decoration: underline !important;
+  }
+  .deputy-email-link {
+    color: #2ecc71 !important;
+    text-decoration: none !important;
+  }
+  .deputy-email-link:hover {
+    color: #2ecc71 !important; /* цвет не меняется */
+    text-decoration: underline !important;
+  }
+
+  /* Ссылка на скачивание документа — наследует общий hover */
+  .download-item a {
+    transition: color 0.2s;
+  }
+  .download-item a:hover {
+    color: #0390e6 !important;
+  }
+
+  /* Телефонная ссылка в контактах */
+  .contact-chip a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .contact-chip a:hover {
+    color: #0390e6 !important;
+    text-decoration: underline !important;
   }
 </style>
 {% endblock %}
@@ -36,18 +78,18 @@
       <span>Руководство. Педагогический состав</span>
     </div>
     <div class="bear">
-      <img src="{% static "img/Мишка_2.png" %}" alt="">
+      <img src="{% static "img/Мишка_3.png" %}" alt="">
     </div>
   </div>
 
-  <!-- Директор -->
+  
   <div class="glass-card">
     <div class="doc-section-title" style="border-left-color: #e63946;">
       <i class="fas fa-user-tie"></i> Директор детского сада
     </div>
     
     <div class="director-layout">
-      <!-- Карточка с аватаркой -->
+      
       <div class="director-card">
         <div class="director-avatar">
           <i class="fas fa-user-circle"></i>
@@ -56,12 +98,14 @@
           <h3 class="director-name">Пестова Марина Викторовна</h3>
           <div class="director-badge">
             <span class="badge badge-red">Директор</span>
-            <span class="director-email"><i class="fas fa-envelope"></i> dietskiisad.skazka.2014@mail.ru</span>
+            <a href="mailto:dietskiisad.skazka.2014@mail.ru" class="director-email-link">
+              <i class="fas fa-envelope"></i> dietskiisad.skazka.2014@mail.ru
+            </a>
           </div>
         </div>
       </div>
       
-      <!-- История работы -->
+      
       <div class="director-history">
         <div class="history-item"><i class="fas fa-history"></i> <span><strong>1983 год</strong> — поступила работать в детский сад № 28 на должность воспитателя. С тех пор вся ее жизнь неразрывно связана с этим садиком.</span></div>
         <div class="history-item"><i class="fas fa-church"></i> <span><strong>1990 год</strong> — детский сад преобразован в частный детский сад. Учредителем и руководителем которого является Марина Викторовна. В этом же году коллектив детского сада решил сменить название детского сада: «Сказка».</span></div>
@@ -72,15 +116,15 @@
       </div>
     </div>
     
-    <!-- Контакты директора -->
+    
     <div class="director-contacts">
-      <div class="contact-chip"><i class="fas fa-phone"></i> <strong>Тел:</strong> 56-88-72</div>
+      <div class="contact-chip"><i class="fas fa-phone"></i> <strong>Тел:</strong> <a href="tel:+74212568872">56-88-72</a></div>
       <div class="contact-chip"><i class="fas fa-clock"></i> <strong>График работы:</strong> 9:00 — 18:00</div>
       <div class="contact-chip"><i class="fas fa-calendar-alt"></i> <strong>Приемные дни:</strong> ср 14:00-18:00, пт 15:00-17:00</div>
     </div>
   </div>
 
-  <!-- Заместитель директора -->
+  
   <div class="glass-card">
     <div class="doc-section-title" style="border-left-color: #2ecc71;">
       <i class="fas fa-user-friends"></i> Заместитель директора
@@ -93,13 +137,15 @@
         <h3 class="deputy-name">Пестов Иван Владимирович</h3>
         <div class="deputy-badge">
           <span class="badge badge-green">Заместитель директора</span>
-          <span class="deputy-email"><i class="fas fa-envelope"></i> pestov777@mail.ru</span>
+          <a href="mailto:pestov777@mail.ru" class="deputy-email-link">
+            <i class="fas fa-envelope"></i> pestov777@mail.ru
+          </a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Персональные данные -->
+  
   <div class="glass-card">
     <div class="doc-section-title" style="border-left-color: #7139BF;">
       <i class="fas fa-shield-alt"></i> Публикация персональных данных
@@ -109,7 +155,7 @@
     </p>
   </div>
 
-  <!-- Скачать документы -->
+  
   <div class="glass-card">
     <div class="doc-section-title" style="border-left-color: #3f51b5;">
       <i class="fas fa-download"></i> Скачать документы

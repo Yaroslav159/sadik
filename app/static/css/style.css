@@ -90,7 +90,6 @@ section {
     100% { opacity: 0.5; transform: scale(1); }
 }
 
-/* Навигация */
 nav {
     position: fixed;
     top: 0;
@@ -101,7 +100,7 @@ nav {
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
-    padding: 16px 32px;
+    padding: 16px 32px; /* padding-bottom убран */
     background: rgba(255, 255, 255, 0.35);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
@@ -358,7 +357,12 @@ body.menu-open {
     z-index: 10;
     max-width: 1300px;
     margin: 0 auto;
-    padding: 100px 24px 40px;
+    padding: 140px 24px 40px;
+}
+
+.bvi-mobile-left .bvi-header-btn {
+    font-size: 0.8rem;
+    padding: 4px 10px;
 }
 
 /* Общие стили для glass-эффектов */
@@ -1238,8 +1242,7 @@ html {
     font-size: 1.2rem;
 }
 
-/* ========== АДАПТАЦИЯ ========== */
-@media (max-width: 1299px) {
+@media (max-width: 1316px) {
     nav {
         justify-content: space-between;
         padding: 12px 20px;
@@ -1699,7 +1702,6 @@ html {
 }
 
 .support-card a {
-    text-decoration: underline;
     font-weight: 500;
     color: #015f9e;
 }
@@ -2038,7 +2040,7 @@ html {
     z-index: 10001;
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1317px) {
     nav {
         display: flex !important;
         flex-direction: row !important;
@@ -2287,7 +2289,7 @@ html {
     font-size: 1rem;
 }
 
-@media (min-width: 700px) and (max-width: 1299px) {
+@media (min-width: 700px) and (max-width: 1316px) {
     .pre {
         flex-direction: row !important;
         justify-content: space-between !important;
@@ -2343,7 +2345,7 @@ html {
     }
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1317px) {
     .pre {
         flex-direction: row !important;
         justify-content: space-between !important;
@@ -2391,3 +2393,26 @@ html {
     padding: 16px 20px;
     width: 100%;
 }
+
+@media (max-width: 1316px) {
+    .bvi-mobile-left {
+        display: flex;
+    }
+    .logo-wrapper .bvi-header-btn {
+        display: none;
+    }
+    .wrapper {
+        padding-top: 110px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        padding-top: 100px;
+    }
+    .bvi-mobile-left .bvi-header-btn {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+    }
+}
+

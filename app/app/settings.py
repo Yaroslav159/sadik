@@ -13,18 +13,14 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 from pathlib import Path
 import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-no5gl7m3h$cmx)m%e8k*bjy8@@@20*b5cj!20qgt2yxc4c9usl'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -32,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main',  # ваше приложение
+    'main',  
 ]
 
 MIDDLEWARE = [
@@ -64,7 +60,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
-# Database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -72,7 +67,6 @@ DATABASES = {
     }
 }
 
-# Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -93,7 +87,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Email (оставлено как у вас)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -103,43 +96,24 @@ EMAIL_HOST_USER = 'mi5973915@gmail.com'
 EMAIL_HOST_PASSWORD = 'xoxd buvk urkr knnw'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-# =====================================================
-# ОБЩИЕ НАСТРОЙКИ ДЛЯ СТАТИКИ И МЕДИА (по умолчанию)
-# =====================================================
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
-# Настройки для медиафайлов (загружаемые пользователем фото)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# =====================================================
-# НАСТРОЙКИ ДЛЯ РАЗНЫХ ОКРУЖЕНИЙ
-# =====================================================
-if 'PYTHONANYWHERE_DOMAIN' in os.environ:
-    # Режим продакшена на PythonAnywhere
-    DEBUG = False
-    ALLOWED_HOSTS = ['yaroslav61.pythonanywhere.com']
-
-    # Статика
-    STATIC_URL = '/static/'
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
-    # Медиа (для загруженных файлов)
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-    # База данных (можно оставить SQLite или переключить на MySQL/PostgreSQL)
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
+DEBUG = False
+ALLOWED_HOSTS = ['skazka-kids-27.ru']
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-else:
-    # Локальная разработка
-    DEBUG = True
-    ALLOWED_HOSTS = []
-    # MEDIA_ROOT и STATICFILES_DIRS уже заданы выше
-    pass
+}
+# DEBUG = True
+# ALLOWED_HOSTS = []

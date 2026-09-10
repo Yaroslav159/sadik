@@ -10,11 +10,183 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bvi.min.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static "img/ico/logo64.ico" %}">
     <link rel="icon" type="image/png" sizes="256x256" href="{% static "img/ico/logo256.ico" %}">
     <link rel="icon" type="image/png" sizes="64x64" href="{% static "img/ico/logo64.ico" %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static "img/ico/logo32.ico" %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static "img/ico/logo16.ico" %}">
+    <style>
+        /* Кастомные иконки для BVI */
+        .bvi-images.bvi-images-image { background-image: url("{% static "img/image.svg" %}"); background-repeat: no-repeat; }
+        .bvi-images.bvi-images-minus-circle { background-image: url("{% static "img/minus-circle.svg" %}"); background-repeat: no-repeat; }
+        .bvi-images.bvi-images-adjust { background-image: url("{% static "img/adjust.svg" %}"); background-repeat: no-repeat; }
+        .bvi-images.bvi-images-volume-off { background-image: url("{% static "img/volume-off.svg" %}"); background-repeat: no-repeat; }
+        .bvi-images.bvi-images-volume-up { background-image: url("{% static "img/volume-up.svg" %}"); background-repeat: no-repeat; }
+        .bvi-images.bvi-images-cog { background-image: url("{% static "img/cog.svg" %}"); background-repeat: no-repeat; }
+        .bvi-images.bvi-images-minus { background-image: url("{% static "img/minus.svg" %}"); background-repeat: no-repeat; }
+
+        /* BVI активен – убираем фиксацию шапки */
+        body.bvi-active nav {
+            position: relative !important;
+            z-index: 1000 !important;
+            overflow: visible !important;
+        }
+        body.bvi-active .fairy-bg { display: none !important; }
+        body.bvi-active footer {
+            background-image: none !important;
+            background-color: rgba(255, 255, 255, 0.92) !important;
+        }
+
+        /* Общий стиль кнопки BVI */
+        .bvi-header-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #0056b3;
+            color: white !important;
+            padding: 5px 14px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: 0.2s;
+            white-space: nowrap;
+            margin-top: 4px;
+        }
+        .bvi-header-btn:hover {
+            background: #004494;
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+        .bvi-header-btn i { font-size: 0.9rem; }
+
+        /* Кнопка под логотипом (десктоп) */
+        .logo-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        /* Мобильная кнопка в строке */
+        .bvi-inline-mobile {
+            display: none;
+            flex: 0 1 auto;
+            justify-content: center;
+            align-items: center;
+            margin: 0 8px;
+        }
+        .bvi-inline-btn {
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 480px) and (max-width: 1316px) {
+            .bvi-inline-mobile {
+                display: flex;
+            }
+            .logo-wrapper .bvi-header-btn {
+                display: none;
+            }
+            nav {
+                display: flex !important;
+                flex-wrap: nowrap !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                padding: 8px 16px !important;
+                gap: 0 !important;
+            }
+            .logo {
+                flex: 0 0 auto;
+            }
+            .logo img {
+                max-height: 40px;
+            }
+            .nav-links {
+                display: none !important;
+            }
+
+            /* FIX: на мобильных панель BVI не фиксирована, чтобы не перекрывать меню */
+            #bvi-panel {
+                position: relative !important;
+                top: auto !important;
+                z-index: 998 !important; /* ниже мобильного меню (999) */
+            }
+        }
+
+        @media (max-width: 479px) {
+            .bvi-inline-mobile {
+                display: none !important;
+            }
+            .logo-wrapper .bvi-header-btn {
+                display: flex !important;
+                font-size: 0.7rem;
+                padding: 3px 10px;
+                margin-top: 2px;
+            }
+            nav {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                padding: 8px 12px !important;
+            }
+            .logo {
+                flex: 0 0 auto;
+                margin-top: 0 !important;
+                order: 0;
+            }
+            .logo img {
+                max-height: 32px;
+            }
+            .burger {
+                flex: 0 0 auto;
+                order: 1;
+                width: 34px;
+                height: 34px;
+                font-size: 1.2rem;
+            }
+            .logo-wrapper {
+                flex-direction: column !important;
+                align-items: flex-start;
+                gap: 0;
+            }
+            .logo-wrapper .bvi-header-btn {
+                margin-left: 0;
+                margin-top: 2px;
+            }
+            .nav-links {
+                display: none !important;
+            }
+
+            /* FIX: на мобильных панель BVI не фиксирована */
+            #bvi-panel {
+                position: relative !important;
+                top: auto !important;
+                z-index: 998 !important;
+            }
+        }
+
+        /* Стили для ссылок в футере */
+        .footer-contact-link {
+            color: #014f88;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            line-height: 1.3;
+            transition: color 0.2s;
+        }
+        .footer-contact-link:hover {
+            color: #0390e6;
+            text-decoration: underline;
+        }
+        .footer-contact-link i { margin-right: 6px; }
+    </style>
     {% block extra_css %}{% endblock %}
 </head>
 
@@ -41,10 +213,26 @@
 
     <nav>
         <div class="logo">
-            <a href="{% url 'main:index' %}"><img src="{% static 'img/logo.png' %}" alt="Логотип детского сада Сказка"></a>
+            <div class="logo-wrapper">
+                <a href="{% url 'main:index' %}"><img src="{% static 'img/logo.png' %}" alt="Логотип детского сада Сказка"></a>
+                <a href="#" class="bvi-open bvi-header-btn">
+                    <i class="fas fa-eye"></i> Версия для слабовидящих
+                </a>
+            </div>
         </div>
+
+        <div class="bvi-inline-mobile">
+            <a href="#" class="bvi-open bvi-header-btn bvi-inline-btn">
+                <i class="fas fa-eye"></i> Версия для слабовидящих
+            </a>
+        </div>
+
+        <div class="burger" id="burgerBtn">
+            <i class="fas fa-bars"></i>
+        </div>
+
         <div class="nav-links">
-            <!-- Первая строка -->
+            
             <div class="nav-row nav-row-top">
                 <div class="dropdown">
                     <p class="dropbtn"><i class="fas fa-info-circle" style="color: #e63946"></i> Сведения об образовательной организации <i class="fas fa-chevron-down"></i></p>
@@ -83,31 +271,23 @@
                     </div>
                 </div>
                 <a href="{% url 'main:social_support' %}"><i class="fas fa-hand-holding-heart" style="color: #e84393"></i> Соц. поддержка</a>
-                
             </div>
-            <!-- Вторая строка -->
+            
             <div class="nav-row nav-row-bottom">
                 <a style="width:200px; text-align:center" href="{% url 'main:site_structure' %}">
                     <i class="fas fa-sitemap color-brown"></i> Структура сайта
                 </a>
-                
                 <a href="{% url 'main:priem' %}"><i class="fas fa-door-open" style="color: #34917e"></i> Прием в образовательную организацию</a>
-                
                 <a href="{% url 'main:personal_data' %}"><i class="fas fa-user-shield" style="color: #7139BF"></i> Обработка персональных данных</a>
                 <a href="{% url 'main:feedback' %}"><i class="fas fa-envelope" style="color: #019bd3"></i> Обратная связь</a>
             </div>
         </div>
-        <div class="burger" id="burgerBtn">
-            <i class="fas fa-bars"></i>
-        </div>
     </nav>
 
-    <!-- Мобильное меню с цветными иконками -->
+    
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-section">
-            <div class="mobile-menu-title">
-                <i class="fas fa-info-circle" style="color: #e63946;"></i> Сведения об образовательной организации
-            </div>
+            <div class="mobile-menu-title"><i class="fas fa-info-circle" style="color: #e63946;"></i> Сведения об образовательной организации</div>
             <div class="mobile-menu-links">
                 <a href="{% url 'main:svedeniya' %}"><i class="fas fa-landmark color-blue"></i> Основные сведения</a>
                 <a href="{% url 'main:structure' %}"><i class="fas fa-sitemap color-purple"></i> Структура и органы управления</a>
@@ -125,9 +305,7 @@
             </div>
         </div>
         <div class="mobile-menu-section">
-            <div class="mobile-menu-title">
-                <i class="fas fa-shield-alt" style="color: #2ecc71;"></i> Информационная безопасность
-            </div>
+            <div class="mobile-menu-title"><i class="fas fa-shield-alt" style="color: #2ecc71;"></i> Информационная безопасность</div>
             <div class="mobile-menu-links">
                 <a href="{% url 'main:loyalacts' %}"><i class="fas fa-file-contract color-blue"></i> Локальные акты</a>
                 <a href="{% url 'main:regulatory' %}"><i class="fas fa-gavel color-pink"></i> Нормативное регулирование</a>
@@ -137,14 +315,10 @@
             </div>
         </div>
         <div class="mobile-menu-section">
-            <div class="mobile-menu-title">
-                <a style="text-decoration: none; color: #014e86" href="{% url 'main:social_support' %}"><i class="fas fa-hand-holding-heart" style="color: #e84393;"></i> Соц. поддержка</a>
-            </div>
+            <div class="mobile-menu-title"><a style="text-decoration: none; color: #014e86" href="{% url 'main:social_support' %}"><i class="fas fa-hand-holding-heart" style="color: #e84393;"></i> Соц. поддержка</a></div>
         </div>
         <div class="mobile-menu-section">
-            <div class="mobile-menu-title">
-                <i class="fas fa-heart" style="color: #F28B0C;"></i> Родителям
-            </div>
+            <div class="mobile-menu-title"><i class="fas fa-heart" style="color: #F28B0C;"></i> Родителям</div>
             <div class="mobile-menu-links">
                 <a href="{% url 'main:parents_info' %}"><i class="fas fa-bullhorn color-blue"></i> Информация для родителей</a>
                 <a href="{% url 'main:senior_teacher' %}"><i class="fas fa-chalkboard-teacher color-purple"></i> Страничка старшего воспитателя</a>
@@ -152,24 +326,16 @@
             </div>
         </div>
         <div class="mobile-menu-section">
-            <div class="mobile-menu-title">
-                <a style="text-decoration: none; color: #014e86" href="{% url 'main:site_structure' %}"><i class="fas fa-sitemap" style="color: #8a786b;"></i> Структура сайта</a>
-            </div>
+            <div class="mobile-menu-title"><a style="text-decoration: none; color: #014e86" href="{% url 'main:site_structure' %}"><i class="fas fa-sitemap" style="color: #8a786b;"></i> Структура сайта</a></div>
         </div>
         <div class="mobile-menu-section">
-            <div class="mobile-menu-title">
-                <a style="text-decoration: none; color: #014e86" href="{% url 'main:feedback' %}"><i class="fas fa-envelope" style="color: #019bd3;"></i> Обратная связь</a>
-            </div>
+            <div class="mobile-menu-title"><a style="text-decoration: none; color: #014e86" href="{% url 'main:feedback' %}"><i class="fas fa-envelope" style="color: #019bd3;"></i> Обратная связь</a></div>
         </div>
         <div class="mobile-menu-section">
-            <div class="mobile-menu-title">
-                <a style="text-decoration: none; color: #014e86" href="{% url 'main:priem' %}"><i class="fas fa-door-open" style="color: #34917e;"></i> Прием в образовательную организацию</a>
-            </div>
+            <div class="mobile-menu-title"><a style="text-decoration: none; color: #014e86" href="{% url 'main:priem' %}"><i class="fas fa-door-open" style="color: #34917e;"></i> Прием в образовательную организацию</a></div>
         </div>
         <div class="mobile-menu-section">
-            <div class="mobile-menu-title">
-                <a style="text-decoration: none; color: #014e86" href="{% url 'main:personal_data' %}"><i class="fas fa-user-shield" style="color: #7139BF;"></i> Обработка персональных данных</a>
-            </div>
+            <div class="mobile-menu-title"><a style="text-decoration: none; color: #014e86" href="{% url 'main:personal_data' %}"><i class="fas fa-user-shield" style="color: #7139BF;"></i> Обработка персональных данных</a></div>
         </div>
     </div>
 
@@ -179,46 +345,40 @@
 
     <footer style="background: url('{% static 'img/footer_2_2.jpg' %}'); background-size: cover; background-position: center;">
         <div style="padding: 20px 24px; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(10px); border-radius: 30px; margin: 0 20px; max-width: 1200px; width: 100%; box-shadow: 0 8px 30px rgba(0, 70, 120, 0.12); border: 1px solid rgba(255, 255, 255, 0.6); box-sizing: border-box;">
-            
-            <!-- Контакты -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px 16px; margin-bottom: 14px;">
                 
-                <!-- Адрес -->
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <i class="fas fa-location-dot" style="color: #e63946; font-size: 1.1rem; width: 24px; text-align: center; flex-shrink: 0;"></i>
-                    <span style="color: #014f88; font-weight: 600; font-size: 0.85rem; line-height: 1.3;">680028, г. Хабаровск, ул. Фрунзе, 101; ул. Шеронова, 99</span>
+                    <span style="color: #014f88; font-weight: 600; font-size: 0.85rem; line-height: 1.3;">680028, г. Хабаровск, <a class="footer-contact-link" target="_blank" href="https://yandex.ru/maps/76/khabarovsk/?ll=135.057151%2C48.480250&mode=poi&poi%5Bpoint%5D=135.057030%2C48.480295&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D164954593231&z=19.72">ул. Фрунзе, 101</a>; <a class="footer-contact-link" target="_blank" href="https://yandex.ru/maps/76/khabarovsk/?ll=135.067969%2C48.479775&mode=poi&poi%5Bpoint%5D=135.067925%2C48.479774&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1096077398&z=20.12">ул. Шеронова, 99</a></span>
                 </div>
                 
-                <!-- Телефоны -->
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <i class="fas fa-phone" style="color: #2ecc71; font-size: 1.1rem; width: 24px; text-align: center; flex-shrink: 0;"></i>
                     <div style="color: #014f88; font-weight: 600; font-size: 0.85rem; line-height: 1.3;">
-                        <div>(4212) 56-88-72 (Фрунзе)</div>
-                        <div>(4212) 32-79-02 (Шеронова)</div>
+                        <a href="tel:+74212568872" class="footer-contact-link">(4212) 56-88-72 (Фрунзе)</a><br>
+                        <a href="tel:+74212327902" class="footer-contact-link">(4212) 32-79-02 (Шеронова)</a>
                     </div>
                 </div>
                 
-                <!-- Email -->
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <i class="fas fa-envelope-open-text" style="color: #0279d4; font-size: 1.1rem; width: 24px; text-align: center; flex-shrink: 0;"></i>
-                    <span style="color: #014f88; font-weight: 600; font-size: 0.85rem; line-height: 1.3; word-break: break-all;">dietsriisad.skazka.2014@mail.ru</span>
+                    <a href="mailto:dietsriisad.skazka.2014@mail.ru" class="footer-contact-link" style="word-break: break-all;">dietsriisad.skazka.2014@mail.ru</a>
                 </div>
-                
-                <!-- Факс -->
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <i class="fas fa-fax" style="color: #7139BF; font-size: 1.1rem; width: 24px; text-align: center; flex-shrink: 0;"></i>
-                    <span style="color: #014f88; font-weight: 600; font-size: 0.85rem; line-height: 1.3;">Бухгалтерия факс: (42-12) 38-15-98</span>
+                    <a href="tel:+74212381598" class="footer-contact-link">Бухгалтерия факс: (42-12) 38-15-98</a>
                 </div>
             </div>
-            
-            <!-- Копирайт -->
             <div style="border-top: 2px solid rgba(1, 79, 136, 0.12); padding-top: 10px; text-align: center;">
                 <p style="margin: 0; color: #01518a; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.3px;">© 2026 Детский сад «Сказка». Все права защищены волшебством ✨</p>
             </div>
         </div>
     </footer>
 
+    <script src="{% static 'js/bvi.js' %}"></script>
+    <script>new isvek.Bvi({speech: false})</script>
     <script src="{% static "js/script.js" %}"></script>
+
     {% block extra_js %}{% endblock %}
 </body>
 </html>
